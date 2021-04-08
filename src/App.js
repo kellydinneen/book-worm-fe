@@ -7,9 +7,12 @@ const App = () => {
     <React.Fragment>
       {/* <Header /> */}
       <Switch>
-        <Route exact path='/' render={() => (
-          <Home />
-        )}/>
+        <Route 
+          exact path='/' 
+          render={() => (
+            <Home />
+            )}
+        />
       </Switch>
     </React.Fragment>
   )
