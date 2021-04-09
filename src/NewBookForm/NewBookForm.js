@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 export const NewBookForm = ({ setDisplay }) => {
     const [title, setTitle] = useState('');
     const [pages, setPages] = useState(0);
+    
     return(
-        <form>
+        <form className='add-a-book-form'>
           <label>
           What's the title of your book?
             <input
