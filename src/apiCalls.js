@@ -37,12 +37,11 @@ export const postBook = async (title, pages, author, id) => {
       pages: pages
     }
   }
-  const bookToPost = JSON.stringify(book);
-  console.log(bookToPost)
+ 
   const response = await fetch('https://book-worm-be.herokuapp.com/api/v1/student_books', {
     method: 'POST',
-    header: {'Content-Type': 'application/json'},
-    body: bookToPost
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(book)
   })
     return checkResponse(response)
 }
