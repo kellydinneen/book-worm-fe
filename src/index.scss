@@ -7,11 +7,8 @@
 
 body, * {
   margin: 0;
-  // font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  //   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  //   sans-serif;
-  // -webkit-font-smoothing: antialiased;
-  // -moz-osx-font-smoothing: grayscale;
+  background-color: $primary-background;
+  color: $secondary-text-color;
 }
 
 code {
@@ -21,9 +18,4 @@ code {
 
 h2 {
   color: $first-accent-color;
-}
-
-main {
-  background-color: $primary-background;
-  color: $secondary-text-color;
 }

@@ -1,0 +1,9 @@
+.mountain {
+  height: 15em;
+  width: auto;
+  @include transform();
+}
+
+.navigation-wrapper {
+  padding: 2%;
+}
