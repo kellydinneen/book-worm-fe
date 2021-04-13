@@ -7,7 +7,7 @@ const CurrentBookRainbow = ({data}) => {
         const rainbowBox = d3.select(".rainbowBox")
         const bookPositionScale = d3.scaleQuantize()
             .domain([0, 1])
-            .range([[60, 660], [120, 600], [180, 540], [240, 480], [300, 420], [360, 360], [420, 300], [480, 240], [540, 180], [600, 120], [660, 60]])
+            .range([[60, 660], [80, 600], [120, 540], [160, 480], [160, 420], [175, 360], [245, 300], [250, 240], [275, 180], [340, 120], [350, 60]])
         const books = rainbowBox.selectAll(".currentBook")
             .data(data)
             .enter().append("circle")
