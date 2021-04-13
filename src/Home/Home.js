@@ -8,10 +8,18 @@ import sandcastleImg from '../assets/sandcastle.svg';
 import CurrentBookRainbow from '../CurrentBookRainbow/CurrentBookRainbow';
 
 const data = [
-    {title: 'The Hungry Caterpillar', pages: 0.25},
+    {title: 'The Hungry Caterpillar', pages: 0.2},
     {title: 'Harry Potter', pages: 0.9}, 
     {title: 'The Babysitters Club', pages: 0},
-    {title: 'Lord of the Flies', pages: 0.6}
+    {title: 'Lord of the Flies', pages: 0.6}, 
+    {title: 'The Hungry Caterpillar', pages: 0.1},
+    {title: 'Harry Potter', pages: 0.3}, 
+    {title: 'The Babysitters Club', pages: 0.4},
+    {title: 'Lord of the Flies', pages: 0.5}, 
+    {title: 'The Hungry Caterpillar', pages: 0.7},
+    {title: 'Harry Potter', pages: 0.8}, 
+    {title: 'Harry Potter', pages: 1}, 
+
 ]
 export const Home = () => {
     const [displayNewBookForm, setDisplayNewBookForm] = useState(false)
