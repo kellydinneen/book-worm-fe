@@ -6,18 +6,15 @@ export const NewBookForm = ({ setDisplay }) => {
     
     return(
         <form className='add-a-book-form'>
-          <label>
-          What's the title of your book?
-            <input
+          <label>What's the title of your book?</label>
+          <input
               aria-label="title input"
               className="title-input"
               placeholder="tell me your book title"
               value={title}
               onChange={event => setTitle(event.target.value)}>
             </input>
-          </label>
-          <label>
-          How many pages does your book have?
+          <label>How many pages does your book have?</label>
             <input
               aria-label="pages input"
               className="pages-input"
@@ -25,8 +22,7 @@ export const NewBookForm = ({ setDisplay }) => {
               value={pages}
               onChange={event => setPages(event.target.value)}>
             </input>
-          </label>
-          <button onClick={()=>setDisplay(false)}>
+          <button className='start-reading-btn' onClick={()=>setDisplay(false)}>
               Start Reading!
           </button>
         </form>
