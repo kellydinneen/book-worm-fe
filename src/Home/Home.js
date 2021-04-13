@@ -5,6 +5,7 @@ import mountainImg from '../assets/mountain.svg';
 import treesImg from '../assets/trees.svg'
 import sandhillImg from '../assets/sandhill.svg';
 import sandcastleImg from '../assets/sandcastle.svg';
+import CurrentBookRainbow from '../CurrentBookRainbow/CurrentBookRainbow';
 
 const data = [
     {title: 'The Hungry Caterpillar', pages: 35},
@@ -30,7 +31,7 @@ export const Home = () => {
               alt='sandcastle'
             />
           </div>
-          <BookContainer 
+          <CurrentBookRainbow 
             data={data}
           />
           {displayNewBookForm && <NewBookForm setDisplay={setDisplayNewBookForm}/>}

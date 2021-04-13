@@ -3,10 +3,6 @@ import * as d3 from 'd3';
 import bookImg from '../assets/openbook.png';
 
 const CurrentBookRainbow = ({data}) => {
-    const data = [
-        {title: 'The Hungry Caterpillar', pages: 35},
-        {title: 'Harry Potter', pages: 400}
-    ]
     const drawRainbow = () => {
         const rainbowBox = d3.select(".rainbowBox")
         const books = rainbowBox.selectAll(".currentBook")
@@ -15,7 +11,10 @@ const CurrentBookRainbow = ({data}) => {
             .attr("class", "currentBook")
             .attr("src", bookImg)
     }
-    render(
+    useEffect(() => {
+        drawRainbow();
+    }, [])
+    return(
         <svg className="rainbowBox" width="697" height="429" viewBox="0 0 697 429" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M249 163C249 125.604 235.883 89.7406 212.535 63.2979C189.187 36.8553 157.519 22 124.5 22C91.4806 22 59.8135 36.8553 36.4652 63.2979C13.1169 89.7406 4.9858e-06 125.604 0 163H12.3042C12.3042 129.3 24.1248 96.9807 45.1656 73.1514C66.2064 49.322 94.7438 35.9348 124.5 35.9348C154.256 35.9348 182.794 49.322 203.834 73.1514C224.875 96.9807 236.696 129.3 236.696 163H249Z" fill="#E3D1BE"/>
             <path d="M238.784 160.601C240.053 197.455 252.965 232.397 274.679 257.74C296.394 283.083 325.133 296.751 354.574 295.737C384.014 294.724 411.745 279.112 431.665 252.335C451.586 225.559 462.064 189.812 460.795 152.958L449.778 153.337C450.92 186.533 441.482 218.732 423.539 242.851C405.595 266.97 380.617 281.032 354.099 281.945C327.58 282.858 301.694 270.547 282.134 247.719C262.575 224.891 250.945 193.418 249.802 160.222L238.784 160.601Z" fill="#E3D1BE"/>
