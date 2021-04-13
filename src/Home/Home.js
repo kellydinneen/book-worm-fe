@@ -3,6 +3,8 @@ import { NewBookForm } from '../NewBookForm/NewBookForm';
 import { BookContainer } from '../BookContainer/BookContainer';
 import mountainImg from '../assets/mountain.svg';
 import treesImg from '../assets/trees.svg'
+import sandhillImg from '../assets/sandhill.svg';
+import sandcastleImg from '../assets/sandcastle.svg';
 
 const data = [
     {title: 'The Hungry Caterpillar', pages: 35},
@@ -20,12 +22,18 @@ export const Home = () => {
               onClick={()=>setDisplayNewBookForm(true)}
             />
             <img className='trees' src={treesImg} alt='trees'/>
-          </div>
-            <button>See Finished Books</button>
-            <BookContainer 
-              data={data}
+            <img className='sandhill' src={sandhillImg} alt='sandhill'/>
+            <img className='trees' src={treesImg} alt='trees'/>
+            <img 
+              className='sandcastle' 
+              src={sandcastleImg} 
+              alt='sandcastle'
             />
-            {displayNewBookForm && <NewBookForm setDisplay={setDisplayNewBookForm}/>}
+          </div>
+          <BookContainer 
+            data={data}
+          />
+          {displayNewBookForm && <NewBookForm setDisplay={setDisplayNewBookForm}/>}
         </main>
     )
 }

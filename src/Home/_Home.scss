@@ -5,11 +5,27 @@
 }
 
 .navigation-wrapper {
-  padding: 2%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0%;
+}
+
+.sandcastle {
+  height: 12em;
+  width: auto;
+  margin: 1.1em 0em 0em 3em;
+  @include transform();
+}
+
+.sandhill {
+  height: 8em;
+  width: auto;
+  margin: 5.2em 0 0 2em;
+  @include transform();
 }
 
 .trees {
   height: 10em;
   width: auto;
-  margin: 1.5em -5em;
+  margin: 3.5em -5em 0 -4em;
 }
