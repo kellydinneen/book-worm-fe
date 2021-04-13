@@ -5,11 +5,19 @@ import bookImg from '../assets/openbook.png';
 const CurrentBookRainbow = ({data}) => {
     const drawRainbow = () => {
         const rainbowBox = d3.select(".rainbowBox")
+        const bookPositionScale = d3.scaleQuantize()
+            .domain([0, 1])
+            .range([[60, 200], [120, 200], [180, 200], [240, 200], [300, 200], [360, 200], [420, 200], [480, 200], [540, 200], [600, 200], [660, 200]])
         const books = rainbowBox.selectAll(".currentBook")
             .data(data)
-            .enter().append("img")
+            .enter().append("circle")
             .attr("class", "currentBook")
             .attr("src", bookImg)
+            .attr("cx", d => bookPositionScale(d.pages)[0])
+            .attr("cy", "200")
+            // .attr("height", "100")
+            .attr("r", "100")
+            .attr("fill", "white")
     }
     useEffect(() => {
         drawRainbow();
