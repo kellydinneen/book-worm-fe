@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home } from './Home/Home';
+import { Home } from '../Home/Home';
 import { Switch, Route } from 'react-router-dom';
 
 const App = () => {

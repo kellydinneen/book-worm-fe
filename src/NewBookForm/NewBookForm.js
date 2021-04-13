@@ -12,17 +12,15 @@ export const NewBookForm = ({ setDisplay }) => {
     }
 
     return(
-        <form>
-          <label>
-          What's the title of your book?
-            <input
+        <form className='add-a-book-form'>
+          <label>What's the title of your book?</label>
+          <input
               aria-label="title input"
               className="title-input"
               placeholder="tell me your book title"
               value={title}
               onChange={event => setTitle(event.target.value)}>
             </input>
-          </label>
           <label>
           Who is the author of your book?
             <input
