@@ -8,20 +8,19 @@ const CurrentBookRainbow = ({data}) => {
         const rainbowBox = d3.select(".rainbowBox")
         const bookPositionScale = d3.scaleQuantize()
             .domain([0, 1])
-            .range([[60, 660], [80, 600], [120, 540], [160, 480], [160, 420], [175, 360], [245, 300], [250, 240], [275, 180], [340, 120], [350, 60]])
-        
+            .range([[50, 550], [90, 500], [120, 430], [130, 360], [160, 300], [200, 240], [235, 160], [280, 100], [325, 30], [380, -35]])
         const books = rainbowBox.selectAll(".currentBook")
             .data(data)
             .enter().append("image")
             .attr("class", "currentBook")
             .attr("xlink:href", wormImg)
-            .attr("x", d => bookPositionScale(d.pages)[0])
+            .attr("x", (d, i) => bookPositionScale(d.pages)[0] + (175 * i))
             .attr("y", d => bookPositionScale(d.pages)[1])
-            .attr("height", "50")
-            .attr("width", "50")
+            .attr("height", "75")
+            .attr("width", "75")
     }
     useEffect(() => {
-        drawRainbow();
+        drawRainbow(); 
     }, [])
     return(
         <svg className="rainbowBox" width="1174" height="605" viewBox="0 0 1174 605" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -9,17 +9,11 @@ import topsoilImg from '../assets/topsoil.svg';
 import CurrentBookRainbow from '../CurrentBookRainbow/CurrentBookRainbow';
 
 const data = [
-    {title: 'The Hungry Caterpillar', pages: 0.2},
-    {title: 'Harry Potter', pages: 0.9}, 
-    {title: 'The Babysitters Club', pages: 0},
-    {title: 'Lord of the Flies', pages: 0.6}, 
-    {title: 'The Hungry Caterpillar', pages: 0.1},
-    {title: 'Harry Potter', pages: 0.3}, 
-    {title: 'The Babysitters Club', pages: 0.4},
-    {title: 'Lord of the Flies', pages: 0.5}, 
-    {title: 'The Hungry Caterpillar', pages: 0.7},
-    {title: 'Harry Potter', pages: 0.8}, 
-    {title: 'Harry Potter', pages: 1}, 
+    {title: 'The Hungry Caterpillar', pages: 0},
+    {title: 'Harry Potter', pages: 0.1}, 
+    {title: 'The Babysitters Club', pages: 0.2},
+    {title: 'Lord of the Flies', pages: 0.3}, 
+    {title: 'The Hungry Caterpillar', pages: 0.4},
 
 ]
 export const Home = () => {
@@ -44,6 +38,9 @@ export const Home = () => {
           </div>
           <img className='topsoil' src={topsoilImg} alt='Feel the grass at the top of the earth and dig deep to find your books to start your journey.' />
           <CurrentBookRainbow 
+            data={data}
+          />
+          <BookContainer 
             data={data}
           />
           {displayNewBookForm && <NewBookForm setDisplay={setDisplayNewBookForm}/>}
