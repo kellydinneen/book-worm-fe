@@ -1,0 +1,11 @@
+.button-img {
+  height: 4.5em;
+  margin-top: 0.5em;
+  @include transform();
+}
+
+
+.header-wrapper{
+  display: flex;
+  justify-content: space-evenly;
+}
