@@ -7,13 +7,17 @@ export const Header = () => {
 
   return (
     <header className='header-wrapper'>
-      <h1>BookWorm</h1>
+      <div className='header-container'>
+        <img 
+          alt='star home button'
+          className='button-img'
+          src={star}
+        />
+        <h1>BookWorm</h1>
+      </div>
       <h2>Hi, Student</h2>
       <img 
-        className='button-img'
-        src={star}
-      />
-      <img 
+        alt='apple logout button'
         className='button-img'
         src={apple}
       />

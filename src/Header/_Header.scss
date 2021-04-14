@@ -1,11 +1,27 @@
 .button-img {
-  height: 4.5em;
-  margin-top: 0.5em;
+  height: 4em;
+  margin: 0.2em 0.5em;
   @include transform();
 }
 
+h1 {
+  font-size: 3em;
+  margin: 0 0 0 2em;
+}
+
+h2 {
+  margin: 0;
+}
+
+.header-container {
+  display: flex;
+  width: 100%;
+}
 
 .header-wrapper{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-items: center;
+  background: #E3D1BE;
+  width: 100%;
 }
