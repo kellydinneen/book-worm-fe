@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import * as d3 from 'd3'; 
-import bookImg from '../assets/openbook.png';
+import bookImg from '../assets/worm.png';
 
 const CurrentBookRainbow = ({data}) => {
     const drawRainbow = () => {
@@ -10,14 +10,13 @@ const CurrentBookRainbow = ({data}) => {
             .range([[60, 660], [80, 600], [120, 540], [160, 480], [160, 420], [175, 360], [245, 300], [250, 240], [275, 180], [340, 120], [350, 60]])
         const books = rainbowBox.selectAll(".currentBook")
             .data(data)
-            .enter().append("circle")
+            .enter().append("image")
             .attr("class", "currentBook")
-            .attr("src", bookImg)
-            .attr("cx", d => bookPositionScale(d.pages)[0])
-            .attr("cy", d => bookPositionScale(d.pages)[1])
-            // .attr("height", "100")
-            .attr("r", "20")
-            .attr("fill", "white")
+            .attr("xlink:href", bookImg)
+            .attr("x", d => bookPositionScale(d.pages)[0])
+            .attr("y", d => bookPositionScale(d.pages)[1])
+            .attr("height", "50")
+            .attr("width", "50")
     }
     useEffect(() => {
         drawRainbow();
