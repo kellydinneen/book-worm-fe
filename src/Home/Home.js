@@ -5,6 +5,7 @@ import mountainImg from '../assets/mountain.svg';
 import treesImg from '../assets/trees.svg'
 import sandhillImg from '../assets/sandhill.svg';
 import sandcastleImg from '../assets/sandcastle.svg';
+import topsoilImg from '../assets/topsoil.svg';
 import CurrentBookRainbow from '../CurrentBookRainbow/CurrentBookRainbow';
 
 const data = [
@@ -41,6 +42,7 @@ export const Home = () => {
               alt='sandcastle'
             />
           </div>
+          <img className='topsoil' src={topsoilImg} alt='Feel the grass at the top of the earth and dig deep to find your books to start your journey.' />
           <CurrentBookRainbow 
             data={data}
           />
