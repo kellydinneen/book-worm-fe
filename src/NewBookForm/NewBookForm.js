@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { getBooks, postBook } from '../apiCalls.js';
+import { Card } from '../Card/Card'
 
 export const NewBookForm = ({ setDisplay }) => {
     const [bookList, setBookList] = useState([])
@@ -8,14 +9,20 @@ export const NewBookForm = ({ setDisplay }) => {
     // const [prediction, setPrediction] = useState('');
 
     async function fetchAllBooks(title, author) {
-      setBookList(await (getBooks(title, author)))
+      const getBookList = await (getBooks(title, author))
+      setBookList(getBookList.data)
     }
+
+    const handleOnClick = (event) => {
+      event.preventDefault()
+      fetchAllBooks(title, author)
+      }
     
     // const submitNewBook = async () => {
     //   const result = await postBook(title, author, 1);
     //   return result;
     // }
-
+  
     return(
         <form className='add-a-book-form'>
           <label>What's the title of your book?</label>
@@ -52,14 +59,11 @@ export const NewBookForm = ({ setDisplay }) => {
           </textarea> */}
           <button 
             className='start-reading-btn'
-            onClick={event => {
-              event.preventDefault()
-              // submitNewBook();
-              // setDisplay(false)
-              fetchAllBooks(title, author)
-              }
-            }>Search
+            onClick={handleOnClick}
+            >Search 
           </button>
+         {!!bookList.length && <Card bookList={bookList}/>}
         </form>
     )
-}
+  }
+  

@@ -1,18 +1,13 @@
 import React, { useState } from 'react';
 import { NewBookForm } from '../NewBookForm/NewBookForm';
-import { BookContainer } from '../BookContainer/BookContainer';
 import mountainImg from '../assets/mountain.svg';
 import treesImg from '../assets/trees.svg'
 import sandhillImg from '../assets/sandhill.svg';
 import sandcastleImg from '../assets/sandcastle.svg';
 
-const data = [
-    {title: 'The Hungry Caterpillar', pages: 35},
-    {title: 'Harry Potter', pages: 400}
-]
 export const Home = () => {
     const [displayNewBookForm, setDisplayNewBookForm] = useState(false)
-    
+
     return (
         <main>
           <div className='navigation-wrapper'>
@@ -31,9 +26,6 @@ export const Home = () => {
               alt='sandcastle'
             />
           </div>
-          <BookContainer 
-            data={data}
-          />
           {displayNewBookForm && <NewBookForm setDisplay={setDisplayNewBookForm}/>}
         </main>
     )
