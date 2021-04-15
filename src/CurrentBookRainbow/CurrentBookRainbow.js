@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import * as d3 from 'd3'; 
 import wormImg from '../assets/worm.png';
-import bookImg from '../assets/openbook.png';
+import bookImg from '../OpenBookImg/OpenBookImg';
+import { svg } from 'd3';
 
 const CurrentBookRainbow = ({data}) => {
     const drawRainbow = () => {
@@ -9,6 +10,14 @@ const CurrentBookRainbow = ({data}) => {
         const bookPositionScale = d3.scaleQuantize()
             .domain([0, 1])
             .range([[50, 550], [90, 500], [120, 430], [130, 360], [160, 300], [200, 240], [235, 160], [280, 100], [325, 30], [380, -35]])
+        const xScale = d3.scaleLinear()
+            .domain(["Harry Potter", "2", "3", "4", "5"])
+            // .range([50, 90, 120, 130, 160, 200, 235, 280, 325, 380])
+            .range([1050, 860, 700, 500, 300, 20])
+            rainbowBox
+            .append("g")
+            .call(d3.axisBottom(xScale))
+
         const books = rainbowBox.selectAll(".currentBook")
             .data(data)
             .enter().append("image")
