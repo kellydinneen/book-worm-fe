@@ -15,7 +15,10 @@ export const NewBookForm = () => {
     const handleOnClick = (event) => {
       event.preventDefault()
       fetchAllBooks(title, author)
-      }
+    }
+
+    const bookListCard = bookList.map((book, i) => <Card book={book} key={i}/>)
+
   
     return(
         <form className='add-a-book-form'>
@@ -49,7 +52,9 @@ export const NewBookForm = () => {
             onClick={handleOnClick}
             >Search 
           </button>
-         {!!bookList.length && <Card bookList={bookList}/>}
+          <div className='card-wrapper'>
+            {!!bookList.length && bookListCard}
+          </div>
         </form>
     )
   }

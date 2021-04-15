@@ -12,6 +12,15 @@
   opacity: 0.9;
 }
 
+.card-wrapper {
+  text-align: center;
+  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1.5em;
+  padding: 2em;
+}
+
 input {
   height: auto;
   width: 40%;

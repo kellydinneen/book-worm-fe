@@ -22,15 +22,6 @@
   align-items: center;
 }
 
-.card-wrapper {
-  text-align: center;
-  overflow-y: scroll;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1.5em;
-  padding: 2em;
-}
-
 textarea {
   margin: 0.4em 0;
   height: 15%;
