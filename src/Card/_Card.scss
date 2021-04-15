@@ -1,0 +1,29 @@
+.book-img {
+  height: 10em;
+  width: 8em;
+}
+
+.book-title {
+  color: #3C9F88;
+  font-size: 1.2em;
+}
+
+.card {
+  border: 0.1em solid #3C9F88;
+  height: 16.5em;
+  width: 10em;
+}
+
+.card-wrapper {
+  text-align: center;
+  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1.5em;
+  padding: 2em;
+}
+
+.long-title {
+  font-size: 0.8em;
+  color: #3C9F88;
+}
