@@ -1,6 +1,8 @@
 main {
+  align-items: center;
   display: flex;
   flex-direction: column;
+  width: 100vw;
 }
 
 .mountain {
@@ -15,6 +17,7 @@ main {
   justify-content: center;
   margin-bottom: 0;
   padding-bottom: 0;
+  width: 100%;
 }
 
 .sandcastle {
@@ -35,7 +38,7 @@ main {
   display: flex;
   justify-content: center;
   background: linear-gradient(180deg, rgba(63,94,99,1) 0%, rgb(28, 113, 33) 0%, rgb(34, 171, 38) 60%, rgba(5,4,2,1) 50%);
-  // width: 100vw;
+  width: 100vw;
 }
 .trees {
   height: 10em;
