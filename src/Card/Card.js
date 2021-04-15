@@ -8,7 +8,7 @@ export const Card = ({ bookList }) => {
     event.preventDefault()
     const result = await postBook();
     return result;
-    }
+  }
 
   const bookListCard = bookList.map((book, i) => {
     return (
@@ -22,7 +22,7 @@ export const Card = ({ bookList }) => {
             value={prediction}
             onChange={event => setPrediction(event.target.value)}>
           </textarea>
-          <button  className='add-book-btn' onClick={event => submitNewBook(event)}>Add Book</button>
+          <button  className='add-book-btn' disabled={!prediction} onClick={event => submitNewBook(event)}>Add Book</button>
         </section>
       )
   })

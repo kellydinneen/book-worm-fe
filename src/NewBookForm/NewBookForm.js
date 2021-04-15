@@ -45,6 +45,7 @@ export const NewBookForm = () => {
           </input>
           <button 
             className='start-reading-btn'
+            disabled={!title + !author}
             onClick={handleOnClick}
             >Search 
           </button>
