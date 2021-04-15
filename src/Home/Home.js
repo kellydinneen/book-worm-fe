@@ -41,10 +41,6 @@ export const Home = () => {
           <CurrentBookRainbow 
             data={data}
           />
-          <BookContainer 
-            data={data}
-          />
-          <OpenBookImg />
           {displayNewBookForm && <NewBookForm setDisplay={setDisplayNewBookForm}/>}
         </main>
     )
