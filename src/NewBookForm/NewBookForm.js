@@ -43,7 +43,6 @@ export const NewBookForm = () => {
               }
             }>
           </input>
-          <label>Tell me your prediction?</label>
           <button 
             className='start-reading-btn'
             onClick={handleOnClick}

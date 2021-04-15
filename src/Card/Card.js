@@ -10,15 +10,15 @@ export const Card = ({ bookList }) => {
     return result;
     }
 
-  const bookListCard = bookList.map((book) => {
+  const bookListCard = bookList.map((book, i) => {
     return (
-        <section className='card' key={book.attributes.isbn}>
+        <section className='card' key={i}>
           <h2 className='book-title'>{book.attributes.title}</h2>
           <img className='book-img' src={book.attributes.image} alt='book cover'/>
           <textarea
             aria-label="prediction input"
             className="prediction-input"
-            placeholder="Your Prediction Here?"
+            placeholder="Type your prediction here?"
             value={prediction}
             onChange={event => setPrediction(event.target.value)}>
           </textarea>
