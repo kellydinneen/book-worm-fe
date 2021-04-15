@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { getBooks, postBook } from '../apiCalls.js';
+import { getBooks} from '../apiCalls.js';
 import { Card } from '../Card/Card'
 
-export const NewBookForm = ({ setDisplay }) => {
+export const NewBookForm = () => {
     const [bookList, setBookList] = useState([])
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
-    // const [prediction, setPrediction] = useState('');
 
     async function fetchAllBooks(title, author) {
       const getBookList = await (getBooks(title, author))
@@ -17,11 +16,6 @@ export const NewBookForm = ({ setDisplay }) => {
       event.preventDefault()
       fetchAllBooks(title, author)
       }
-    
-    // const submitNewBook = async () => {
-    //   const result = await postBook(title, author, 1);
-    //   return result;
-    // }
   
     return(
         <form className='add-a-book-form'>
@@ -49,14 +43,7 @@ export const NewBookForm = ({ setDisplay }) => {
               }
             }>
           </input>
-          {/* <label>Tell me your prediction?</label>
-          <textarea
-            aria-label="prediction input"
-            className="prediction-input"
-            placeholder="Your Prediction Here?"
-            value={prediction}
-            onChange={event => setPrediction(event.target.value)}>
-          </textarea> */}
+          <label>Tell me your prediction?</label>
           <button 
             className='start-reading-btn'
             onClick={handleOnClick}

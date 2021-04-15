@@ -1,3 +1,8 @@
+.add-book-btn {
+  height: 2em;
+  width: 7em;
+}
+
 .book-img {
   height: 10em;
   width: 8em;
@@ -5,13 +10,16 @@
 
 .book-title {
   color: #3C9F88;
-  font-size: 1.2em;
+  font-size: 0.9em;
 }
 
 .card {
   border: 0.1em solid #3C9F88;
-  height: 16.5em;
+  height: 21em;
   width: 10em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .card-wrapper {
@@ -23,7 +31,8 @@
   padding: 2em;
 }
 
-.long-title {
-  font-size: 0.8em;
-  color: #3C9F88;
+textarea {
+  margin: 0.4em 0;
+  height: 15%;
+  width: 77%;
 }
