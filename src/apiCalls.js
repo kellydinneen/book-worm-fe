@@ -1,4 +1,3 @@
-
 export const checkResponse = (response) => {
   if (response.ok) {
   return response.json();
@@ -6,13 +5,21 @@ export const checkResponse = (response) => {
   throw response;
 }
 
-export const postBook = async (title, pages, author, id) => {
+export const getBooks = async(title, author) => {
+  const allBooks = await fetch(`https://book-worm-be.herokuapp.com/api/v1/books?title=${title}&author=${author}`)
+  return checkResponse(allBooks)
+}
+
+export const postBook = async(title, pages, author, id, prediction, isbn, image) => {
   const book = {
     student_id: id,
+    prediction: prediction,
     book: {
       title: title,
       author: author,
-      pages: pages
+      pages: pages,
+      isbn: isbn,
+      image: image
     }
   }
 

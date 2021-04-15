@@ -12,6 +12,7 @@ const data = [
 ]
 export const Home = () => {
     const [displayNewBookForm, setDisplayNewBookForm] = useState(false)
+    
     return (
         <main>
           <div className='navigation-wrapper'>

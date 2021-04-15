@@ -15,7 +15,7 @@ export const Header = () => {
         />
         <h1>BookWorm</h1>
       </div>
-      <h2>Hi, Student</h2>
+      <h2 className='greeting'>Hi, Student</h2>
       <img 
         alt='apple logout button'
         className='button-img'

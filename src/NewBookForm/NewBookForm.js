@@ -1,50 +1,64 @@
 import React, { useState } from 'react';
-import { postBook } from '../apiCalls.js';
+import { getBooks, postBook } from '../apiCalls.js';
 
 export const NewBookForm = ({ setDisplay }) => {
+    const [bookList, setBookList] = useState([])
     const [title, setTitle] = useState('');
-    const [pages, setPages] = useState(0);
     const [author, setAuthor] = useState('');
+    // const [prediction, setPrediction] = useState('');
 
-    const submitNewBook = async () => {
-      const result = await postBook(title, pages, author, 1);
-      console.log(result);
+    async function fetchAllBooks(title, author) {
+      setBookList(await (getBooks(title, author)))
     }
+    
+    // const submitNewBook = async () => {
+    //   const result = await postBook(title, author, 1);
+    //   return result;
+    // }
 
     return(
         <form className='add-a-book-form'>
           <label>What's the title of your book?</label>
           <input
+              type='text'
               aria-label="title input"
               className="title-input"
-              placeholder="tell me your book title"
+              placeholder="Book Title Here"
               value={title}
-              onChange={event => setTitle(event.target.value)}>
+              onChange={event => {
+                setTitle(event.target.value)
+                }
+              }>
             </input>
-          <label>
-          Who is the author of your book?
-            <input
-              aria-label="author input"
-              className="author-input"
-              placeholder="who wrote this book"
-              value={author}
-              onChange={event => setAuthor(event.target.value)}>
-            </input>
-          </label>
-          <label>
-          How many pages does your book have?
-            <input
-              aria-label="pages input"
-              className="pages-input"
-              placeholder="tell me how many pages there are"
-              value={pages}
-              onChange={event => setPages(event.target.value)}>
-            </input>
-          </label>
-          <button onClick={()=> {
-            submitNewBook();
-            setDisplay(false)}}>
-              Start Reading!
+          <label>Who is the author of your book?</label>
+          <input
+            type='text'
+            aria-label="author input"
+            className="author-input"
+            placeholder="Author Here"
+            value={author}
+            onChange={event => {
+              setAuthor(event.target.value)
+              }
+            }>
+          </input>
+          {/* <label>Tell me your prediction?</label>
+          <textarea
+            aria-label="prediction input"
+            className="prediction-input"
+            placeholder="Your Prediction Here?"
+            value={prediction}
+            onChange={event => setPrediction(event.target.value)}>
+          </textarea> */}
+          <button 
+            className='start-reading-btn'
+            onClick={event => {
+              event.preventDefault()
+              // submitNewBook();
+              // setDisplay(false)
+              fetchAllBooks(title, author)
+              }
+            }>Search
           </button>
         </form>
     )

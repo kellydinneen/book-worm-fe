@@ -8,13 +8,13 @@
   left: 11%;
   top: 15%;
   width: 40%;
-  height: 20%;
+  height: 40%;
   opacity: 0.9;
 }
 
 input {
   height: auto;
-  width: 30%;
+  width: 40%;
 }
 
 label {
@@ -24,4 +24,9 @@ label {
 
 .start-reading-btn {
   margin-top: 5%;
+}
+
+textarea {
+  height: 30%;
+  width: 40%;
 }
