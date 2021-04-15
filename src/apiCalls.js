@@ -10,19 +10,7 @@ export const getBooks = async(title, author) => {
   return checkResponse(allBooks)
 }
 
-export const postBook = async(title, pages, author, id, prediction, isbn, image) => {
-  const book = {
-    student_id: id,
-    prediction: prediction,
-    book: {
-      title: title,
-      author: author,
-      pages: pages,
-      isbn: isbn,
-      image: image
-    }
-  }
-
+export const postBook = async(book) => {
   const response = await fetch('https://book-worm-be.herokuapp.com/api/v1/student_books', {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},

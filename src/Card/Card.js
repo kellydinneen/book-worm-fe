@@ -4,9 +4,19 @@ import { postBook } from '../apiCalls.js';
 export const Card = ({ book }) => {
   const [prediction, setPrediction] = useState('');
 
-  const submitNewBook = async (event) => {
-    event.preventDefault()
-    const result = await postBook();
+  const submitNewBook = async (book) => {
+    const submitBook = {
+      student_id: 1,
+      prediction: prediction,
+      book: {
+        title: book.attributes.title,
+        author: book.attributes.author,
+        pages: book.attributes.pages,
+        isbn: book.attributes.isbn,
+        image: book.attributes.image
+      }
+    }
+    const result = await postBook(submitBook);
     return result;
   }
 
@@ -24,7 +34,7 @@ export const Card = ({ book }) => {
       <button  
         className='add-book-btn' 
         disabled={!prediction} 
-        onClick={event => submitNewBook(event)}>Add Book</button>
+        onClick={() => submitNewBook(book)}>Add Book</button>
     </section>
   )
 }
