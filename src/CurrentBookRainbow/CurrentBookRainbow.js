@@ -11,13 +11,15 @@ const CurrentBookRainbow = ({data}) => {
             .domain([0, 1])
             .range([[50, 550], [90, 500], [120, 430], [130, 360], [160, 300], [200, 240], [235, 160], [280, 100], [325, 30], [380, -35]])
         const xScale = d3.scaleLinear()
-            .domain(["Harry Potter", "2", "3", "4", "5"])
-            // .range([50, 90, 120, 130, 160, 200, 235, 280, 325, 380])
-            .range([1050, 860, 700, 500, 300, 20])
-            rainbowBox
-            .append("g")
-            .call(d3.axisBottom(xScale))
-
+            .range([70, 1060])
+        const tickLabels = ["HP", "BSC", "LOTR", "NBD", "HHH"]
+        const xAxisMaker = d3.axisBottom(xScale)
+            .ticks(5)
+            .tickFormat((d, i) => tickLabels[i]);
+        const xAxis = 
+            rainbowBox.append("g")
+            .attr("transform", "translate(0, 650)")
+            .call(xAxisMaker)
         const books = rainbowBox.selectAll(".currentBook")
             .data(data)
             .enter().append("image")
