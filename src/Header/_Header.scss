@@ -1,0 +1,28 @@
+.button-img {
+  height: 4em;
+  margin: 0.2em 0.5em;
+  @include transform();
+}
+
+h1 {
+  font-size: 3em;
+  margin: 0.2em 0 0 7.5em;
+}
+
+.greeting {
+  margin: 0;
+  color: #057196; 
+}
+
+.header-container {
+  display: flex;
+  width: 100%;
+}
+
+.header-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #E3D1BE;
+  width: 100%;
+}
