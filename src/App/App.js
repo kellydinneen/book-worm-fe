@@ -4,13 +4,12 @@ import { Header } from '../Header/Header'
 import { Switch, Route } from 'react-router-dom';
 
 const App = () => {
-
   return(
     <React.Fragment>
       <Header />
       <Switch>
-        <Route 
-          exact path='/' 
+        <Route
+          exact path='/'
           render={() => (
             <Home />
             )}

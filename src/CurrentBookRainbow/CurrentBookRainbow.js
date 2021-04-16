@@ -1,23 +1,25 @@
 import React, { useEffect } from 'react';
-import * as d3 from 'd3'; 
+import * as d3 from 'd3';
 import wormImg from '../assets/worm.png';
 import bookImg from '../assets/openbook.png';
 import { svg } from 'd3';
 
-const CurrentBookRainbow = ({data}) => {
-    console.log(data)
-    const drawRainbow = () => {
+const CurrentBookRainbow = ({ data }) => {
+  const drawRainbow = () => {
+      console.log('DrawRainbow', data)
         const rainbowBox = d3.select(".rainbowBox")
         const bookPositionScale = d3.scaleQuantize()
             .domain([0, 1])
             .range([[50, 550], [90, 500], [120, 430], [130, 360], [160, 300], [200, 240], [235, 160], [280, 100], [325, 30], [380, -35]])
         const xScale = d3.scaleLinear()
             .range([70, 1000])
-        const tickLabels = data.map(d => d.title)
+        const tickLabels = data.data.map(d => {
+          console.log(d)
+          return d.attributes.title})
         const xAxisMaker = d3.axisBottom(xScale)
             .ticks(4)
             .tickFormat((d, i) => tickLabels[i])
-        const xAxis = 
+        const xAxis =
             rainbowBox.append("g")
             .attr("transform", "translate(0, 650)")
             .call(xAxisMaker)
@@ -31,17 +33,20 @@ const CurrentBookRainbow = ({data}) => {
         //     .attr("height", "75")
         //     .attr("width", "75")
         const books = rainbowBox.selectAll(".currentBook")
-            .data(data)
+            .data(data.data)
             .enter().append("image")
             .attr("class", "currentBook")
             .attr("xlink:href", wormImg)
-            .attr("x", (d, i) => bookPositionScale(d.pages)[0] + (175 * i))
-            .attr("y", d => bookPositionScale(d.pages)[1])
+            .attr("x", (d, i) => bookPositionScale(0.1)[0] + (175 * i))
+            .attr("y", d => {
+              console.log(d)
+              return bookPositionScale(0.9)[1]})
             .attr("height", "75")
             .attr("width", "75")
     }
     useEffect(() => {
-        drawRainbow(); 
+        console.log('RainbowUseEffect', data)
+        drawRainbow();
     }, [])
     return(
         <svg className="rainbowBox" width="1174" height="605" viewBox="0 0 1174 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
