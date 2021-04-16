@@ -1,4 +1,4 @@
-self.addEventListener("push", (event) => {
+self.addEventListener("push", async(event) => {
   let title = (event.data && event.data.text()) || "Yay a message";
   let body = "We have received a push message";
 

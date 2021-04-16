@@ -1,13 +1,6 @@
-if (navigator.serviceWorker) {
-  navigator.serviceWorker.register('/serviceworker.js')
-  .then(function(reg) {
-     console.log('Service worker change, registered the service worker');
-  });
-}
-// Otherwise, no push notifications :(
-else {
-  console.error('Service worker is not supported in this browser');
-};
+require('dotenv').config;
+window.vapidPublicKey = new Uint8Array(Base64.urlsafe_decode64(ENV['VAPID_PUBLIC_KEY']).bytes);
+
 
 navigator.serviceWorker.ready.then((serviceWorkerRegistration) => {
   serviceWorkerRegistration.pushManager
