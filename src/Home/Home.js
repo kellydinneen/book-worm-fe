@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NewBookForm } from '../NewBookForm/NewBookForm';
 import mountainImg from '../assets/mountain.svg';
 import treesImg from '../assets/trees.svg'
@@ -6,19 +6,27 @@ import sandhillImg from '../assets/sandhill.svg';
 import sandcastleImg from '../assets/sandcastle.svg';
 import topsoilImg from '../assets/topsoil.svg';
 import CurrentBookRainbow from '../CurrentBookRainbow/CurrentBookRainbow';
-import OpenBookImg from '../OpenBookImg/OpenBookImg';
+import { getCurrentBooks } from '../apiCalls'
+// import OpenBookImg from '../OpenBookImg/OpenBookImg';
 
-const data = [
-    {title: 'The Hungry Caterpillar', pages: 0},
-    {title: 'Harry Potter', pages: 0.1}, 
-    {title: 'The Babysitters Club', pages: 0.2},
-    {title: 'Lord of the Flies', pages: 0.3}, 
-    {title: 'The Hungry Caterpillar', pages: 0.4},
-
-]
+// const data = [
+//     {title: 'The Hungry Caterpillar', pages: 0},
+//     {title: 'Harry Potter', pages: 0.1}, 
+//     {title: 'The Babysitters Club', pages: 0.2},
+//     {title: 'Lord of the Flies', pages: 0.3}, 
+//     {title: 'The Hungry Caterpillar', pages: 0.4},
+// ]
 
 export const Home = () => {
     const [displayNewBookForm, setDisplayNewBookForm] = useState(false)
+    const [currentBooks, setCurrentBooks] = useState([])
+
+    useEffect(() => {
+      async function fetchCurrentBooks() {
+        setCurrentBooks(await (getCurrentBooks()))
+      }
+      fetchCurrentBooks()
+    }, [])
 
     return (
         <main>
@@ -39,9 +47,7 @@ export const Home = () => {
             />
           </div>
           <img className='topsoil' src={topsoilImg} alt='Feel the grass at the top of the earth and dig deep to find your books to start your journey.' />
-          <CurrentBookRainbow 
-            data={data}
-          />
+          {currentBooks !== [] && <CurrentBookRainbow data={currentBooks}/>}
           {displayNewBookForm && <NewBookForm setDisplay={setDisplayNewBookForm}/>}
         </main>
     )

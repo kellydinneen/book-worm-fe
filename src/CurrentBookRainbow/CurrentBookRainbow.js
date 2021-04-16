@@ -5,15 +5,17 @@ import bookImg from '../assets/openbook.png';
 import { svg } from 'd3';
 
 const CurrentBookRainbow = ({data}) => {
-    console.log(data)
-    const drawRainbow = () => {
+  console.log(data)
+  const drawRainbow = () => {
         const rainbowBox = d3.select(".rainbowBox")
         const bookPositionScale = d3.scaleQuantize()
             .domain([0, 1])
             .range([[50, 550], [90, 500], [120, 430], [130, 360], [160, 300], [200, 240], [235, 160], [280, 100], [325, 30], [380, -35]])
         const xScale = d3.scaleLinear()
             .range([70, 1000])
-        const tickLabels = data.map(d => d.title)
+        const tickLabels = data.map(d => {
+          console.log(d)
+          return d.attributes.title})
         const xAxisMaker = d3.axisBottom(xScale)
             .ticks(4)
             .tickFormat((d, i) => tickLabels[i])
@@ -35,12 +37,15 @@ const CurrentBookRainbow = ({data}) => {
             .enter().append("image")
             .attr("class", "currentBook")
             .attr("xlink:href", wormImg)
-            .attr("x", (d, i) => bookPositionScale(d.pages)[0] + (175 * i))
-            .attr("y", d => bookPositionScale(d.pages)[1])
+            .attr("x", (d, i) => bookPositionScale(0.1)[0] + (175 * i))
+            .attr("y", d => {
+              console.log(d)
+              return bookPositionScale(0.9)[1]})
             .attr("height", "75")
             .attr("width", "75")
     }
     useEffect(() => {
+      console.log(data)
         drawRainbow(); 
     }, [])
     return(

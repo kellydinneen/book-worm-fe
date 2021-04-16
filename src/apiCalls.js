@@ -10,6 +10,11 @@ export const getBooks = async(title, author) => {
   return checkResponse(allBooks)
 }
 
+export const getCurrentBooks = async() => {
+  const currentStudentBooks = await fetch('https://book-worm-be.herokuapp.com/api/v1/students/books?id=1')
+  return checkResponse(currentStudentBooks)
+}
+
 export const postBook = async(book) => {
   const response = await fetch('https://book-worm-be.herokuapp.com/api/v1/student_books', {
     method: 'POST',
