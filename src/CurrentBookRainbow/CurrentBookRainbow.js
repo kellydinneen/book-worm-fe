@@ -49,10 +49,10 @@ const CurrentBookRainbow = ({ data, setClickedBook }) => {
         const bookIcons = rainbowBox.selectAll(".bookImage")
             .data(currentReads)
             .enter().append("image")
-            .attr("class", "currentBook")
+            .attr("class", "bookImage")
             .attr("xlink:href", bookImg)
             .attr("x", (d, i) => 50 + 175 * i)
-            .attr("y", '650')
+            .attr("y", '680')
             .attr("height", "75")
             .attr("width", "75")
             .on('click', (e, d) => {
