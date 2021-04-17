@@ -32,18 +32,18 @@ const BookDetails = (props) => {
   }, [])
 
     return(
-        <section>
-          <Link to='/'>
-            <button>Back to Current Books</button>
-          </Link>
-          <article>
-            <img className='book-details-image' src={book.attributes.image}/>
-            <h2>{book.attributes.title}</h2>
-            <h3>by {book.attributes.author}</h3>
-            <p>{book.attributes.pages} pages long</p>
-          </article>
-          <article>
-            <div>
+      <main>
+        <Link to='/'>
+          <button>Back to Current Books</button>
+        </Link>
+        <section className='book-details'>
+            <article className='book-info'>
+              <img className='book-details-image' src={book.attributes.image}/>
+              <h2>{book.attributes.title}</h2>
+              <h3>by {book.attributes.author}</h3>
+              <p>{book.attributes.pages} pages long</p>
+            </article>
+            <article className='bookmarks-display'>
               <h2>Bookmarks</h2>
               {bookMarks && bookMarkDisplays}
               {displayNewBookMarkForm && <>
@@ -51,17 +51,19 @@ const BookDetails = (props) => {
                 <button onClick={() => setDisplayNewBookMarkForm(false)}>Cancel</button>
               </>}
               {!displayNewBookMarkForm && <button onClick={() => setDisplayNewBookMarkForm(true)}>Add A Bookmark</button>}
-            </div>
-            {!displayFinishBookForm && <button onClick={() => setDisplayFinishBookForm(true)}>Finish Book</button>}
-            {displayFinishBookForm &&
-              <>
-                <button onClick={() => setDisplayFinishBookForm(false)}>Cancel</button>
-                <FinishBookForm book={book}/>
-              </>
-            }
-            <button>Abandon Book</button>
-          </article>
+            </article>
+            <article className='book-options'>
+              {!displayFinishBookForm && <button onClick={() => setDisplayFinishBookForm(true)}>Finish Book</button>}
+              {displayFinishBookForm &&
+                <>
+                  <FinishBookForm book={book}/>
+                  <button onClick={() => setDisplayFinishBookForm(false)}>Cancel</button>
+                </>
+              }
+              <button>Abandon Book</button>
+            </article>
         </section>
+      </main>
     )
 }
 

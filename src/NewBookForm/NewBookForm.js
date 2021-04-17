@@ -20,7 +20,7 @@ export const NewBookForm = ({ setDisplay }) => {
     return(
         <section className='add-a-book-form'>
           <button onClick={() => setDisplay(false)}>Cancel</button>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form className='search-form' onSubmit={handleSubmit(onSubmit)}>
             <label>What's the title of your book?</label>
             <input type="text" placeholder="title" {...register("title", {required: true, maxLength: 100})} />
             <label>Who is the author of your book?</label>

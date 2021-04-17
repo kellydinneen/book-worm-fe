@@ -12,7 +12,7 @@ export const FinishBookForm = ({ book }) => {
         book_id: book.id,
         status: "finished",
         review: data.rating,
-        revew_comment: data.review
+        review_comment: data.review
       }
       const result = await markBookFinished(bookReview);
       console.log(result);
@@ -23,8 +23,8 @@ export const FinishBookForm = ({ book }) => {
     console.log(errors);
 
     return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label>How did you like it on a scale from 1 to 5?</label>
+      <form className='finish-form' onSubmit={handleSubmit(onSubmit)}>
+        <label className='finish-form-label'>How did you like it on a scale from 1 to 5?</label>
         <select {...register("rating", { required: true })}>
           <option value="1">⭐️</option>
           <option value="2"> ⭐️⭐️</option>
@@ -32,7 +32,7 @@ export const FinishBookForm = ({ book }) => {
           <option value="4"> ⭐️⭐️⭐️⭐️</option>
           <option value="5"> ⭐️⭐️⭐️⭐️⭐️</option>
         </select>
-        <label>Tell your friends a little bit about it:</label>
+        <label className='finish-form-label'>Tell your friends a little bit about it:</label>
         <input type="text" placeholder="review" {...register("review", {required: true, maxLength: 500})} />
 
         <input type="submit" />
