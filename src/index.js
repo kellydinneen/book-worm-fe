@@ -5,7 +5,9 @@ import './index.scss';
 import App from './App/App';
 import reportWebVitals from './reportWebVitals';
 import registerSW from './serviceworker';
-
+import { swSubscribe, notificationPermission } from './application.js'
+require("dotenv").config();
+let envVariables = process.env.VAPID_PUBLIC_KEY
 const router = 
   <BrowserRouter> 
     <App /> 
@@ -19,3 +21,6 @@ ReactDOM.render(router, document.getElementById('root'));
 reportWebVitals();
 
 registerSW();
+console.log('key', envVariables)
+swSubscribe();
+notificationPermission();

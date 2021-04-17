@@ -1,5 +1,5 @@
 export default function registerSW() {
-  const swUrl = `${process.env.PUBLIC_URL}/sw-build.js`
+  const swUrl = `${process.env.PUBLIC_URL}/sw.js`
   if (navigator.serviceWorker && process.env.NODE_ENV !== 'production') {
 
     window.addEventListener("push", (event) => {
@@ -20,4 +20,5 @@ export default function registerSW() {
   else {
     console.error('Service worker is not supported in this browser');
   };
+  
 }
