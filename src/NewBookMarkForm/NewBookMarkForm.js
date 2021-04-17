@@ -16,10 +16,14 @@ export const NewBookMarkForm = ({ book }) => {
   console.log(errors);
 
   return (
-   <form onSubmit={handleSubmit(onSubmit)}>
-     <input type="number" placeholder="What page did you finish on?" {...register("What page did you finish on?", {required: true})} />
-     <input type="number" placeholder="How many minutes did you read for?" {...register("How many minutes did you read for?", {required: true})} />
-     <input type="text" placeholder="Write down any thoughts or notes you have:" {...register} />
+   <form className='bookmark-form' onSubmit={handleSubmit(onSubmit)}>
+     <label className='new-bookmark-label'>What page did you finish on?</label>
+     <input type="number" placeholder="page number" {...register("ending page", {required: true})} />
+     <label className='new-bookmark-label'>How many minutes did you read for?</label>
+     <input type="number" placeholder="minutes" {...register("reading minutes", {required: true})} />
+     <label className='new-bookmark-label'>Write down any thoughts or notes you have:</label>
+     <input type="text" placeholder="What did you notice? What was your favorite part? Your least favorite?" {...register} />
+     <label className='new-bookmark-label'>How did this reading make you feel?</label>
      <select {...register}>
         <option value="😮">😮</option>
         <option value=" 🧐"> 🧐</option>
