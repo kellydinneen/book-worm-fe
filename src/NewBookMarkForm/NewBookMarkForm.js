@@ -1,56 +1,54 @@
 import React, { useState } from 'react';
+import { useForm } from "react-hook-form";
+import { postBookMark } from '../apiCalls.js';
 
-export const NewBookMarkForm = () => {
-    const [minutesRead, setMinutesRead] = useState(0);
-    const [endingPage, setEndingPage] = useState(0);
-    const [notes, setNotes] = useState('');
-    const [reactions, setReactions] = useState('');
+export const NewBookMarkForm = ({ book }) => {
+  const { register, reset, handleSubmit, formState: { errors } } = useForm();
+  console.log(book);
 
-    return(
-        <form>
-          <label>
-          How many minutes did you read?
-            <input
-              aria-label="reading minutes input"
-              className="reading-minutes-input"
-              placeholder="minutes spent reading"
-              value={minutesRead}
-              onChange={event => setMinutesRead(event.target.value)}>
-            </input>
-          </label>
-          <label>
-          What page did you end on?
-            <input
-              aria-label="ending page input"
-              className="ending-page-input"
-              placeholder="page number of the last page you read"
-              value={endingPage}
-              onChange={event => setEndingPage(event.target.value)}>
-            </input>
-          </label>
-          <label>
-          Any thoughts or notes?
-            <input
-              aria-label="notes input"
-              className="notes-input"
-              placeholder="What did you think of what you read?"
-              value={notes}
-              onChange={event => setNotes(event.target.value)}>
-            </input>
-          </label>
-          <label>
-          Reactions?
-            <input
-              aria-label="reactions-input"
-              className="reactions-input"
-              placeholder="choose an emoji"
-              value={reactions}
-              onChange={event => setReactions(event.target.value)}>
-            </input>
-          </label>
-          <button>
-              Submit Bookmark
-          </button>
-        </form>
-    )
+  const defaultValues = {
+    select: "",
+    input: ""
+  };
+
+  const submitBookMark = async (data) => {
+    const bookMark = {
+      student_book_id: book.id,
+      date: data.date,
+      minutes: data.minutes
+    }
+    const result = await postBookMark(bookMark);
+    return result;
+  }
+
+  const onSubmit = data => {
+    submitBookMark(data);
+    reset({ defaultValues })
+  };
+  console.log(errors);
+
+  return (
+   <form className='bookmark-form' onSubmit={handleSubmit(onSubmit)}>
+     <label className='new-bookmark-label'>What page did you finish on?</label>
+     <input type="number" placeholder="page number" {...register("page", {required: true})} />
+     <label className='new-bookmark-label'>How many minutes did you read for?</label>
+     <input type="number" placeholder="minutes" {...register("minutes", {required: true})} />
+     <label className='new-bookmark-label'>What day did you read?</label>
+     <input type="datetime" placeholder="choose a date" {...register("date", {required: true})} />
+     <label className='new-bookmark-label'>Write down any thoughts or notes you have:</label>
+     <input type="text" placeholder="What did you notice? What was your favorite part? Your least favorite?" {...register} />
+     <label className='new-bookmark-label'>How did this reading make you feel?</label>
+     <select {...register}>
+        <option value="😮">😮</option>
+        <option value=" 🧐"> 🧐</option>
+        <option value=" 😆"> 😆</option>
+        <option value=" 😢"> 😢</option>
+        <option value=" 😡"> 😡</option>
+        <option value=" 😨"> 😨</option>
+        <option value=" 😊"> 😊</option>
+        <option value=" 🥰"> 🥰</option>
+      </select>
+     <input type="submit" />
+   </form>
+  );
 }

@@ -3,13 +3,19 @@
   flex-direction: column;
   align-items: center;
   background-color: $secondary-background;
-  border: 1px solid #FFFFFF; 
-  position: fixed; 
+  border: 1px solid #FFFFFF;
+  position: fixed;
   left: 11%;
   top: 15%;
   width: 46%;
   height: 50%;
   opacity: 0.9;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .card-wrapper {

@@ -5,9 +5,12 @@
 @import './BookContainer/BookContainer';
 @import './Card/Card';
 @import './NewBookForm/NewBookForm';
+@import './BookDetails/BookDetails';
+@import './FinishBookForm/FinishBookForm';
+@import './NewBookMArkForm/NewBookMarkForm';
 @import './CurrentBookRainbow/CurrentBookRainbow';
 
-body, 
+body,
 html {
   margin: 0;
   background-color: $primary-background;
@@ -23,4 +26,3 @@ code {
 h2 {
   color: $first-accent-color;
 }
-
