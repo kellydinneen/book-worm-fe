@@ -41,7 +41,7 @@ const CurrentBookRainbow = ({ data, setClickedBook }) => {
             .enter().append("image")
             .attr("class", "currentBook")
             .attr("xlink:href", wormImg)
-            .attr("x", (d, i) => bookPositionScale(0.1)[0] + (175 * i))
+            .attr("x", (d, i) => bookPositionScale(0.1)[0] + (170 * i) + 250)
             .attr("y", d => bookPositionScale(0.9)[1])
             .attr("height", "75")
             .attr("width", "75")
