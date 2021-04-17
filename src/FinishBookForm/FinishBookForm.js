@@ -1,10 +1,25 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { markBookFinished } from '../apiCalls.js';
 
 export const FinishBookForm = ({ book }) => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const onSubmit = data => console.log(data);
+    const submitBookReview = async (data) => {
+      const bookReview = {
+        id: book.id,
+        student_id: 1,
+        book_id: book.id,
+        status: "finished",
+        review: data.rating,
+        revew_comment: data.review
+      }
+      const result = await markBookFinished(bookReview);
+      console.log(result);
+      return result;
+    }
+
+    const onSubmit = data => submitBookReview(data);
     console.log(errors);
 
     return (

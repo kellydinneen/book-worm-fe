@@ -17,14 +17,11 @@ export const NewBookMarkForm = ({ book }) => {
       date: data.date,
       minutes: data.minutes
     }
-    console.log(bookMark);
     const result = await postBookMark(bookMark);
-    console.log(result);
     return result;
   }
 
   const onSubmit = data => {
-    console.log(data)
     submitBookMark(data);
     reset({ defaultValues })
   };

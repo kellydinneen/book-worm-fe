@@ -13,7 +13,7 @@ const BookDetails = (props) => {
 
   const fetchBookMarks = async () => {
     const allBookMarks = await getBookMarks();
-    const bookMarksForThisBook = allBookMarks.data === [] ? [] : allBookMarks.data.filter(bookmark => bookmark.attributes.student_book_id === book.id);
+    const bookMarksForThisBook = allBookMarks.data === [] ? null : allBookMarks.data.filter(bookmark => bookmark.attributes.student_book_id === book.id);
     setBookMarks(bookMarksForThisBook);
     setIsLoading(false);
   }
@@ -28,7 +28,7 @@ const BookDetails = (props) => {
 
   useEffect(async () => {
     await fetchBookMarks()
-    bookMarks.length > 0 ? bookMarkDisplays() : console.log('no bookmarks');
+    bookMarks ? bookMarkDisplays() : console.log('no bookmarks');
   }, [])
 
     return(
