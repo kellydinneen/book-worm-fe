@@ -9,13 +9,15 @@ const CurrentBookRainbow = ({ data, setClickedBook }) => {
 
   const drawRainbow = () => {
       console.log('DrawRainbow', data)
+
+        const currentReads = data.data.slice(0, 5);
         const rainbowBox = d3.select(".rainbowBox")
         const bookPositionScale = d3.scaleQuantize()
             .domain([0, 1])
             .range([[50, 550], [90, 500], [120, 430], [130, 360], [160, 300], [200, 240], [235, 160], [280, 100], [325, 30], [380, -35]])
         const xScale = d3.scaleLinear()
             .range([70, 1000])
-        const tickLabels = data.data.map(d => {
+        const tickLabels = currentReads.map(d => {
           console.log(d)
           return d.attributes.title})
         const xAxisMaker = d3.axisBottom(xScale)
@@ -35,7 +37,7 @@ const CurrentBookRainbow = ({ data, setClickedBook }) => {
         //     .attr("height", "75")
         //     .attr("width", "75")
         const worms = rainbowBox.selectAll(".currentBook")
-            .data(data.data)
+            .data(currentReads)
             .enter().append("image")
             .attr("class", "currentBook")
             .attr("xlink:href", wormImg)
@@ -45,7 +47,7 @@ const CurrentBookRainbow = ({ data, setClickedBook }) => {
             .attr("width", "75")
 
         const bookIcons = rainbowBox.selectAll(".bookImage")
-            .data(data.data)
+            .data(currentReads)
             .enter().append("image")
             .attr("class", "currentBook")
             .attr("xlink:href", bookImg)
