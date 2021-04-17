@@ -6,12 +6,14 @@ import sandhillImg from '../assets/sandhill.svg';
 import sandcastleImg from '../assets/sandcastle.svg';
 import topsoilImg from '../assets/topsoil.svg';
 import CurrentBookRainbow from '../CurrentBookRainbow/CurrentBookRainbow';
-import { getCurrentBooks } from '../apiCalls'
+import { getCurrentBooks } from '../apiCalls';
+import { Redirect } from 'react-router-dom';
 // import OpenBookImg from '../OpenBookImg/OpenBookImg';
 
 
 export const Home = () => {
     const [displayNewBookForm, setDisplayNewBookForm] = useState(false);
+    const [clickedBook, setClickedBook] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const [currentBooks, setCurrentBooks] = useState([]);
@@ -47,8 +49,13 @@ export const Home = () => {
             />
           </div>
           <img className='topsoil' src={topsoilImg} alt='Feel the grass at the top of the earth and dig deep to find your books to start your journey.' />
-          {!isLoading && <CurrentBookRainbow data={currentBooks}/>}
+          {!isLoading && <CurrentBookRainbow data={currentBooks} setClickedBook={setClickedBook}/>}
           {displayNewBookForm && <NewBookForm setDisplay={setDisplayNewBookForm}/>}
+          {clickedBook && <Redirect to={{
+              pathname: `/books/${clickedBook.attributes.title}`,
+              state: { book: clickedBook }
+            }}
+            ></Redirect> }
         </main>
     )
 }

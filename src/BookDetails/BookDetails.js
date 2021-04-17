@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
+import { NewBookMarkForm } from '../NewBookMarkForm/NewBookMarkForm';
+import { useLocation, withRouter } from 'react-router-dom';
 
-export const BookDetails = ({book}) => {
+const BookDetails = (props) => {
+  const [displayNewBookMarkForm, setDisplayNewBookMarkForm] = useState(false);
+  const book = props.location.state.book;
+  console.log(book);
 
     return(
         <section>
-          <button>Close Details</button>
+          <button>Back to Current Books</button>
           <article>
-            <img src={book.image}/>
-            <h2>{book.title}</h2>
-            <p>{book.summary}</p>
+            <h2>{book.attributes.title}</h2>
+            <h3>by {book.attributes.author}</h3>
+            <p>{book.attributes.pages} pages long</p>
           </article>
           <article>
             <div>PROGRESS BAR</div>
@@ -16,6 +21,9 @@ export const BookDetails = ({book}) => {
             <button>Finish Book</button>
             <button>Abandon Book</button>
           </article>
+          {displayNewBookMarkForm && <NewBookMarkForm />}
         </section>
     )
 }
+
+export default withRouter(BookDetails);

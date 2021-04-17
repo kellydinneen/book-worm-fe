@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { getBooks} from '../apiCalls.js';
-import { Card } from '../Card/Card'
+import { useForm } from "react-hook-form";
+import { Card } from '../Card/Card';
 
 export const NewBookForm = () => {
     const [bookList, setBookList] = useState([])
@@ -19,7 +20,7 @@ export const NewBookForm = () => {
 
     const bookListCard = bookList.map((book, i) => <Card book={book} key={i}/>)
 
-  
+
     return(
         <form className='add-a-book-form'>
           <label>What's the title of your book?</label>
@@ -46,11 +47,11 @@ export const NewBookForm = () => {
               }
             }>
           </input>
-          <button 
+          <button
             className='start-reading-btn'
             disabled={!title + !author}
             onClick={handleOnClick}
-            >Search 
+            >Search
           </button>
           <div className='card-wrapper'>
             {!!bookList.length && bookListCard}
@@ -58,4 +59,3 @@ export const NewBookForm = () => {
         </form>
     )
   }
-  
