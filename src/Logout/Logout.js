@@ -18,9 +18,8 @@ function Logout() {
         onFailure,
     });
     return (
-        <button onClick={signOut} className="logoutButton">
+        <button className="logoutButton" onClick={signOut} className="logoutButton">
             <img src={apple}></img>
-            <p>Logout</p>
         </button>
     );
 }

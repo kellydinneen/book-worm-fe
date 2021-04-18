@@ -10,6 +10,7 @@
 @import './NewBookMArkForm/NewBookMarkForm';
 @import './CurrentBookRainbow/CurrentBookRainbow';
 @import './Login/Login';
+@import './Logout/Logout';
 
 body,
 html {
@@ -22,7 +23,6 @@ html {
 
 button {
   border: none;
-  background-color: $fourth-accent-color;
   border-radius: 0.5em;
   &:active {
     color: white;
