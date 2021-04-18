@@ -1,7 +1,6 @@
 @import '../style/variables';
 
 .logOutButton {
-    background-color: $secondary-background;
-    height: 2em;
+    height: 4em;
     @include transform();
 }
