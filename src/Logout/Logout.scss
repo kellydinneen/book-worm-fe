@@ -2,4 +2,6 @@
 
 .logOutButton {
     background-color: $secondary-background;
+    height: 2em;
+    @include transform();
 }

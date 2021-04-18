@@ -1,3 +1,5 @@
+@import '../style/variables';
+
 .button-img {
   height: 4em;
   margin: 0.2em 0.5em;
@@ -7,15 +9,17 @@
 h1 {
   font-size: 3em;
   margin: 0.2em 0 0 7.5em;
+  -webkit-text-stroke: 1.5px $primary-background;
 }
 
 .greeting {
   margin: 0;
-  color: #057196; 
+  color: $first-accent-color; 
 }
 
 .header-container {
   display: flex;
+  flex-direction: row;
   width: 100%;
 }
 
@@ -23,10 +27,15 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #E3D1BE;
+  background: rgba(44,101,255,1);
   width: 100%;
 }
 
 .worm-img {
   height: 1em;
+}
+
+.titleCloud {
+  background-image: url('../assets/cloud.svg');
+  background-size: contain;
 }
