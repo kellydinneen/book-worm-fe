@@ -9,6 +9,7 @@
 @import './FinishBookForm/FinishBookForm';
 @import './NewBookMArkForm/NewBookMarkForm';
 @import './CurrentBookRainbow/CurrentBookRainbow';
+@import './Login/Login';
 
 body,
 html {
@@ -16,8 +17,21 @@ html {
   background-color: $primary-background;
   color: $secondary-text-color;
   height: 100%;
+  width: 100vw;
 }
 
+button {
+  border: none;
+  background-color: $fourth-accent-color;
+  border-radius: 0.5em;
+  &:active {
+    color: white;
+  }
+  &:hover{
+    background-color: $second-accent-color;
+    color: white;
+  }
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
