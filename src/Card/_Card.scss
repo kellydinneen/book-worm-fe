@@ -1,6 +1,7 @@
 .add-book-btn {
-  height: 2em;
-  width: 7em;
+  height: 2.5em;
+  width: 8em;
+  @include borderRadius();
 }
 
 .book-img {
@@ -9,12 +10,13 @@
 }
 
 .book-title {
-  color: #3C9F88;
+  color: #057196;
   font-size: 0.9em;
 }
 
 .card {
-  border: 0.1em solid #3C9F88;
+  border: 0.2em solid #057196;
+  @include borderRadius();
   height: 21em;
   width: 10em;
   display: flex;
@@ -24,6 +26,7 @@
 
 textarea {
   margin: 0.4em 0;
-  height: 15%;
-  width: 77%;
+  height: 3.5em;
+  width: 9em;
+  @include borderRadius();
 }
