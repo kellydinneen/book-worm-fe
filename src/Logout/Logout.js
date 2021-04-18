@@ -18,9 +18,9 @@ function Logout() {
         onFailure,
     });
     return (
-        <button className="logoutButton" onClick={signOut} className="logoutButton">
-            <img src={apple}></img>
-        </button>
+        <React.Fragment>
+            <img className="logoutButton" src={apple} onClick={signOut}></img>
+        </React.Fragment>
     );
 }
 

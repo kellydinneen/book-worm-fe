@@ -9,17 +9,17 @@ export const Header = () => {
   return (
     <header className='header-wrapper'>
       <div className='header-container'>
-        <img 
+          <h1 className="titleCloud">
+            BookWorm
+            <img className='worm-img' src={wormImg} alt='worm'/>
+          </h1>
+      </div>
+      <h2 className='greeting titleCloud'>Hi, Student</h2>
+      <img 
           alt='home button'
           className='button-img'
           src={homeBtnImg}
         />
-        <h1>
-          BookWorm
-          <img className='worm-img' src={wormImg} alt='worm'/>
-        </h1>
-      </div>
-      <h2 className='greeting'>Hi, Student</h2>
       <Logout />
     </header>
   )
