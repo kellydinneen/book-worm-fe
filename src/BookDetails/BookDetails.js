@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NewBookMarkForm } from '../NewBookMarkForm/NewBookMarkForm';
 import { FinishBookForm } from '../FinishBookForm/FinishBookForm';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { getBookMarks } from '../apiCalls.js';
 
 const BookDetails = (props) => {
@@ -34,9 +34,6 @@ const BookDetails = (props) => {
 
     return(
       <main>
-        <Link to='/'>
-          <button>Back to Current Books</button>
-        </Link>
         <section className='book-details'>
             <article className='book-info'>
               <img 
