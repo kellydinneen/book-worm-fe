@@ -18,7 +18,7 @@ export const NewBookForm = ({ setDisplay }) => {
     }
 
     const bookListCard = bookList.map((book, i) => <Card book={book} key={i}/>)
-
+    console.log(bookList)
     return(
         <section className='add-a-book-form'>
           <img 
