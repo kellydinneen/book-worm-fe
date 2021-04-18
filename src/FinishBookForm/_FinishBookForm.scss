@@ -1,9 +1,11 @@
+.finished-book-submit-button {
+  @include buttonStyling();
+  @include borderRadius();
+}
+
 .finish-form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.finish-form-label {
-  color: $secondary-text-color;
-}

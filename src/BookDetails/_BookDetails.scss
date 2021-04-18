@@ -37,7 +37,7 @@ main {
 
 .bookmark-cancel-button {
   align-self: center;
-  @include detailPageButton();
+  @include buttonStyling();
   @include borderRadius();
 }
 

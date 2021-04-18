@@ -26,7 +26,7 @@ $fifth-accent-color: #3C9F88;
   width: 20vw;
 }
 
-@mixin detailPageButton() {
+@mixin buttonStyling() {
   background-color: $third-accent-color;
   margin-top: 0.5em;
   width: 13em;
