@@ -1,37 +1,48 @@
 main {
-  align-items: center;
+  text-align: center;
 }
 
 .book-details {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: $third-accent-color;
-  color: $fourth-accent-color;
-  margin-top: 5vh;
-  width: 60vw;
-  height: 70vh;
-  border-radius: 10%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2em;
+  color: #000000;
+  margin: 3.5em 1em;
+  height: 60vh;
 }
 
 .bookmarks-display {
-  padding: 1vw;
-  height: 60vh;
-  width: 16vw;
+  background-color: $secondary-text-color;
+  @include borderRadius();
+  @include bookDetailStyle();
 }
 
 .book-info {
-  padding: 1vw;
-  height: 60vh;
-  width: 20vw;
+  background: $fifth-accent-color;
+  @include bookDetailStyle();
+  @include borderRadius();
 }
 
 .book-options {
-  padding: 1vw;
-  height: 60vh;
-  width: 10vw;
+  display: flex;
+  flex-direction: column;
+  background-color: $secondary-background;
+  @include bookDetailStyle();
+  @include borderRadius();
 }
 
 .book-details-image {
   width: 12vw;
+}
+
+.bookmark-cancel-button {
+  align-self: center;
+  @include detailPageButton();
+  @include borderRadius();
+}
+
+.detail-button {
+  margin: 5em 0 1em 2.5em;
+  height: 4em;
+  width: 15em;
 }

@@ -4,6 +4,18 @@
   align-items: center;
 }
 
-.new-bookmark-label {
-  color: white;
+.book-mark-form-input, 
+select {
+  width: 13em;
+  text-align: center;
 }
+
+.book-mark-form-textarea {
+  height: 5em;
+}
+
+.bookmark-submit-button {
+  @include detailPageButton();
+  @include borderRadius();
+}
+
