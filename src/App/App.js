@@ -9,7 +9,6 @@ import Logout from '../Logout/Logout';
 const App = () => {
   return(
     <React.Fragment>
-      {/* pass in signout status to Header component*/}
       <Header />
       <Switch>
         <Route

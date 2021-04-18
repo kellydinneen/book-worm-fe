@@ -32,6 +32,12 @@ function Login() {
         <React.Fragment>
         {currentUser && <main>
           <div className="loginBackground">
+            <div className='loginTitleContainer'>  
+              <h1>
+              BookWorm
+              </h1>
+            </div>
+            <p>Track your reading progress!</p>
             <div className="loginContainer">
               <div className="imageContainer">
                 <img className="book" src={bookImg}></img>

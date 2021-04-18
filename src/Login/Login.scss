@@ -24,10 +24,27 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 10%;
+    margin-top: 5%;
     padding: 2em;
-    width: 40%;
+    width: 35%;
 }
+
+.loginTitleContainer {
+    border-radius: 0.5em;
+    padding: 0.5em;
+    align-items: center;
+    background-color: white;
+    box-shadow: 
+         0 0 0 2px $first-accent-color,
+         0 0 0 4px $second-accent-color,
+         0 0 0 6px $third-accent-color,
+         0 0 0 8px $fourth-accent-color,
+         0 0 0 10px $fifth-accent-color;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 2em;
+  }
 
 .worm {
     height: 10em;
