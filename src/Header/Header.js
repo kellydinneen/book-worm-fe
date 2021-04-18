@@ -1,6 +1,7 @@
 import React from 'react'
 import apple from '../assets/apple.svg'
 import star from '../assets/star.svg'
+import Logout from '../Logout/Logout'
 
 
 export const Header = () => {
@@ -16,11 +17,7 @@ export const Header = () => {
         <h1>BookWorm</h1>
       </div>
       <h2 className='greeting'>Hi, Student</h2>
-      <img 
-        alt='apple logout button'
-        className='button-img'
-        src={apple}
-      />
+      <Logout />
     </header>
   )
 }
