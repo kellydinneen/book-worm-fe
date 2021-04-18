@@ -1,3 +1,4 @@
+@import '../style/variables';
 .add-book-btn {
   height: 2.5em;
   width: 8em;
@@ -10,12 +11,12 @@
 }
 
 .book-title {
-  color: #057196;
+  color: $fourth-accent-color;
   font-size: 0.9em;
 }
 
 .card {
-  border: 0.2em solid #057196;
+  border: 0.2em solid $fourth-accent-color;
   @include borderRadius();
   height: 21em;
   width: 10em;
