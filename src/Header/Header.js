@@ -1,5 +1,4 @@
 import React from 'react';
-import appleImg from '../assets/apple.svg';
 import homeBtnImg from '../assets/home.svg';
 import wormImg from '../assets/worm.png'
 import Logout from '../Logout/Logout'

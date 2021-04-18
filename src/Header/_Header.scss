@@ -11,7 +11,7 @@ h1 {
 
 .greeting {
   margin: 0;
-  color: #057196; 
+  color: $fourth-accent-color; 
 }
 
 .header-container {
@@ -23,7 +23,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #E3D1BE;
+  background: $secondary-background;
   width: 100%;
 }
 
