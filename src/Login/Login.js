@@ -1,7 +1,7 @@
 import React from 'react';
 import { useGoogleLogin } from 'react-google-login';
 import { refreshTokenSetup } from '../utils/refreshToken';
-import star from '../assets/star.svg'
+import wormImg from '../assets/worm.png';
 
 const clientId = '426129823464-ckm4t40qqinikh5e96pvna36i4tujlo5.apps.googleusercontent.com';
 
@@ -21,11 +21,16 @@ function Login() {
         accessType: 'offline',
     })
     return (
-        <button onClick={signIn} className="loginButton">
-            <img src={star}>
-            </img>
-            <p>Login</p>
-        </button>
+        <main>
+          <div className="loginBackground">
+            <div className="loginContainer">
+              <img className="worm" src={wormImg}></img>
+              <button onClick={signIn} className="loginButton">
+               Sign In
+              </button>
+            </div>
+          </div>
+        </main>
     )
 }
 
