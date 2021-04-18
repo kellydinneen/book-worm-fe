@@ -16,3 +16,7 @@ $fifth-accent-color: #3C9F88;
     transform: scale(1.10, 1.10);
   }
 }
+
+@mixin borderRadius() {
+  border-radius: 0.5em;
+}

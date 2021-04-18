@@ -7,7 +7,10 @@ import exitImg from '../assets/exit.png';
 export const NewBookForm = ({ setDisplay }) => {
     const [bookList, setBookList] = useState([])
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => fetchAllBooks(data.title, data.author);
+    const onSubmit = (data, event) => {
+      fetchAllBooks(data.title, data.author)
+      event.target.reset(); 
+    };
 
     async function fetchAllBooks(title, author) {
       const getBookList = await (getBooks(title, author))
@@ -25,7 +28,7 @@ export const NewBookForm = ({ setDisplay }) => {
             onClick={() => setDisplay(false)}
           />
           <form className='search-form' onSubmit={handleSubmit(onSubmit)}>
-            <label>What's the title of your book?
+            <label>What's the title of the book?
               <input 
                 id='title'
                 className='search-input' 
@@ -34,7 +37,7 @@ export const NewBookForm = ({ setDisplay }) => {
                 aria-invalid={errors.title ? "true" : "false"}
                 {...register("title", {required: true, maxLength: 100})} />
             </label>
-            <label>Who is the author of your book?
+            <label>Who is the author of the book?
               <input 
                 id='author'
                 className='search-input' 
@@ -42,8 +45,8 @@ export const NewBookForm = ({ setDisplay }) => {
                 placeholder="Enter author here" 
                 aria-invalid={errors.author ? "true" : "false"}
                 {...register("author", {required: true, maxLength: 100})} />
-            <input className='submit-button' type="submit" />
             </label>
+            <input className='submit-button' type="submit" />
             {errors.title && errors.title.type === "required" && (
               <span role="alert">Title is required</span>
             )}
