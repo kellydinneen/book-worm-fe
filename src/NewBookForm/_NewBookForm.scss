@@ -12,12 +12,6 @@
   opacity: 0.9;
 }
 
-.search-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .card-wrapper {
   text-align: center;
   overflow-y: scroll;
@@ -27,14 +21,28 @@
   padding: 2em;
 }
 
-input {
+.exit-img {
+  height: 2.5em;
+  align-self: flex-end;
+  @include transform();
+}
+
+.search-input {
   height: auto;
   width: 40%;
+  margin-left: 0.5em;
 }
 
 label {
   color: #000000;
   padding: 2%;
+  margin-left: 0.5em;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .start-reading-btn {
