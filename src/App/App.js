@@ -17,7 +17,6 @@ const App = () => {
           render={() => (
             <div>
             <Login />
-            {/* <Logout /> */}
             </div>
             )}
         />
