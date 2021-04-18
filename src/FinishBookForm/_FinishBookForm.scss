@@ -1,3 +1,7 @@
+.finished-books-textarea {
+  height: 4em;
+}
+
 .finished-book-submit-button {
   @include buttonStyling();
   @include borderRadius();

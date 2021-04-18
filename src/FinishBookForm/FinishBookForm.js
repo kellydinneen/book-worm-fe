@@ -23,21 +23,15 @@ export const FinishBookForm = ({ book }) => {
 
     return (
       <form className='finish-form' onSubmit={handleSubmit(onSubmit)}>
-        <label>How did you like it on a scale from 1 to 5?</label>
-        <StarRating totalStars={5}/>
-        {/* <select {...register("rating", { required: true })}>
-          <option value="1">⭐️</option>
-          <option value="2"> ⭐️⭐️</option>
-          <option value="3"> ⭐️⭐️⭐️</option>
-          <option value="4"> ⭐️⭐️⭐️⭐️</option>
-          <option value="5"> ⭐️⭐️⭐️⭐️⭐️</option>
-        </select> */}
+        <label>Rate the book on a scale from 1 to 5?</label>
+        <StarRating totalStars={5} />
         <label>Tell your friends a little bit about it:</label>
-        <input 
+        <textarea
+          className='finished-books-textarea'
           type="text" 
-          placeholder="review" 
+          placeholder="Write your review here" 
           {...register("review", {required: true, maxLength: 500})} 
-        />
+        ></textarea> 
         <button 
           className='finished-book-submit-button'
           type="submit">Submit
