@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Route } from 'react-router-dom';
 import { useGoogleLogin } from 'react-google-login';
 import { refreshTokenSetup } from '../utils/refreshToken';
 import { Home } from '../Home/Home';
@@ -27,10 +28,11 @@ function Login() {
     })
     gsap.to(".worm", {x: -100, duration:2, ease: "bounce"})
     gsap.to(".book", {x: 100, duration:2, scale: 1.2, ease: "bounce"})
-
+    console.log(currentUser)
     return (
         <React.Fragment>
-        {currentUser && <main>
+        {!currentUser.googleId && 
+        <main>
           <div className="loginBackground">
             <div className='loginTitleContainer'>  
               <h1>
@@ -50,7 +52,9 @@ function Login() {
           </div>
         </main>
         }   
-       {/* <Home currentUser={currentUser}/> */}
+       {currentUser.googleId &&
+           <Home currentUser={currentUser}/>
+        }
         </React.Fragment>
         
         

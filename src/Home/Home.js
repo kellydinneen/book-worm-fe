@@ -7,17 +7,19 @@ import sandcastleImg from '../assets/sandcastle.svg';
 import topsoilImg from '../assets/topsoil.svg';
 import CurrentBookRainbow from '../CurrentBookRainbow/CurrentBookRainbow';
 import { getCurrentBooks } from '../apiCalls';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
+import { Header } from '../Header/Header';
 // import OpenBookImg from '../OpenBookImg/OpenBookImg';
 
 
-export const Home = () => {
+export const Home = ({currentUser}) => {
+    console.log("user", currentUser)
     const [displayNewBookForm, setDisplayNewBookForm] = useState(false);
     const [clickedBook, setClickedBook] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const [currentBooks, setCurrentBooks] = useState([]);
-
+    
     const fetchCurrentBooks = async () => {
       const gotBooks = await getCurrentBooks();
       setCurrentBooks(gotBooks);
@@ -32,6 +34,7 @@ export const Home = () => {
 
     return (
         <main>
+          <Header currentUser={currentUser}/>
           <div className='navigation-wrapper'>
             <img
               className='mountain'

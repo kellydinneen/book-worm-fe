@@ -1,15 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Home } from '../Home/Home';
 import { Header } from '../Header/Header';
 import BookDetails from '../BookDetails/BookDetails';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Login from '../Login/Login';
 import Logout from '../Logout/Logout';
 
-const App = () => {
+const App = ({currentUser}) => {
   return(
     <React.Fragment>
-      <Header />
       <Switch>
         <Route
           exact path='/'
@@ -22,7 +21,7 @@ const App = () => {
         <Route
           exact path='/home'
           render={() => (
-            <Home />
+            <Home currentUser={currentUser}/>
             )}
         />
         <Route
