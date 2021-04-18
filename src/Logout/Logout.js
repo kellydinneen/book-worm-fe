@@ -19,7 +19,7 @@ function Logout() {
     });
     return (
         <React.Fragment>
-            <img className="logoutButton" src={apple} onClick={signOut}></img>
+            <img className="logOutButton" onClick={signOut} src={apple}></img>
         </React.Fragment>
     );
 }
