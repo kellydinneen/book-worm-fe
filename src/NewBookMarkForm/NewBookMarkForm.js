@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from "react-hook-form";
 import { postBookMark } from '../apiCalls.js';
 
 export const NewBookMarkForm = ({ book }) => {
-  const { register, reset, handleSubmit, formState: { errors } } = useForm();
-  console.log(book);
+  const { register, reset, handleSubmit} = useForm();
 
   const defaultValues = {
     select: "",
@@ -25,7 +24,6 @@ export const NewBookMarkForm = ({ book }) => {
     submitBookMark(data);
     reset({ defaultValues })
   };
-  console.log(errors);
 
   return (
    <form className='bookmark-form' onSubmit={handleSubmit(onSubmit)}>
@@ -33,7 +31,8 @@ export const NewBookMarkForm = ({ book }) => {
      <input 
         className='book-mark-form-input'
         type="number" 
-        placeholder="Page number" {...register("page", {required: true})} 
+        placeholder="Page number"
+        {...register("page", {required: true})} 
       />
      <label>How many minutes did you read for?</label>
      <input 
