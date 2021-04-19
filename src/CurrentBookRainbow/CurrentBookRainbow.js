@@ -11,56 +11,37 @@ const CurrentBookRainbow = ({ data, setClickedBook }) => {
     const bookPositionScale = d3.scaleQuantize()
         .domain([0, 1])
         .range([[50, 550], [90, 500], [120, 430], [130, 360], [160, 300], [200, 240], [235, 160], [280, 100], [325, 30], [380, -35]])
+  
     const xScale = d3.scaleLinear()
         .range([70, 1000])
+        
     const tickLabels = currentReads.map(d => d.attributes.title)
+
     const xAxisMaker = d3.axisBottom(xScale)
         .ticks(4)
         .tickFormat((d, i) => tickLabels[i])
+
     const xAxis =
         rainbowBox.append("g")
         .attr("transform", "translate(0, 650)")
         .call(xAxisMaker)
+
     xAxis.selectAll("text")
-        .attr("font-size", "15")
+        .attr("font-size", "18")
         .attr("color", "#F29024")
-        .attr("font-family", "Marker Felt, fantasy")
+        .attr("x", 40)
+        .attr("y", 110)
+        .attr("transform", "rotate(8)")
 
-        const currentReads = data.data.slice(0, 5);
-        const rainbowBox = d3.select(".rainbowBox")
-
-        const bookPositionScale = d3.scaleQuantize()
-            .domain([0, 1])
-            .range([[50, 550], [90, 500], [120, 430], [130, 360], [160, 300], [200, 240], [235, 160], [280, 100], [325, 30], [380, -35]])
-        
-        const xScale = d3.scaleLinear()
-            .range([70, 1000])
-        
-        const tickLabels = currentReads.map(d => {
-            return d.attributes.title})
-        
-        const xAxisMaker = d3.axisBottom(xScale)
-            .ticks(4)
-            .tickFormat((d, i) => tickLabels[i])
-        const xAxis =
-            rainbowBox.append("g")
-            .attr("transform", "translate(0, 650)")
-            .call(xAxisMaker)
-        xAxis.selectAll("text")
-            .attr("font-size", "18")
-            .attr("color", "#F29024")
-            .attr("x", 40)
-            .attr("y", 110)
-            .attr("transform", "rotate(8)")
-        const worms = rainbowBox.selectAll(".currentBook")
-            .data(currentReads)
-            .enter().append("image")
-            .attr("class", "currentBook")
-            .attr("xlink:href", wormImg)
-            .attr("x", (d, i) => bookPositionScale(0.1)[0] + (170 * i) + 250)
-            .attr("y", d => bookPositionScale(0.9)[1])
-            .attr("height", "75")
-            .attr("width", "75")
+    const worms = rainbowBox.selectAll(".currentBook")
+        .data(currentReads)
+        .enter().append("image")
+        .attr("class", "currentBook")
+        .attr("xlink:href", wormImg)
+        .attr("x", (d, i) => bookPositionScale(0.1)[0] + (170 * i) + 250)
+        .attr("y", d => bookPositionScale(0.9)[1])
+        .attr("height", "75")
+        .attr("width", "75")
 
     const bookIcons = rainbowBox.selectAll(".bookImage")
         .data(currentReads)
