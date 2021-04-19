@@ -1,10 +1,10 @@
 import React from 'react';
-import { Home } from '../Home/Home';
+import Home from '../Home/Home';
 import BookDetails from '../BookDetails/BookDetails';
 import { Switch, Route } from 'react-router-dom';
 import Login from '../Login/Login';
 
-const App = ({currentUser}) => {
+const App = () => {
   return(
     <React.Fragment>
       <Switch>
@@ -17,9 +17,9 @@ const App = ({currentUser}) => {
             )}
         />
         <Route
-          exact path='/'
+          exact path='/home'
           render={() => (
-            <Home currentUser={currentUser}/>
+            <Home />
             )}
         />
         <Route

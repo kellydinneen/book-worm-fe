@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { withRouter } from 'react-router-dom';
 import { NewBookForm } from '../NewBookForm/NewBookForm';
 import mountainImg from '../assets/mountain.svg';
 import treesImg from '../assets/trees.svg'
@@ -12,13 +13,14 @@ import { Header } from '../Header/Header';
 import FinishedBook from '../Celebration/Celebration';
 
 
-export const Home = ({currentUser}) => {
-    console.log("user", currentUser)
+const Home = (props) => {
     const [displayNewBookForm, setDisplayNewBookForm] = useState(false);
     const [clickedBook, setClickedBook] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [currentBooks, setCurrentBooks] = useState([]);
-    
+    console.log(props.location.state);
+    const currentUser = props.location.state.currentUser;
+
     const fetchCurrentBooks = async () => {
       const gotBooks = await getCurrentBooks();
       setCurrentBooks(gotBooks);
@@ -52,26 +54,28 @@ export const Home = ({currentUser}) => {
             />
           </div>
           <img className='topsoil' src={topsoilImg} alt='Feel the grass at the top of the earth and dig deep to find your books to start your journey.' />
-          {!isLoading && 
-            <CurrentBookRainbow 
-              data={currentBooks} 
+          {!isLoading &&
+            <CurrentBookRainbow
+              data={currentBooks}
               setClickedBook={setClickedBook}
             />
           }
-          {displayNewBookForm && 
-            <NewBookForm 
+          {displayNewBookForm &&
+            <NewBookForm
               setDisplay={setDisplayNewBookForm}
             />
           }
-          {clickedBook && 
-            <Redirect 
+          {clickedBook &&
+            <Redirect
               to={{
                 pathname: `/books/${clickedBook.attributes.title}`,
                 state: { book: clickedBook }
               }}
-            ></Redirect> 
+            ></Redirect>
           }
           <FinishedBook currentUser={currentUser}/>
         </main>
     )
 }
+
+export default withRouter(Home);

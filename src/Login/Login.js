@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Redirect } from 'react-router-dom';
 import { useGoogleLogin } from 'react-google-login';
 import { refreshTokenSetup } from '../utils/refreshToken';
 import { Home } from '../Home/Home';
@@ -30,10 +31,10 @@ function Login() {
 
     return (
         <React.Fragment>
-        {!currentUser.googleId && 
+        {!currentUser.googleId &&
         <main>
           <div className="loginBackground">
-            <div className='loginTitleContainer'>  
+            <div className='loginTitleContainer'>
               <h1>
               BookWorm
               </h1>
@@ -50,13 +51,16 @@ function Login() {
             </div>
           </div>
         </main>
-        }   
-        {currentUser.googleId &&
-          <Home 
-             currentUser={currentUser}
-          />
         }
-        </React.Fragment>       
+        {currentUser.googleId &&
+          <Redirect
+            to={{
+              pathname: `/home`,
+              state: { currentUser: currentUser }
+            }}
+          ></Redirect>
+        }
+        </React.Fragment>
     )
 }
 
