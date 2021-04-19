@@ -18,7 +18,6 @@ export const NewBookForm = ({ setDisplay }) => {
     }
 
     const bookListCard = bookList.map((book, i) => <Card book={book} key={i}/>)
-    console.log(bookList)
     return(
         <section className='add-a-book-form'>
           <img 
@@ -50,7 +49,7 @@ export const NewBookForm = ({ setDisplay }) => {
             {errors.title && errors.title.type === "required" && (
               <span role="alert">Title is required</span>
             )}
-             {errors.author && errors.author.type === "required" && (
+            {errors.author && errors.author.type === "required" && (
               <span role="alert">Author is required</span>
             )}
           </form>

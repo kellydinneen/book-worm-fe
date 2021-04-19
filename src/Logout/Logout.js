@@ -9,12 +9,9 @@ import Login from '../Login/Login';
 const clientId = '426129823464-ckm4t40qqinikh5e96pvna36i4tujlo5.apps.googleusercontent.com';
 
 function Logout({googleId}) {
-    console.log(googleId)
     const [currentUser, setCurrentUser] = useState(googleId)
-    console.log("beforeLogout", currentUser)
     const onLogoutSuccess = (res) => {     
         setCurrentUser({});
-        console.log("logoutUser", currentUser)
         console.log('Logout was successful!');
     };
     const onFailure = () => {
