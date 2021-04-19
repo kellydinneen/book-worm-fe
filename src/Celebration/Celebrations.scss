@@ -2,6 +2,7 @@
 
 .celebrationStation {
   background-color: $primary-background;
+  background-image: url('../assets/confetti.svg');
   border-radius: 0.5em;
     padding: 1em;
     align-items: center;
@@ -18,18 +19,46 @@
     width: 60%;
 }
 
-.celebrationTitle {
-  color: $heading-text-color;
-  font-size: 2em;
-  margin: 1em;
+.apple {
+  height: 10em;
 }
 
+.balloonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.celebrationTitle {
+  font-size: 2em;
+}
+
+.confettiContainer {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0;
+}
 .dancingBook {
-    height: 10em;
+    height: 15em;
 }
 
 .dancingWorm {
     height: 12em;
 
 }
-  
+
+.donut {
+  height: 8em;
+}
+.flower {
+  height: 10em;
+}
+
+.sushi {
+  height: 8em;
+}
+
+.yellowBalloon, .redBalloon {
+  height: 16em;
+}

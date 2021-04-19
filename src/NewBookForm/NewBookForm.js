@@ -42,12 +42,12 @@ export const NewBookForm = ({ setDisplay }) => {
                 {...register("author", {required: true, maxLength: 100})} />
             </label>
             <input className='submit-button' type="submit" />
-            {errors.title && errors.title.type === "required" && (
+            {/* {errors.title && errors.title.type === "required" && (
               <span role="alert">Title is required</span>
             )}
             {errors.author && errors.author.type === "required" && (
               <span role="alert">Author is required</span>
-            )}
+            )} */}
           </form>
           <div className='card-wrapper'>
             {!!bookList.length && bookListCard}
