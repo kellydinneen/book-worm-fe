@@ -11,7 +11,7 @@ const Star = ({ marked, starId }) => {
 export const StarRating = ({ value }) => {
   const [rating, setRating] = useState(parseInt(value) || 0);
   const [selection, setSelection] = useState(0);
-  
+
   const hoverOver = event => {
     let val = 0;
     if (event && event.target && event.target.getAttribute('data-star-id'))
