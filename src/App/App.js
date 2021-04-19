@@ -8,16 +8,16 @@ const App = ({currentUser}) => {
   return(
     <React.Fragment>
       <Switch>
-        <Route
+        {/* <Route
           exact path='/'
           render={() => (
             <div>
             <Login />
             </div>
             )}
-        />
+        /> */}
         <Route
-          exact path='/home'
+          exact path='/'
           render={() => (
             <Home currentUser={currentUser}/>
             )}

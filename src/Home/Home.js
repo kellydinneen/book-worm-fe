@@ -17,20 +17,20 @@ export const Home = ({currentUser}) => {
     const [displayNewBookForm, setDisplayNewBookForm] = useState(false);
     const [clickedBook, setClickedBook] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(null);
     const [currentBooks, setCurrentBooks] = useState([]);
     
     const fetchCurrentBooks = async () => {
       const gotBooks = await getCurrentBooks();
       setCurrentBooks(gotBooks);
       setIsLoading(false);
-      console.log('in Fetch', currentBooks)
     }
 
-    useEffect(async () => {
-      await fetchCurrentBooks()
-      console.log('HomeUseEffect', currentBooks, currentBooks.length > 0, isLoading);
-    }, [])
+    useEffect(() => {
+      async function getStudentCurrentBooks() {
+        await fetchCurrentBooks();
+      }
+      getStudentCurrentBooks()
+    }, []);
 
     return (
         <main>

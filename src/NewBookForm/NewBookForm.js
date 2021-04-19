@@ -6,7 +6,7 @@ import exitImg from '../assets/exit.png';
 
 export const NewBookForm = ({ setDisplay }) => {
     const [bookList, setBookList] = useState([])
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit} = useForm();
     const onSubmit = (data, event) => {
       fetchAllBooks(data.title, data.author)
       event.target.reset(); 
@@ -29,20 +29,16 @@ export const NewBookForm = ({ setDisplay }) => {
           <form className='search-form' onSubmit={handleSubmit(onSubmit)}>
             <label>What's the title of the book?
               <input 
-                id='title'
                 className='search-input' 
                 type="text" 
                 placeholder="Enter title here" 
-                aria-invalid={errors.title ? "true" : "false"}
                 {...register("title", {required: true, maxLength: 100})} />
             </label>
             <label>Who is the author of the book?
               <input 
-                id='author'
                 className='search-input' 
                 type="text" 
                 placeholder="Enter author here" 
-                aria-invalid={errors.author ? "true" : "false"}
                 {...register("author", {required: true, maxLength: 100})} />
             </label>
             <input className='submit-button' type="submit" />

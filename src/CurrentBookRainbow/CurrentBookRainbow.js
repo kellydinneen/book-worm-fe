@@ -1,14 +1,30 @@
 import React, { useEffect } from 'react';
 import * as d3 from 'd3';
-import { svg } from 'd3';
-import { Link, useHistory } from 'react-router-dom';
 import wormImg from '../assets/worm.png';
 import bookImg from '../assets/openbook.png';
 
 const CurrentBookRainbow = ({ data, setClickedBook }) => {
 
   const drawRainbow = () => {
-      console.log('DrawRainbow', data)
+    const currentReads = data.data.slice(0, 5);
+    const rainbowBox = d3.select(".rainbowBox")
+    const bookPositionScale = d3.scaleQuantize()
+        .domain([0, 1])
+        .range([[50, 550], [90, 500], [120, 430], [130, 360], [160, 300], [200, 240], [235, 160], [280, 100], [325, 30], [380, -35]])
+    const xScale = d3.scaleLinear()
+        .range([70, 1000])
+    const tickLabels = currentReads.map(d => d.attributes.title)
+    const xAxisMaker = d3.axisBottom(xScale)
+        .ticks(4)
+        .tickFormat((d, i) => tickLabels[i])
+    const xAxis =
+        rainbowBox.append("g")
+        .attr("transform", "translate(0, 650)")
+        .call(xAxisMaker)
+    xAxis.selectAll("text")
+        .attr("font-size", "15")
+        .attr("color", "#F29024")
+        .attr("font-family", "Marker Felt, fantasy")
 
         const currentReads = data.data.slice(0, 5);
         const rainbowBox = d3.select(".rainbowBox")
@@ -46,18 +62,18 @@ const CurrentBookRainbow = ({ data, setClickedBook }) => {
             .attr("height", "75")
             .attr("width", "75")
 
-        const bookIcons = rainbowBox.selectAll(".bookImage")
-            .data(currentReads)
-            .enter().append("image")
-            .attr("class", "bookImage")
-            .attr("xlink:href", bookImg)
-            .attr("x", (d, i) => 50 + 175 * i)
-            .attr("y", '680')
-            .attr("height", "75")
-            .attr("width", "75")
-            .on('click', (e, d) => {
-              setClickedBook(d)
-            })
+    const bookIcons = rainbowBox.selectAll(".bookImage")
+        .data(currentReads)
+        .enter().append("image")
+        .attr("class", "bookImage")
+        .attr("xlink:href", bookImg)
+        .attr("x", (d, i) => 50 + 175 * i)
+        .attr("y", '680')
+        .attr("height", "75")
+        .attr("width", "75")
+        .on('click', (e, d) => {
+          setClickedBook(d)
+        })
     }
 
     useEffect(() => {
