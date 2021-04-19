@@ -1,0 +1,35 @@
+@import '../style/variables';
+
+.celebrationStation {
+  background-color: $primary-background;
+  border-radius: 0.5em;
+    padding: 1em;
+    align-items: center;
+    box-shadow: 
+         0 0 0 2px $first-accent-color,
+         0 0 0 4px $second-accent-color,
+         0 0 0 6px $third-accent-color,
+         0 0 0 8px $fourth-accent-color;
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+    justify-content: center;
+    margin: 2em;
+    width: 60%;
+}
+
+.celebrationTitle {
+  color: $heading-text-color;
+  font-size: 2em;
+  margin: 1em;
+}
+
+.dancingBook {
+    height: 10em;
+}
+
+.dancingWorm {
+    height: 12em;
+
+}
+  
