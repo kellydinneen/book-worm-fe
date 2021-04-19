@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Redirect } from 'react-router-dom';
 import { useGoogleLogin } from 'react-google-login';
 import { refreshTokenSetup } from '../utils/refreshToken';
 import { Home } from '../Home/Home';
@@ -8,8 +9,8 @@ import { gsap } from 'gsap';
 
 const clientId = '426129823464-ckm4t40qqinikh5e96pvna36i4tujlo5.apps.googleusercontent.com';
 
-function Login() {
-    const [currentUser, setCurrentUser] = useState({})
+function Login({ currentUser, setCurrentUser }) {
+
     const onSuccess = (res) => {
         console.log('[Login Success] currentUser:', res.profileObj);
         setCurrentUser(res.profileObj)
@@ -30,10 +31,10 @@ function Login() {
 
     return (
         <React.Fragment>
-        {!currentUser.googleId && 
+        {!currentUser.googleId &&
         <main>
           <div className="loginBackground">
-            <div className='loginTitleContainer'>  
+            <div className='loginTitleContainer'>
               <h1>
               BookWorm
               </h1>
@@ -50,13 +51,13 @@ function Login() {
             </div>
           </div>
         </main>
-        }   
-        {currentUser.googleId &&
-          <Home 
-             currentUser={currentUser}
-          />
         }
-        </React.Fragment>       
+        {currentUser.googleId &&
+          <Redirect
+            to='/home'
+          ></Redirect>
+        }
+        </React.Fragment>
     )
 }
 

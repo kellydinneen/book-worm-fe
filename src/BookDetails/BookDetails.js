@@ -8,6 +8,7 @@ const BookDetails = (props) => {
   const [displayNewBookMarkForm, setDisplayNewBookMarkForm] = useState(false);
   const [displayFinishBookForm, setDisplayFinishBookForm] = useState(false);
   const [bookMarks, setBookMarks] = useState(null);
+  console.log(props);
   const book = props.location.state.book;
 
   async function fetchBookMarks() {
@@ -28,7 +29,7 @@ const BookDetails = (props) => {
     async function grabBookMarks() {
       await fetchBookMarks()
        bookMarks ? bookMarkDisplays() : console.log('no bookmarks');
-    } 
+    }
     grabBookMarks()
   }, [])
 
@@ -36,9 +37,9 @@ const BookDetails = (props) => {
       <main>
         <section className='book-details'>
             <article className='book-info'>
-              <img 
-                className='book-details-image' 
-                src={book.attributes.image} 
+              <img
+                className='book-details-image'
+                src={book.attributes.image}
                 alt='book cover'
               />
               <h2>{book.attributes.title}</h2>
@@ -50,21 +51,21 @@ const BookDetails = (props) => {
               {bookMarks && bookMarkDisplays}
             </article>
             <article className='book-options'>
-              {!displayNewBookMarkForm && 
-                <button 
+              {!displayNewBookMarkForm &&
+                <button
                   className='detail-button'
                   onClick={() => setDisplayNewBookMarkForm(true)}>Add A Bookmark
                 </button>
               }
               {displayNewBookMarkForm && <>
                 <NewBookMarkForm book={book}/>
-                <button 
+                <button
                   className='bookmark-cancel-button'
                   onClick={() => setDisplayNewBookMarkForm(false)}>Cancel
                 </button>
               </>}
-              {!displayFinishBookForm && 
-                <button 
+              {!displayFinishBookForm &&
+                <button
                   className='detail-button'
                   onClick={() => setDisplayFinishBookForm(true)}>Finish Book
                 </button>
@@ -72,7 +73,7 @@ const BookDetails = (props) => {
               {displayFinishBookForm &&
                 <>
                   <FinishBookForm book={book}/>
-                  <button 
+                  <button
                     className='bookmark-cancel-button'
                     onClick={() => setDisplayFinishBookForm(false)}>Cancel
                   </button>

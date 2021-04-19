@@ -13,12 +13,11 @@ import FinishedBook from '../Celebration/Celebration';
 
 
 export const Home = ({currentUser}) => {
-    console.log("user", currentUser)
     const [displayNewBookForm, setDisplayNewBookForm] = useState(false);
     const [clickedBook, setClickedBook] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [currentBooks, setCurrentBooks] = useState([]);
-    
+
     const fetchCurrentBooks = async () => {
       const gotBooks = await getCurrentBooks();
       setCurrentBooks(gotBooks);
@@ -34,7 +33,6 @@ export const Home = ({currentUser}) => {
 
     return (
         <main>
-          <Header currentUser={currentUser}/>
           <div className='navigation-wrapper'>
             <img
               className='mountain'
@@ -52,24 +50,24 @@ export const Home = ({currentUser}) => {
             />
           </div>
           <img className='topsoil' src={topsoilImg} alt='Feel the grass at the top of the earth and dig deep to find your books to start your journey.' />
-          {!isLoading && 
-            <CurrentBookRainbow 
-              data={currentBooks} 
+          {!isLoading &&
+            <CurrentBookRainbow
+              data={currentBooks}
               setClickedBook={setClickedBook}
             />
           }
-          {displayNewBookForm && 
-            <NewBookForm 
+          {displayNewBookForm &&
+            <NewBookForm
               setDisplay={setDisplayNewBookForm}
             />
           }
-          {clickedBook && 
-            <Redirect 
+          {clickedBook &&
+            <Redirect
               to={{
                 pathname: `/books/${clickedBook.attributes.title}`,
                 state: { book: clickedBook }
               }}
-            ></Redirect> 
+            ></Redirect>
           }
           <FinishedBook currentUser={currentUser}/>
         </main>
