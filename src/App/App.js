@@ -22,7 +22,7 @@ const App = () => {
           exact path='/home'
           render={() => (
             <>
-              <Header currentUser={currentUser}/>
+              <Header setCurrentUser={setCurrentUser} currentUser={currentUser}/>
               <Home currentUser={currentUser}/>
             </>
             )}
@@ -31,7 +31,7 @@ const App = () => {
           exact path='/books/:bookTitle'
           render={() => (
             <>
-              <Header currentUser={currentUser}/>
+              <Header setCurrentUser={setCurrentUser} currentUser={currentUser}/>
               <BookDetails currentUser={currentUser}/>
             </>
             )}

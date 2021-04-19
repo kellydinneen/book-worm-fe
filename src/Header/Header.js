@@ -4,7 +4,7 @@ import homeBtnImg from '../assets/home.svg';
 import wormImg from '../assets/worm.png'
 import Logout from '../Logout/Logout'
 
-export const Header = ({ currentUser }) => {
+export const Header = ({ setCurrentUser, currentUser }) => {
 
 
   return (
@@ -23,7 +23,7 @@ export const Header = ({ currentUser }) => {
           </h1>
           <img className='worm-img' src={wormImg} alt='worm'/>
         </div>
-      <Logout />
+      <Logout setCurrentUser={setCurrentUser} currentUser={currentUser}/>
       </div>
       {currentUser &&
       <h2 className='greeting'>Hi, {currentUser.givenName}</h2>}
