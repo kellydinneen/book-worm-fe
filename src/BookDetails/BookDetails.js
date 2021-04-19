@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { NewBookMarkForm } from '../NewBookMarkForm/NewBookMarkForm';
+import NewBookMarkForm from '../NewBookMarkForm/NewBookMarkForm';
 import { FinishBookForm } from '../FinishBookForm/FinishBookForm';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { getBookMarks } from '../apiCalls.js';
 
 const BookDetails = (props) => {
@@ -50,19 +50,12 @@ const BookDetails = (props) => {
               {bookMarkDisplays()}
             </article>
             <article className='book-options'>
-              {!displayNewBookMarkForm &&
-                <button
-                  className='detail-button'
-                  onClick={() => setDisplayNewBookMarkForm(true)}>Add A Bookmark
-                </button>
-              }
-              {displayNewBookMarkForm && <>
-                <NewBookMarkForm book={book} studentId={studentId}/>
-                <button
-                  className='bookmark-cancel-button'
-                  onClick={() => setDisplayNewBookMarkForm(false)}>Cancel
-                </button>
-              </>}
+              <Link to={{
+                pathname: `/bookmark/${book.attributes.title}`,
+                state: { book: book, studentId: studentId }
+              }}>
+                <button className='detail-button'>Add A Bookmark</button>
+              </Link>
               {!displayFinishBookForm &&
                 <button
                   className='detail-button'

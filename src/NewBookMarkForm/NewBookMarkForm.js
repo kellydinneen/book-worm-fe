@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
+import { withRouter, Redirect } from 'react-router-dom';
 import { postBookMark } from '../apiCalls.js';
 
-export const NewBookMarkForm = ({ book, studentId }) => {
+const NewBookMarkForm = (props) => {
   const { register, reset, handleSubmit} = useForm();
+  const [refreshedBookMarks, setRefreshedBookMarks] = useState(false);
+  const studentId = props.location.state.studentId;
+  const book = props.location.state.book;
 
   const defaultValues = {
     select: "",
@@ -21,6 +25,7 @@ export const NewBookMarkForm = ({ book, studentId }) => {
       reaction: data.reaction
     }
     const result = await postBookMark(bookMark);
+    setRefreshedBookMarks(true);
     return result;
   }
 
@@ -70,6 +75,14 @@ export const NewBookMarkForm = ({ book, studentId }) => {
         className='bookmark-submit-button'
         type="submit"
       >Submit</button>
+      {refreshedBookMarks && <Redirect
+        to={{
+          pathname: `/books/${book.attributes.title}`,
+          state: { book: book, studentId: studentId }
+        }}
+      ></Redirect>}
    </form>
   );
 }
+
+export default withRouter(NewBookMarkForm);
