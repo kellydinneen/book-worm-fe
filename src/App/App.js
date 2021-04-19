@@ -6,14 +6,18 @@ import { Switch, Route } from 'react-router-dom';
 import registerSW from '../serviceworker';
 import { swSubscribe, notificationPermission } from '../application.js'
 import Login from '../Login/Login';
-
+import { postSubscription } from '../apiCalls'
 const App = () => {
 
   const [currentUser, setCurrentUser] = useState({});
 
-  registerSW();
-  swSubscribe();
-  
+  // console.log(currentUser)
+  if (!navigator.serviceWorker.ready) {
+    registerSW();
+    swSubscribe(currentUser);
+  }
+
+
   notificationPermission();
 
   return(

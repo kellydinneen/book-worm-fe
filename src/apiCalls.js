@@ -46,3 +46,13 @@ export const markBookFinished = async(bookReview) => {
   })
     return checkResponse(response)
 }
+
+export const postSubscription = async(serviceWorkerRegistration) => {
+  const subscription = await serviceWorkerRegistration.pushManager.getSubscription();
+  const response = await fetch(`http://localhost:3001/api/v1/subscriptions`, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ subscription: subscription.toJSON(), message: "You clicked a button!" })
+  })
+    console.log(checkResponse(response));
+}

@@ -1,8 +1,8 @@
-const webpush = require('web-push')
-// const { REACT_APP_VAPID_PUBLIC_KEY } = process.env;
-const vapidKeys = webpush.generateVAPIDKeys();
-window.vapidPublicKey = vapidKeys.publicKey
-window.vapidPrivateKey = vapidKeys.privateKey
+import { postSubscription } from './apiCalls.js'
+// const webpush = require('web-push')
+// const vapidKeys = webpush.generateVAPIDKeys();
+// window.vapidPublicKey = vapidKeys.publicKey
+// window.vapidPrivateKey = vapidKeys.privateKey
 
 // const u8 = new Uint8Array(REACT_APP_VAPID_PUBLIC_KEY);
 // const decoder = new TextDecoder(utf8);
@@ -11,13 +11,14 @@ window.vapidPrivateKey = vapidKeys.privateKey
 // window.vapidPublicKey = new Uint8Array(Base64.urlsafe_decode64(process.env.VAPID_PUBLIC_KEY).bytes);
 // const envVariables = process.env;
 // window.vapidPublicKey = process.env.REACT_APP_VAPID_PUBLIC_KEY
-export function swSubscribe(){
+export function swSubscribe(currentUser){
   navigator.serviceWorker.ready.then((serviceWorkerRegistration) => {
     serviceWorkerRegistration.pushManager
     .subscribe({
       userVisibleOnly: true,
-      applicationServerKey: window.vapidPublicKey
+      applicationServerKey: currentUser.key
     });
+    postSubscription(serviceWorkerRegistration)
     // console.log(vapidKeys.publicKey, vapidKeys.privateKey);
     // console.log('u8', window.vapidPublicKey);
   });

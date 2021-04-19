@@ -6,14 +6,17 @@ import { Home } from '../Home/Home';
 import wormImg from '../assets/worm.png';
 import bookImg from '../assets/openbook.svg';
 import { gsap } from 'gsap';
-
+const webpush = require('web-push')
+const vapidKeys = webpush.generateVAPIDKeys();
 const clientId = '426129823464-ckm4t40qqinikh5e96pvna36i4tujlo5.apps.googleusercontent.com';
 
 function Login({ currentUser, setCurrentUser }) {
 
     const onSuccess = (res) => {
         console.log('[Login Success] currentUser:', res.profileObj);
-        setCurrentUser(res.profileObj)
+        const user = res.profileObj;
+        user.key = vapidKeys.publicKey;
+        setCurrentUser(user);
         refreshTokenSetup(res);
     };
     const onFailure = (res) => {
