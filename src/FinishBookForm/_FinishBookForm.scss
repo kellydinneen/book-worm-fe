@@ -1,0 +1,15 @@
+.finished-books-textarea {
+  height: 4em;
+}
+
+.finished-book-submit-button {
+  @include buttonStyling();
+  @include borderRadius();
+}
+
+.finish-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+

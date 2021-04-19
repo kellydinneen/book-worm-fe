@@ -3,25 +3,53 @@
   flex-direction: column;
   align-items: center;
   background-color: $secondary-background;
-  border: 1px solid #FFFFFF; 
-  position: fixed; 
-  left: 11%;
-  top: 15%;
-  width: 40%;
-  height: 20%;
+  border: 0.1em solid #FFFFFF;
+  @include borderRadius();
+  position: fixed;
+  left: 12em;
+  top: 8em;
+  width: 36em;
+  height: 28em;
   opacity: 0.9;
 }
 
-input {
-  height: auto;
-  width: 30%;
+.card-wrapper {
+  text-align: center;
+  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1.5em;
+  padding: 2em;
+}
+
+.exit-img {
+  height: 2.5em;
+  align-self: flex-end;
+  margin: 0.2em;
+  padding: 0.2em;
+  @include transform();
+}
+
+.search-input {
+  height: 2em;
+  margin-left: 0.5em;
+  @include borderRadius();
 }
 
 label {
   color: #000000;
-  padding: 2%;
+  padding: 0.5em;
 }
 
-.start-reading-btn {
-  margin-top: 5%;
+.search-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.submit-button {
+  margin-top: 1em;
+  width: 8em;
+  height: 2.3em;
+  @include borderRadius();
 }

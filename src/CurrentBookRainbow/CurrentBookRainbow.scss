@@ -1,0 +1,14 @@
+.bookImage {
+    &:hover {
+        outline: yellow;
+    }
+}
+.rainbowBox {
+    display: flex;
+    height: 140vh;
+}
+
+.tick {
+    margin: 5px;
+}
+

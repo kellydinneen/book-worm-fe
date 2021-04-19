@@ -1,22 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Home } from '../Home/Home';
+import { Header } from '../Header/Header';
+import BookDetails from '../BookDetails/BookDetails';
 import { Switch, Route } from 'react-router-dom';
 import registerSW from '../serviceworker';
 import { swSubscribe, notificationPermission } from '../application.js'
+import Login from '../Login/Login';
 
 const App = () => {
-  
+
+  const [currentUser, setCurrentUser] = useState({});
+
   registerSW();
   swSubscribe();
+  
   notificationPermission();
+
   return(
     <React.Fragment>
-      {/* <Header /> */}
       <Switch>
-        <Route 
-          exact path='/' 
+        <Route
+          exact path='/'
           render={() => (
-            <Home />
+            <Login setCurrentUser={setCurrentUser} currentUser={currentUser}/>
+            )}
+        />
+        <Route
+          exact path='/home'
+          render={() => (
+            <>
+              <Header setCurrentUser={setCurrentUser} currentUser={currentUser}/>
+              <Home currentUser={currentUser}/>
+            </>
+            )}
+        />
+        <Route
+          exact path='/books/:bookTitle'
+          render={() => (
+            <>
+              <Header setCurrentUser={setCurrentUser} currentUser={currentUser}/>
+              <BookDetails currentUser={currentUser}/>
+            </>
             )}
         />
       </Switch>

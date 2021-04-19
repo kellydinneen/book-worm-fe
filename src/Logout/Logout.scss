@@ -1,0 +1,6 @@
+@import '../style/variables';
+
+.logOutButton {
+    height: 4em;
+    @include transform();
+}

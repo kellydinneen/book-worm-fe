@@ -1,0 +1,21 @@
+.bookmark-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.book-mark-form-input, 
+select {
+  width: 13em;
+  text-align: center;
+}
+
+.book-mark-form-textarea {
+  height: 5em;
+}
+
+.bookmark-submit-button {
+  @include buttonStyling();
+  @include borderRadius();
+}
+

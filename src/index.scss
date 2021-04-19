@@ -1,15 +1,37 @@
 @import './style/variables';
-@import './App/App';
+@import './Header/Header';
 @import './Home/Home';
 @import './BookContainer/BookContainer';
 @import './Card/Card';
 @import './NewBookForm/NewBookForm';
+@import './BookDetails/BookDetails';
+@import './FinishBookForm/FinishBookForm';
+@import './NewBookMArkForm/NewBookMarkForm';
+@import './CurrentBookRainbow/CurrentBookRainbow';
+@import './Login/Login';
+@import './Logout/Logout';
+@import './Celebration/Celebration';
+@import './StarRating/StarRating.scss';
 
-body, 
+body,
 html {
   margin: 0;
   background-color: $primary-background;
   color: $secondary-text-color;
+  height: 100%;
+  width: 100vw;
+}
+
+button {
+  border: none;
+  border-radius: 0.5em;
+  &:active {
+    color: white;
+  }
+  &:hover{
+    background-color: $second-accent-color;
+    color: white;
+  }
 }
 
 code {
@@ -18,5 +40,5 @@ code {
 }
 
 h2 {
-  color: $first-accent-color;
+color: #FFFFFF;
 }

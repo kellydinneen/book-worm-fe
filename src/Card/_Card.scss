@@ -1,0 +1,33 @@
+@import '../style/variables';
+.add-book-btn {
+  height: 2.5em;
+  width: 8em;
+  @include borderRadius();
+}
+
+.book-img {
+  height: 10em;
+  width: 8em;
+}
+
+.book-title {
+  color: $fourth-accent-color;
+  font-size: 0.9em;
+}
+
+.card {
+  border: 0.2em solid $fourth-accent-color;
+  @include borderRadius();
+  height: 21em;
+  width: 10em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.prediction-input {
+  margin: 0.4em 0;
+  height: 3.5em;
+  width: 9em;
+  @include borderRadius();
+}

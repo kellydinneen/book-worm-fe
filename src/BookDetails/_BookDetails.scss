@@ -1,0 +1,48 @@
+main {
+  text-align: center;
+}
+
+.book-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2em;
+  color: #000000;
+  margin: 3.5em 1em;
+  height: 60vh;
+}
+
+.bookmarks-display {
+  background-color: $secondary-text-color;
+  @include borderRadius();
+  @include bookDetailStyle();
+}
+
+.book-info {
+  background: $fifth-accent-color;
+  @include bookDetailStyle();
+  @include borderRadius();
+}
+
+.book-options {
+  display: flex;
+  flex-direction: column;
+  background-color: $secondary-background;
+  @include bookDetailStyle();
+  @include borderRadius();
+}
+
+.book-details-image {
+  width: 12vw;
+}
+
+.bookmark-cancel-button {
+  align-self: center;
+  @include buttonStyling();
+  @include borderRadius();
+}
+
+.detail-button {
+  margin: 1em 0;
+  height: 2em;
+  font-size: 1.3em;
+}

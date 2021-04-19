@@ -1,3 +1,11 @@
+main {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+}
+
 .mountain {
   height: 15em;
   width: auto;
@@ -5,9 +13,12 @@
 }
 
 .navigation-wrapper {
+  background: linear-gradient(180deg, rgba(44,101,255,1) 0%, rgba(52,170,87,1) 54%);
   display: flex;
   justify-content: center;
-  margin-bottom: 0%;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  width: 100%;
 }
 
 .sandcastle {
@@ -21,9 +32,15 @@
   height: 8em;
   width: auto;
   margin: 5.2em 0 0 2em;
-  @include transform();
+  // @include transform();
 }
 
+.topsoil {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(63,94,99,1) 0%, rgb(28, 113, 33) 0%, rgb(34, 171, 38) 60%, rgba(5,4,2,1) 50%);
+  width: 100vw;
+}
 .trees {
   height: 10em;
   width: auto;
