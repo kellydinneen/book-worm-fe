@@ -1,7 +1,16 @@
-// require('dotenv').config();
-window.vapidPublicKey = new Uint8Array(Base64.urlsafe_decode64(process.env.VAPID_PUBLIC_KEY).bytes);
+const webpush = require('web-push')
+// const { REACT_APP_VAPID_PUBLIC_KEY } = process.env;
+const vapidKeys = webpush.generateVAPIDKeys();
+window.vapidPublicKey = vapidKeys.publicKey
+window.vapidPrivateKey = vapidKeys.privateKey
+
+// const u8 = new Uint8Array(REACT_APP_VAPID_PUBLIC_KEY);
+// const decoder = new TextDecoder(utf8);
+// const b64 = btoa decoder.decode(u8);
+// window.vapidPublicKey = new TextDecoder('utf8').decode(new Uint8Array(REACT_APP_VAPID_PUBLIC_KEY))
+// window.vapidPublicKey = new Uint8Array(Base64.urlsafe_decode64(process.env.VAPID_PUBLIC_KEY).bytes);
 // const envVariables = process.env;
-window.vapidPublicKey = process.env.VAPID_PUBLIC_KEY
+// window.vapidPublicKey = process.env.REACT_APP_VAPID_PUBLIC_KEY
 export function swSubscribe(){
   navigator.serviceWorker.ready.then((serviceWorkerRegistration) => {
     serviceWorkerRegistration.pushManager
@@ -9,7 +18,8 @@ export function swSubscribe(){
       userVisibleOnly: true,
       applicationServerKey: window.vapidPublicKey
     });
-    // console.log('key', envVariables);
+    // console.log(vapidKeys.publicKey, vapidKeys.privateKey);
+    // console.log('u8', window.vapidPublicKey);
   });
 }
 
