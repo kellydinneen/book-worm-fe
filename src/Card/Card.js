@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { postBook } from '../apiCalls.js';
+import { Redirect } from 'react-router-dom';
+import { postBook, getCurrentBooks } from '../apiCalls.js';
 
-export const Card = ({ book }) => {
+export const Card = ({ book, studentId }) => {
   const [prediction, setPrediction] = useState('');
+  const [refreshedBooks, setRefreshedBooks] = useState(false);
 
   const submitNewBook = async (book) => {
     const submitBook = {
-      student_id: 1,
+      student_id: studentId,
       prediction: prediction,
       book: {
         title: book.attributes.title,
@@ -17,6 +19,7 @@ export const Card = ({ book }) => {
       }
     }
     const result = await postBook(submitBook);
+    setRefreshedBooks(true);
     return result;
   }
 
@@ -31,10 +34,11 @@ export const Card = ({ book }) => {
         value={prediction}
         onChange={event => setPrediction(event.target.value)}>
       </textarea>
-      <button  
-        className='add-book-btn' 
-        disabled={!prediction} 
+      <button
+        className='add-book-btn'
+        disabled={!prediction}
         onClick={() => submitNewBook(book)}>Add Book</button>
+        {refreshedBooks && <Redirect to='/home'></Redirect>}
     </section>
   )
 }

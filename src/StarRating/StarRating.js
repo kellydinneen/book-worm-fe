@@ -8,10 +8,10 @@ const Star = ({ marked, starId }) => {
   );
 };
 
-export const StarRating = ({ value }) => {
+export const StarRating = ({ value, setBookRating }) => {
   const [rating, setRating] = useState(parseInt(value) || 0);
   const [selection, setSelection] = useState(0);
-  
+
   const hoverOver = event => {
     let val = 0;
     if (event && event.target && event.target.getAttribute('data-star-id'))
@@ -22,7 +22,10 @@ export const StarRating = ({ value }) => {
   return (
     <div
       onMouseOut={() => hoverOver(null)}
-      onClick={e => setRating(e.target.getAttribute('data-star-id') || rating)}
+      onClick={e => {
+        setBookRating(e.target.getAttribute('data-star-id') || rating);
+        setRating(e.target.getAttribute('data-star-id') || rating)
+      }}
       onMouseOver={hoverOver}
     >
       {Array.from({ length: 5 }, (v, i) => (

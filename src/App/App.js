@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Home } from '../Home/Home';
 import { Header } from '../Header/Header';
+import NewBookForm from '../NewBookForm/NewBookForm';
 import BookDetails from '../BookDetails/BookDetails';
 import { Switch, Route } from 'react-router-dom';
 import Login from '../Login/Login';
@@ -23,7 +24,16 @@ const App = () => {
           render={() => (
             <>
               <Header setCurrentUser={setCurrentUser} currentUser={currentUser}/>
-              <Home currentUser={currentUser}/>
+              <Home setCurrentUser={setCurrentUser} currentUser={currentUser}/>
+            </>
+            )}
+        />
+        <Route
+          exact path='/newbook'
+          render={() => (
+            <>
+              <Header setCurrentUser={setCurrentUser} currentUser={currentUser}/>
+              <NewBookForm setCurrentUser={setCurrentUser} currentUser={currentUser}/>
             </>
             )}
         />

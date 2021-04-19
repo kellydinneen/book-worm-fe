@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import { postBookMark } from '../apiCalls.js';
 
-export const NewBookMarkForm = ({ book }) => {
+export const NewBookMarkForm = ({ book, studentId }) => {
   const { register, reset, handleSubmit} = useForm();
 
   const defaultValues = {
@@ -12,9 +12,13 @@ export const NewBookMarkForm = ({ book }) => {
 
   const submitBookMark = async (data) => {
     const bookMark = {
-      student_book_id: book.id,
+      student_id: studentId,
+      book_id: book.id,
       date: data.date,
-      minutes: data.minutes
+      minutes: data.minutes,
+      page_number: data.page,
+      notes: data.notes,
+      reaction: data.reaction
     }
     const result = await postBookMark(bookMark);
     return result;
@@ -28,31 +32,31 @@ export const NewBookMarkForm = ({ book }) => {
   return (
    <form className='bookmark-form' onSubmit={handleSubmit(onSubmit)}>
      <label>What page did you finish on?</label>
-     <input 
+     <input
         className='book-mark-form-input'
-        type="number" 
+        type="number"
         placeholder="Page number"
-        {...register("page", {required: true})} 
+        {...register("page", {required: true})}
       />
      <label>How many minutes did you read for?</label>
-     <input 
+     <input
         className='book-mark-form-input'
-        type="number" 
-        placeholder="Minutes read" {...register("minutes", {required: true})} 
+        type="number"
+        placeholder="Minutes read" {...register("minutes", {required: true})}
     />
      <label>What day did you read?</label>
-     <input 
+     <input
       className='book-mark-form-input'
-      type="date" {...register("date", {required: true})} 
+      type="date" {...register("date", {required: true})}
       />
      <label>Write down any thoughts or notes you have:</label>
-     <textarea 
+     <textarea
         className='book-mark-form-textarea'
-        type="text" 
-        placeholder="What did you notice? What was your favorite part? Your least favorite?" {...register} 
+        type="text"
+        placeholder="What did you notice? What was your favorite part? Your least favorite?" {...register("notes")}
       ></textarea>
      <label>How did this reading make you feel?</label>
-     <select {...register}>
+     <select {...register("reaction")}>
         <option value="😮">😮 Shocked</option>
         <option value=" 🧐"> 🧐 Interested</option>
         <option value=" 😆"> 😆 Funny</option>

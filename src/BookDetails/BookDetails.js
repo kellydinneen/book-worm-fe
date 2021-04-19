@@ -7,28 +7,27 @@ import { getBookMarks } from '../apiCalls.js';
 const BookDetails = (props) => {
   const [displayNewBookMarkForm, setDisplayNewBookMarkForm] = useState(false);
   const [displayFinishBookForm, setDisplayFinishBookForm] = useState(false);
-  const [bookMarks, setBookMarks] = useState(null);
-  console.log(props);
+  const [bookMarks, setBookMarks] = useState([]);
+  const studentId = props.location.state.studentId;
   const book = props.location.state.book;
 
-  async function fetchBookMarks() {
-    const allBookMarks = await getBookMarks();
-    const bookMarksForThisBook = allBookMarks.data === [] ? null : allBookMarks.data.filter(bookmark => bookmark.attributes.student_book_id === book.id);
-    setBookMarks(bookMarksForThisBook);
+ const fetchBookMarks = async () => {
+    const allBookMarks = await getBookMarks(studentId, book.id);
+    setBookMarks(allBookMarks.data);
   }
 
-  const bookMarkDisplays = () => bookMarks.map(mark =>
+  const bookMarkDisplays = () => {
+    return bookMarks.map(mark =>
     <section key={mark.id}>
       <h4>{mark.attributes.date}</h4>
       <h4>{mark.attributes.minutes}</h4>
       <h4>{mark.attributes.page_number}</h4>
     </section>
-  )
+  )}
 
   useEffect(() => {
     async function grabBookMarks() {
-      await fetchBookMarks()
-       bookMarks ? bookMarkDisplays() : console.log('no bookmarks');
+      await fetchBookMarks();
     }
     grabBookMarks()
   }, [])
@@ -48,7 +47,7 @@ const BookDetails = (props) => {
             </article>
             <article className='bookmarks-display'>
               <h2>Bookmarks</h2>
-              {bookMarks && bookMarkDisplays}
+              {bookMarkDisplays()}
             </article>
             <article className='book-options'>
               {!displayNewBookMarkForm &&
@@ -58,7 +57,7 @@ const BookDetails = (props) => {
                 </button>
               }
               {displayNewBookMarkForm && <>
-                <NewBookMarkForm book={book}/>
+                <NewBookMarkForm book={book} studentId={studentId}/>
                 <button
                   className='bookmark-cancel-button'
                   onClick={() => setDisplayNewBookMarkForm(false)}>Cancel
@@ -72,7 +71,7 @@ const BookDetails = (props) => {
               }
               {displayFinishBookForm &&
                 <>
-                  <FinishBookForm book={book}/>
+                  <FinishBookForm book={book} studentId={studentId}/>
                   <button
                     className='bookmark-cancel-button'
                     onClick={() => setDisplayFinishBookForm(false)}>Cancel
