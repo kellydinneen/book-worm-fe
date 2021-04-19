@@ -1,5 +1,4 @@
 @import './style/variables';
-@import './App/App';
 @import './Header/Header';
 @import './Home/Home';
 @import './BookContainer/BookContainer';
@@ -10,6 +9,7 @@
 @import './NewBookMArkForm/NewBookMarkForm';
 @import './CurrentBookRainbow/CurrentBookRainbow';
 @import './Login/Login';
+@import './StarRating/StarRating.scss';
 
 body,
 html {
@@ -32,11 +32,12 @@ button {
     color: white;
   }
 }
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
 h2 {
-  color: $first-accent-color;
+color: #FFFFFF;
 }

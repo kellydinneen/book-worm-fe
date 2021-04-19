@@ -8,27 +8,25 @@ import topsoilImg from '../assets/topsoil.svg';
 import CurrentBookRainbow from '../CurrentBookRainbow/CurrentBookRainbow';
 import { getCurrentBooks } from '../apiCalls';
 import { Redirect } from 'react-router-dom';
-// import OpenBookImg from '../OpenBookImg/OpenBookImg';
-
 
 export const Home = () => {
     const [displayNewBookForm, setDisplayNewBookForm] = useState(false);
     const [clickedBook, setClickedBook] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(null);
     const [currentBooks, setCurrentBooks] = useState([]);
 
     const fetchCurrentBooks = async () => {
       const gotBooks = await getCurrentBooks();
       setCurrentBooks(gotBooks);
       setIsLoading(false);
-      console.log('in Fetch', currentBooks)
     }
 
-    useEffect(async () => {
-      await fetchCurrentBooks()
-      console.log('HomeUseEffect', currentBooks, currentBooks.length > 0, isLoading);
-    }, [])
+    useEffect(() => {
+      async function getStudentCurrentBooks() {
+        await fetchCurrentBooks();
+      }
+      getStudentCurrentBooks()
+    }, []);
 
     return (
         <main>

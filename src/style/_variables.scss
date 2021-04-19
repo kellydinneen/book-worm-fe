@@ -20,3 +20,15 @@ $fifth-accent-color: #3C9F88;
 @mixin borderRadius() {
   border-radius: 0.5em;
 }
+
+@mixin bookDetailStyle() {
+  padding: 1vw;
+  width: 20vw;
+}
+
+@mixin buttonStyling() {
+  background-color: $third-accent-color;
+  margin-top: 0.5em;
+  width: 13em;
+  height: 2em;
+}
