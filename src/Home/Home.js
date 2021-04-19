@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
 import { NewBookForm } from '../NewBookForm/NewBookForm';
 import mountainImg from '../assets/mountain.svg';
 import treesImg from '../assets/trees.svg'
@@ -13,13 +12,11 @@ import { Header } from '../Header/Header';
 import FinishedBook from '../Celebration/Celebration';
 
 
-const Home = (props) => {
+export const Home = ({currentUser}) => {
     const [displayNewBookForm, setDisplayNewBookForm] = useState(false);
     const [clickedBook, setClickedBook] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [currentBooks, setCurrentBooks] = useState([]);
-    console.log(props.location.state);
-    const currentUser = props.location.state.currentUser;
 
     const fetchCurrentBooks = async () => {
       const gotBooks = await getCurrentBooks();
@@ -36,7 +33,6 @@ const Home = (props) => {
 
     return (
         <main>
-          <Header currentUser={currentUser}/>
           <div className='navigation-wrapper'>
             <img
               className='mountain'
@@ -77,5 +73,3 @@ const Home = (props) => {
         </main>
     )
 }
-
-export default withRouter(Home);

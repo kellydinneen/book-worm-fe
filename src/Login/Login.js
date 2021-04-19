@@ -9,8 +9,8 @@ import { gsap } from 'gsap';
 
 const clientId = '426129823464-ckm4t40qqinikh5e96pvna36i4tujlo5.apps.googleusercontent.com';
 
-function Login() {
-    const [currentUser, setCurrentUser] = useState({})
+function Login({ currentUser, setCurrentUser }) {
+
     const onSuccess = (res) => {
         console.log('[Login Success] currentUser:', res.profileObj);
         setCurrentUser(res.profileObj)
@@ -54,10 +54,7 @@ function Login() {
         }
         {currentUser.googleId &&
           <Redirect
-            to={{
-              pathname: `/home`,
-              state: { currentUser: currentUser }
-            }}
+            to='/home'
           ></Redirect>
         }
         </React.Fragment>

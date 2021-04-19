@@ -1,31 +1,39 @@
-import React from 'react';
-import Home from '../Home/Home';
+import React, { useState } from 'react';
+import { Home } from '../Home/Home';
+import { Header } from '../Header/Header';
 import BookDetails from '../BookDetails/BookDetails';
 import { Switch, Route } from 'react-router-dom';
 import Login from '../Login/Login';
 
 const App = () => {
+
+  const [currentUser, setCurrentUser] = useState({});
+
   return(
     <React.Fragment>
       <Switch>
         <Route
           exact path='/'
           render={() => (
-            <div>
-            <Login />
-            </div>
+            <Login setCurrentUser={setCurrentUser} currentUser={currentUser}/>
             )}
         />
         <Route
           exact path='/home'
           render={() => (
-            <Home />
+            <>
+              <Header currentUser={currentUser}/>
+              <Home currentUser={currentUser}/>
+            </>
             )}
         />
         <Route
           exact path='/books/:bookTitle'
           render={() => (
-            <BookDetails />
+            <>
+              <Header currentUser={currentUser}/>
+              <BookDetails currentUser={currentUser}/>
+            </>
             )}
         />
       </Switch>
