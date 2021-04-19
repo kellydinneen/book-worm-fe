@@ -33,6 +33,7 @@ test('the fetch fails because both search terms are missing', async () => {
     expect(e).toMatch('error');
   }
 });
+
 test('the fetch fails because on search term is missing', async () => {
   expect.assertions(1);
   try {
