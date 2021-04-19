@@ -1,0 +1,64 @@
+@import '../style/variables';
+
+.celebrationStation {
+  background-color: $primary-background;
+  background-image: url('../assets/confetti.svg');
+  border-radius: 0.5em;
+    padding: 1em;
+    align-items: center;
+    box-shadow: 
+         0 0 0 2px $first-accent-color,
+         0 0 0 4px $second-accent-color,
+         0 0 0 6px $third-accent-color,
+         0 0 0 8px $fourth-accent-color;
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+    justify-content: center;
+    margin: 2em;
+    width: 60%;
+}
+
+.apple {
+  height: 10em;
+}
+
+.balloonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.celebrationTitle {
+  font-size: 2em;
+}
+
+.confettiContainer {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0;
+}
+.dancingBook {
+    height: 15em;
+}
+
+.dancingWorm {
+    height: 12em;
+
+}
+
+.donut {
+  height: 8em;
+}
+.flower {
+  height: 10em;
+}
+
+.sushi {
+  height: 8em;
+}
+
+.yellowBalloon, .redBalloon {
+  height: 16em;
+}

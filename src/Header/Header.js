@@ -1,25 +1,34 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import homeBtnImg from '../assets/home.svg';
 import wormImg from '../assets/worm.png'
 import Logout from '../Logout/Logout'
 
-export const Header = () => {
+export const Header = ({ currentUser}) => {
+
 
   return (
     <header className='header-wrapper'>
       <div className='header-container'>
+        <Link to={{pathname: '/home', state: {currentUser}}}>
         <img 
           alt='home button'
           className='button-img'
           src={homeBtnImg}
         />
-        <h1>
-          BookWorm
+        </Link>
+        <div className='titleContainer'>
+          <h1>
+            BookWorm
+          </h1>
           <img className='worm-img' src={wormImg} alt='worm'/>
-        </h1>
-      </div>
-      <h2 className='greeting'>Hi, Student</h2>
+        </div>
       <Logout />
+      </div>
+      {currentUser && 
+      <h2 className='greeting'>Hi, {currentUser.givenName}</h2>}
+
+      
     </header>
   )
 }

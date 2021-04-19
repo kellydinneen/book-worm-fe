@@ -9,6 +9,8 @@
 @import './NewBookMArkForm/NewBookMarkForm';
 @import './CurrentBookRainbow/CurrentBookRainbow';
 @import './Login/Login';
+@import './Logout/Logout';
+@import './Celebration/Celebration';
 @import './StarRating/StarRating.scss';
 
 body,
@@ -22,7 +24,6 @@ html {
 
 button {
   border: none;
-  background-color: $fourth-accent-color;
   border-radius: 0.5em;
   &:active {
     color: white;
