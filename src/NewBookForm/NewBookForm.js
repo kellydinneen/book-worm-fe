@@ -6,17 +6,20 @@ import { withRouter } from 'react-router-dom';
 
 const NewBookForm = (props) => {
     const [bookList, setBookList] = useState([])
+    const [isSearching, setIsSearching] = useState(false)
     const { register, handleSubmit, formState: { errors }} = useForm();
     const studentId = props.location.state.studentId;
 
     const onSubmit = (data, event) => {
       fetchAllBooks(data.title, data.author)
+      setIsSearching(true)
       event.target.reset();
     };
 
     async function fetchAllBooks(title, author) {
       const getBookList = await (getBooks(title, author))
       setBookList(getBookList.data)
+      setIsSearching(false)
     }
 
     const bookListCard = bookList.map((book, i) => <Card book={book} studentId={studentId} key={i}/>)
@@ -47,6 +50,7 @@ const NewBookForm = (props) => {
             {errors.author && errors.author.type === "required" && (
               <h3 role="alert">Please enter the author.</h3>
             )}
+            {!bookList.length && isSearching && <h3>We couldn't find any books that matched your search.  Try again!</h3>}
           </div>  
           </form>
           <div className='card-wrapper'>
