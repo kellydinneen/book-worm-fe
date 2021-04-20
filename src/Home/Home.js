@@ -18,7 +18,6 @@ export const Home = ({currentUser}) => {
     const [currentProgress, setCurrentProgress] = useState([]);
     const [studentId, setStudentId] = useState(null);
     const [setError] = useState(null);
-    console.log("test")
     const fetchBookMarks = async (user, books) => {
       let bookProgressRatios = {};
         await Promise.all(

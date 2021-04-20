@@ -3,7 +3,6 @@ import Collapsible from 'react-collapsible';
 import moment from 'moment';
 
 export const FinishedBookCard = ({ book, bookMarks }) => {
-  console.log(book);
 
   const bookMarkList = () => bookMarks.map(mark =>
     <Collapsible className='finishedBookmarks' trigger={mark.attributes.reactions ?

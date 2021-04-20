@@ -13,6 +13,7 @@ import { gsap, CSSPlugin } from 'gsap';
 gsap.registerPlugin(CSSPlugin);
 
 const Celebration = ({currentUser}) => {
+    const celebrate = 
     CSSPlugin.defaultTransformPerspective = 300;
     gsap.to(".dancingWorm", {x: -150, duration:5, rotation:360})
     gsap.to(".dancingWorm", {x: 150, duration:5, scale: 1.2, ease: "bounce"})
@@ -26,7 +27,8 @@ const Celebration = ({currentUser}) => {
     gsap.to(".yellowBalloon", {x: 100, y: -340, duration: 9, rotation: 340, ease: "bounce"})
   
     return(
-      <section className="celebrationDisplay">
+      <>
+      {celebrate && <section className="celebrationDisplay">
         <h2 className="celebrationTitle">Congratulations, {currentUser.givenName}! You finished! </h2>
         <div id="container" className="celebrationStation">
           
@@ -46,7 +48,6 @@ const Celebration = ({currentUser}) => {
             <img className="balloon redBalloon" src={redBalloon} alt="a red balloon flying upwards"></img>
             <img className="balloon yellowBalloon" src={yellowBalloon} alt="a yellow balloon flying upwards"></img>
           </div>
-
         </div>
         <Link to={{
           pathname: '/home',
@@ -55,6 +56,8 @@ const Celebration = ({currentUser}) => {
         <button className="buttonHome">Home</button>
         </Link>
       </section>
+    }
+    </>
     )
 }
 

@@ -10,11 +10,8 @@ gsap.registerPlugin(CSSPlugin);
 export const FinishBookForm = ({ book, studentId }) => {
     const { register, handleSubmit } = useForm();
     const [ rating, setRating ] = useState(0);
-    console.log("studentId", studentId);
-
 
     const submitBookReview = async (data) => {
-      console.log("data", data)
       const bookReview = {
         student_id: studentId,
         book_id: book.id,
@@ -23,7 +20,6 @@ export const FinishBookForm = ({ book, studentId }) => {
         review_comment: data.review
       }
       const result = await markBookFinished(bookReview, studentId);
-      console.log(result)
       return result;
     }
 
@@ -42,10 +38,7 @@ export const FinishBookForm = ({ book, studentId }) => {
           placeholder="Write your review here"
           {...register("review", {required: true, maxLength: 500})}
         ></textarea>
-        <Link to={{
-          pathname: `/celebration`,
-          state: {studentId: studentId}
-        }}>
+        <Link to='/celebration'>
           <button
             className='finished-book-submit-button'
             type="submit">Submit
