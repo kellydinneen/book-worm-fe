@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import NewBookMarkForm from '../NewBookMarkForm/NewBookMarkForm';
 import { FinishBookForm } from '../FinishBookForm/FinishBookForm';
 import { Link, withRouter } from 'react-router-dom';
 import { getBookMarks } from '../apiCalls.js';
 
 const BookDetails = (props) => {
-  const [displayNewBookMarkForm, setDisplayNewBookMarkForm] = useState(false);
   const [displayFinishBookForm, setDisplayFinishBookForm] = useState(false);
   const [bookMarks, setBookMarks] = useState([]);
   const studentId = props.location.state.studentId;
