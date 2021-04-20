@@ -32,7 +32,7 @@ workflows:
           requires:
             - cypress/install
             - install-node
-          record: true
+          record: false
           parallel: true
           parallelism: 4
       - deploy: 
