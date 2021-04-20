@@ -1,13 +1,14 @@
 import React from 'react';
 import Collapsible from 'react-collapsible';
+import moment from 'moment';
 
 export const FinishedBookCard = ({ book, bookMarks }) => {
   console.log(book);
 
   const bookMarkList = () => bookMarks.map(mark =>
     <Collapsible trigger={mark.attributes.reactions ?
-      mark.attributes.date + '......' + mark.attributes.reactions :
-      mark.attributes.date + '......' + '🍎'
+      moment(mark.attributes.date).format('LL') + '......' + mark.attributes.reactions :
+      moment(mark.attributes.date).format('LL') + '......' + '🍎'
     }>
       <section key={mark.id}>
         <p>I read for {mark.attributes.minutes} mins!</p>

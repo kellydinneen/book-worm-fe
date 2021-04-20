@@ -3,6 +3,7 @@ import { FinishBookForm } from '../FinishBookForm/FinishBookForm';
 import { Link, withRouter } from 'react-router-dom';
 import { getBookMarks } from '../apiCalls.js';
 import Collapsible from 'react-collapsible';
+import moment from 'moment';
 
 const BookDetails = (props) => {
   const [displayFinishBookForm, setDisplayFinishBookForm] = useState(false);
@@ -17,7 +18,7 @@ const BookDetails = (props) => {
 
   const bookMarkDisplays = () => {
     return bookMarks.map(mark =>
-    <Collapsible trigger={mark.attributes.date} key={mark.id}>
+    <Collapsible trigger={moment(mark.attributes.date).format('LL')} key={mark.id}>
       <section>
         <p>I read for {mark.attributes.minutes} mins!</p>
         <p> On page: {mark.attributes.page_number}</p>
