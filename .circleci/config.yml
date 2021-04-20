@@ -13,24 +13,18 @@ jobs:
       - restore_cache:
           key: node-v2-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run: npm ci
-#       - run: npm run cy:verify
       - save_cache:
           paths:
             - ~/.npm
-#             - ~/.cache
           key: node-v2-{{ .Branch }}-{{ checksum "package-lock.json" }}
-#       - run: 
-#           command: npm start
-#           background: true
-#       - run: npm run cytest
-#   deploy:
-#     executor: heroku/default
-#     steps:
-#       - checkout
-#       - heroku/install
-#       - heroku/deploy-via-git
+  deploy:
+    executor: heroku/default
+    steps:
+      - checkout
+      - heroku/install
+      - heroku/deploy-via-git
 workflows:
-  build_test:
+  build_test_deploy:
     jobs:
       - install-node
       - cypress/install
@@ -41,9 +35,7 @@ workflows:
           record: true
           parallel: true
           parallelism: 4
-  heroku_deploy:
-    jobs:
-      - heroku/deploy-via-git
+      - deploy: 
           requires:
             - install-node
             - cypress/run
