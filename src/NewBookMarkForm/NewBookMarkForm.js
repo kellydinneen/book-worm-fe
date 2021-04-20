@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
-import { withRouter, Redirect } from 'react-router-dom';
+import { withRouter, Redirect, Link } from 'react-router-dom';
 import { postBookMark } from '../apiCalls.js';
+import exitImg from '../assets/exitImg.png';
 
 const NewBookMarkForm = (props) => {
   const { register, reset, handleSubmit, formState: { errors }} = useForm();
@@ -37,6 +38,14 @@ const NewBookMarkForm = (props) => {
   return (
     <div className='bookmarkFormContainer'>
       <form className='bookmark-form' onSubmit={handleSubmit(onSubmit)}>
+        <Link 
+          className='exit-img' 
+          to={{
+              pathname: `/books/${book.attributes.title}`,
+              state: { book: book, studentId: studentId }
+            }}>
+          <img className='exit-img' src={exitImg} alt='exit sign'/>
+        </Link>
         <label className='bookmark-label'>What page did you finish on?</label>
         <input
           className='book-mark-form-input'

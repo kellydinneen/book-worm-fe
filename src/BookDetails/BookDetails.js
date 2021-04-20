@@ -10,8 +10,8 @@ const BookDetails = (props) => {
   const [bookMarks, setBookMarks] = useState([]);
   const studentId = props.location.state.studentId;
   const book = props.location.state.book;
-  console.log("bookdetails", studentId)
- const fetchBookMarks = async () => {
+
+  const fetchBookMarks = async () => {
     const allBookMarks = await getBookMarks(studentId, book.id);
     setBookMarks(allBookMarks.data);
   }
