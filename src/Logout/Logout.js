@@ -1,8 +1,7 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { useGoogleLogout } from 'react-google-login';
 import { Redirect } from 'react-router-dom';
 import apple from '../assets/apple.svg';
-import Login from '../Login/Login';
 
 
 
@@ -24,7 +23,7 @@ function Logout({ setCurrentUser, currentUser }) {
     });
     return (
         <React.Fragment>
-          <img className="logOutButton" onClick={signOut} src={apple}></img>
+          <img className="logOutButton" onClick={signOut} src={apple} alt="apple as a logout button"></img>
           {!currentUser.googleId && <Redirect to="/" />}
         </React.Fragment>
     );

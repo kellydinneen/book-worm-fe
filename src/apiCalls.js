@@ -17,7 +17,7 @@ export const getBooks = async(title, author) => {
 
 export const getBookMarks = async(studentId, bookId) => {
   const bookMarks = await fetch(`https://book-worm-be.herokuapp.com/api/v1/students/bookmarks?student_id=${studentId}&book_id=${bookId}`)
-  return checkResponse(bookMarks)
+  return checkResponse(bookMarks);
 }
 
 export const getCurrentBooks = async(studentId) => {
