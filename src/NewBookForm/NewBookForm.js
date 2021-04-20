@@ -23,6 +23,7 @@ const NewBookForm = (props) => {
     return(
         <section className='add-a-book-form'>
           <form className='search-form' onSubmit={handleSubmit(onSubmit)}>
+          <div className='formContainer'>
             <label className='search-book-label'>What's the title of the book?
               <input
                 className='search-input'
@@ -38,12 +39,15 @@ const NewBookForm = (props) => {
                 {...register("author", {required: true, maxLength: 100})} />
             </label>
             <button className='submit-button' type="submit">Search</button>
+          </div>
+          <div className='errorContainer'>
             {errors.title && errors.title.type === "required" && (
-              <span role="alert">Title is required</span>
+              <h3 role="alert">Please enter the title of the book you are looking for.</h3>
             )}
             {errors.author && errors.author.type === "required" && (
-              <span role="alert">Author is required</span>
+              <h3 role="alert">Please enter the author.</h3>
             )}
+          </div>  
           </form>
           <div className='card-wrapper'>
             {!!bookList.length && bookListCard}
