@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Home } from '../Home/Home';
 import { Header } from '../Header/Header';
+import { FinishedBooks } from '../FinishedBooks/FinishedBooks';
 import NewBookForm from '../NewBookForm/NewBookForm';
 import NewBookMarkForm from '../NewBookMarkForm/NewBookMarkForm';
 import BookDetails from '../BookDetails/BookDetails';
@@ -35,6 +36,15 @@ const App = () => {
             <>
               <Header setCurrentUser={setCurrentUser} currentUser={currentUser}/>
               <NewBookForm setCurrentUser={setCurrentUser} currentUser={currentUser}/>
+            </>
+            )}
+        />
+        <Route
+          exact path='/finishedbooks'
+          render={() => (
+            <>
+              <Header setCurrentUser={setCurrentUser} currentUser={currentUser}/>
+              <FinishedBooks />
             </>
             )}
         />

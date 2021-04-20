@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { getFinishedBooks, getBookMarks } from '../apiCalls.js';
+import { withRouter } from 'react-router-dom';
 
-export const FinishedBooks = ({ studentId }) => {
+const FinishedBooks = (props) => {
     const [finishedBookList, setFinishedBookList] = useState([]);
     const [finishedBookMarks, setFinishedBookMarks] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [err, setErr] = useState(null);
+
+    const studentId = props.location.state.studentId;
 
     const fetchFinishedBooks = async () => {
       const getFinishedBooks = await (getFinishedBooks(studentId));
@@ -47,3 +50,5 @@ export const FinishedBooks = ({ studentId }) => {
         </section>
     )
   }
+
+  export default withRouter(FinishedBooks);
