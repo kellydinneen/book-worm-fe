@@ -43,14 +43,29 @@ const FinishedBooks = (props) => {
     const finishedBooks = () => finishedBookList.map((book, i) => <FinishedBookCard book={book} bookMarks={finishedBookMarks[book.attributes.title]}/>)
 
     return(
+      <>
         {error && <h3>Whoops!! Something's not right. Return to HOME and try again.</h3>}
-        {!error && <section className='finished-books'>
-          <h2>Books You've Wormed Your Way All The Way Through</h2>
-          <article className='finished-books-container'>
-            {isLoading && <p>Hold on, we're finding all the books you've read...</p>}
-            {!isLoading && finishedBooks.length && finishedBooks}
-          </article>
-        </section>}
+        {!error &&
+          <section className='finished-books'>
+            <h2>Books You've Wormed Your Way All The Way Through</h2>
+            <article className='finished-books-container'>
+              {isLoading && <p>Hold on, we're finding all the books you've read...</p>}
+              {!isLoading &&
+                <>
+                  {!finishedBooks.length &&
+                    <>
+                      <h3>You haven't finished any books yet!</h3>
+                      <h4>There's no time like the present -- go pick out a book and get reading.</h4>
+                      <h4>When you're done, you can mark a book as finished by visiting its details page (click the book's icon in your rainbow)</h4>
+                    </>
+                  }
+                  {finishedBooks.length && finishedBooks}
+                </>
+              }
+            </article>
+          </section>
+        }
+      </>
     )
   }
 
