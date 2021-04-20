@@ -9,21 +9,21 @@ import topsoilImg from '../assets/topsoil.svg';
 import CurrentBookRainbow from '../CurrentBookRainbow/CurrentBookRainbow';
 import { getCurrentBooks, getStudentProfile, getBookMarks } from '../apiCalls';
 import { Redirect, Link } from 'react-router-dom';
-import { Header } from '../Header/Header';
-import FinishedBook from '../Celebration/Celebration';
+import { gsap, CSSPlugin } from 'gsap';
 
+gsap.registerPlugin(CSSPlugin);
 
-export const Home = ({currentUser, setCurrentUser}) => {
+export const Home = ({currentUser}) => {
     const [clickedBook, setClickedBook] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [currentBooks, setCurrentBooks] = useState([]);
     const [currentProgress, setCurrentProgress] = useState([]);
     const [studentId, setStudentId] = useState(null);
-    const [error, setError] = useState(null);
+    const [setError] = useState(null);
 
     const fetchBookMarks = async (user, books) => {
       let bookProgressRatios = {};
-      const marks = await Promise.all(
+        await Promise.all(
         books.map(async book => {
           try {
             let bookProgress = 0;
@@ -64,11 +64,10 @@ export const Home = ({currentUser, setCurrentUser}) => {
     }
 
     useEffect(() => {
-      async function getInfo() {
-        await loadHomeInfo();
-      }
-      getInfo()
-    }, []);
+      loadHomeInfo();
+    });
+
+   
 
 
     return (
@@ -113,8 +112,7 @@ export const Home = ({currentUser, setCurrentUser}) => {
                 state: { book: clickedBook, studentId: studentId }
               }}
             ></Redirect>
-          }
-          <FinishedBook currentUser={currentUser} studentId={studentId}/>
+          }         
         </main>
     )
 }

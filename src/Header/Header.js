@@ -18,15 +18,13 @@ export const Header = ({ setCurrentUser, currentUser }) => {
         />
         </Link>
         <div className='titleContainer'>
-          <h1>
-            BookWorm
-          </h1>
+          <h1>BookWorm</h1>
           <img className='worm-img' src={wormImg} alt='worm'/>
+          {currentUser &&
+            <h2 className='greeting'>Hi, {currentUser.givenName}</h2>}
         </div>
       <Logout setCurrentUser={setCurrentUser} currentUser={currentUser}/>
       </div>
-      {currentUser &&
-      <h2 className='greeting'>Hi, {currentUser.givenName}</h2>}
     </header>
   )
 }

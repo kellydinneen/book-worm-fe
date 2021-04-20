@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import wormImg from '../assets/worm.png';
 import bookImg from '../assets/openbook.svg';
 import apple from '../assets/plainApple.svg';
@@ -11,7 +12,7 @@ import { gsap, CSSPlugin } from 'gsap';
 
 gsap.registerPlugin(CSSPlugin);
 
-const FinishedBook = ({currentUser}) => {
+const Celebration = ({currentUser}) => {
     CSSPlugin.defaultTransformPerspective = 300;
     gsap.to(".dancingWorm", {x: -150, duration:5, rotation:360})
     gsap.to(".dancingWorm", {x: 150, duration:5, scale: 1.2, ease: "bounce"})
@@ -25,30 +26,36 @@ const FinishedBook = ({currentUser}) => {
     gsap.to(".yellowBalloon", {x: 100, y: -340, duration: 9, rotation: 340, ease: "bounce"})
   
     return(
-      <React.Fragment>
-      <h2 className="celebrationTitle">Congratulations, {currentUser.givenName}! You finished! </h2>
+      <section className="celebrationDisplay">
+        <h2 className="celebrationTitle">Congratulations, {currentUser.givenName}! You finished! </h2>
         <div id="container" className="celebrationStation">
           
           <div className="confettiContainer">
-          <img src={flower} className="confetti flower"></img>
-          <img src={sushi} className="confetti sushi"></img>
-          <img src={apple} className="confetti apple"></img>
-          <img src={donut} className="confetti donut"></img>
+          <img src={flower} className="confetti flower" alt="falling flower animation"></img>
+          <img src={sushi} className="confetti sushi" alt="falling sushi animation"></img>
+          <img src={apple} className="confetti apple" alt="falling apple animation"></img>
+          <img src={donut} className="confetti donut" alt="falling donut animation"></img>
           </div>
         
           <div className="celebrationContainer">
-            <img className="dancingWorm" src={wormImg}></img>
-            <img className="dancingBook" src={bookImg}></img>
+            <img className="dancingWorm" src={wormImg} alt="spinning and dancing worm"></img>
+            <img className="dancingBook" src={bookImg} alt="bouncy book"></img>
           </div>
 
           <div className="balloonContainer">
-            <img className="balloon redBalloon" src={redBalloon}></img>
-            <img className="balloon yellowBalloon" src={yellowBalloon}></img>
+            <img className="balloon redBalloon" src={redBalloon} alt="a red balloon flying upwards"></img>
+            <img className="balloon yellowBalloon" src={yellowBalloon} alt="a yellow balloon flying upwards"></img>
           </div>
 
         </div>
-        </React.Fragment>
+        <Link to={{
+          pathname: '/home',
+          state: {currentUser: currentUser}
+        }}>
+        <button className="buttonHome">Home</button>
+        </Link>
+      </section>
     )
 }
 
-export default FinishedBook;
+export default Celebration;

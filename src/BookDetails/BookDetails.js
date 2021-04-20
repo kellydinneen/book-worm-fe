@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import NewBookMarkForm from '../NewBookMarkForm/NewBookMarkForm';
 import { FinishBookForm } from '../FinishBookForm/FinishBookForm';
 import { Link, withRouter } from 'react-router-dom';
 import { getBookMarks } from '../apiCalls.js';
+import Collapsible from 'react-collapsible';
 
 const BookDetails = (props) => {
-  const [displayNewBookMarkForm, setDisplayNewBookMarkForm] = useState(false);
   const [displayFinishBookForm, setDisplayFinishBookForm] = useState(false);
   const [bookMarks, setBookMarks] = useState([]);
   const studentId = props.location.state.studentId;
@@ -18,19 +17,19 @@ const BookDetails = (props) => {
 
   const bookMarkDisplays = () => {
     return bookMarks.map(mark =>
-    <section key={mark.id}>
-      <h4>{mark.attributes.date}</h4>
-      <h4>{mark.attributes.minutes}</h4>
-      <h4>{mark.attributes.page_number}</h4>
-    </section>
+    <Collapsible trigger={mark.attributes.date} key={mark.id}>
+      <section>
+        <p>I read for {mark.attributes.minutes} mins!</p>
+        <p> On page: {mark.attributes.page_number}</p>
+        <p>Notes: {mark.attributes.notes}</p>
+        <p>Reactions: {mark.attributes.reactions}</p>
+      </section>
+    </Collapsible>
   )}
 
   useEffect(() => {
-    async function grabBookMarks() {
-      await fetchBookMarks();
-    }
-    grabBookMarks()
-  }, [])
+    fetchBookMarks();
+  })
 
     return(
       <main>

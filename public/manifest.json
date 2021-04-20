@@ -8,13 +8,13 @@
       "type": "image/x-icon"
     },
     {
-      "src": "worm.png",
-      "type": "image/png",
+      "src": "apple.svg",
+      "type": "image/svg",
       "sizes": "192x192"
     },
     {
-      "src": "worm.png",
-      "type": "image/png",
+      "src": "apple.svg",
+      "type": "image/svg",
       "sizes": "512x512"
     }
   ],
