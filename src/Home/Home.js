@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import NewBookForm from '../NewBookForm/NewBookForm';
+import FinishedBooks from '../FinishedBooks/FinishedBooks';
 import mountainImg from '../assets/mountain.svg';
 import treesImg from '../assets/trees.svg'
 import sandhillImg from '../assets/sandhill.svg';
@@ -67,6 +69,7 @@ export const Home = ({currentUser}) => {
 
    
 
+
     return (
         <main>
           <div className='navigation-wrapper'>
@@ -83,11 +86,16 @@ export const Home = ({currentUser}) => {
             <img className='trees' src={treesImg} alt='trees'/>
             <img className='sandhill' src={sandhillImg} alt='sandhill'/>
             <img className='trees' src={treesImg} alt='trees'/>
-            <img
-              className='sandcastle'
-              src={sandcastleImg}
-              alt='sandcastle'
-            />
+            <Link to={{
+              pathname: `/finishedbooks`,
+              state: { studentId: studentId }
+            }}>
+              <img
+                className='sandcastle'
+                src={sandcastleImg}
+                alt='sandcastle'
+              />
+            </Link>
           </div>
           <img className='topsoil' src={topsoilImg} alt='Feel the grass at the top of the earth and dig deep to find your books to start your journey.' />
           {!isLoading &&
