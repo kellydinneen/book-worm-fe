@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import NewBookForm from '../NewBookForm/NewBookForm';
-import FinishedBooks from '../FinishedBooks/FinishedBooks';
 import mountainImg from '../assets/mountain.svg';
 import treesImg from '../assets/trees.svg'
 import sandhillImg from '../assets/sandhill.svg';
@@ -20,7 +18,7 @@ export const Home = ({currentUser}) => {
     const [currentProgress, setCurrentProgress] = useState([]);
     const [studentId, setStudentId] = useState(null);
     const [setError] = useState(null);
-
+    console.log("test")
     const fetchBookMarks = async (user, books) => {
       let bookProgressRatios = {};
         await Promise.all(
@@ -65,7 +63,7 @@ export const Home = ({currentUser}) => {
 
     useEffect(() => {
       loadHomeInfo();
-    });
+    }, []);
 
    
 

@@ -32,9 +32,9 @@ export const FinishBookForm = ({ book, studentId }) => {
     }
     return (
       <>
-      <form className='finish-form' onSubmit={handleSubmit(onSubmit)}>
+      <form className='finish-form' onSubmit={() => handleSubmit(onSubmit)}>
         <label>Rate the book on a scale from 1 to 5?</label>
-        <StarRating setBookRating={setRating} totalStars={5} />
+        <StarRating bookRating={rating} setBookRating={setRating} totalStars={5} />
         <label>Tell your friends a little bit about it:</label>
         <textarea
           className='finished-books-textarea'

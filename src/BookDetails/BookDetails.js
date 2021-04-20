@@ -10,14 +10,13 @@ const BookDetails = (props) => {
   const [bookMarks, setBookMarks] = useState([]);
   const studentId = props.location.state.studentId;
   const book = props.location.state.book;
-
+  console.log("bookdetails", studentId)
  const fetchBookMarks = async () => {
     const allBookMarks = await getBookMarks(studentId, book.id);
     setBookMarks(allBookMarks.data);
   }
 
-  const bookMarkDisplays = () => {
-    return bookMarks.map(mark =>
+  const bookMarkDisplays = bookMarks.map(mark =>
     <Collapsible trigger={moment(mark.attributes.date).format('LL')} key={mark.id}>
       <section>
         <p>I read for {mark.attributes.minutes} mins!</p>
@@ -26,11 +25,11 @@ const BookDetails = (props) => {
         <p>Reactions: {mark.attributes.reactions}</p>
       </section>
     </Collapsible>
-  )}
+  )
 
   useEffect(() => {
     fetchBookMarks();
-  })
+  }, [])
 
     return(
       <main>
@@ -47,7 +46,7 @@ const BookDetails = (props) => {
             </article>
             <article className='bookmarks-display'>
               <h2>Bookmarks</h2>
-              {bookMarkDisplays()}
+              {bookMarkDisplays}
             </article>
             <article className='book-options'>
               <Link to={{
