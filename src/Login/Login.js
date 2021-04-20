@@ -38,7 +38,7 @@ function Login({ currentUser, setCurrentUser }) {
               BookWorm
               </h1>
             </div>
-            <p>Track your reading progress!</p>
+            <h2 className="caption">Track your reading progress!</h2>
             <div className="loginContainer">
               <div className="imageContainer">
                 <img className="book" src={bookImg} alt="book"></img>
