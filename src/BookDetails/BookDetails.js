@@ -70,7 +70,6 @@ const BookDetails = (props) => {
                   </button>
                 </>
               }
-              <button className='detail-button'>Abandon Book</button>
             </article>
         </section>
       </main>
