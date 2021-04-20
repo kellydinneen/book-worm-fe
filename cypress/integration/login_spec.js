@@ -1,5 +1,5 @@
 
-describe.only('Login', () => {
+describe.skip('Login', () => {
   beforeEach(() => {
     cy.visit('https://book-worm-2.herokuapp.com/')
   })
