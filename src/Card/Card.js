@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import { postBook, getCurrentBooks } from '../apiCalls.js';
+import { postBook } from '../apiCalls.js';
 
 export const Card = ({ book, studentId }) => {
   const [prediction, setPrediction] = useState('');

@@ -21,7 +21,7 @@ export const Home = ({currentUser}) => {
 
     const fetchBookMarks = async (user, books) => {
       let bookProgressRatios = {};
-      const marks = await Promise.all(
+        await Promise.all(
         books.map(async book => {
           try {
             let bookProgress = 0;
@@ -66,7 +66,7 @@ export const Home = ({currentUser}) => {
         await loadHomeInfo();
       }
       getInfo()
-    }, []);
+    });
 
     return (
         <main>

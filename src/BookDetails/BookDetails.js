@@ -17,8 +17,8 @@ const BookDetails = (props) => {
 
   const bookMarkDisplays = () => {
     return bookMarks.map(mark =>
-    <Collapsible trigger={mark.attributes.date}>
-      <section key={mark.id}>
+    <Collapsible trigger={mark.attributes.date} key={mark.id}>
+      <section>
         <p>I read for {mark.attributes.minutes} mins!</p>
         <p> On page: {mark.attributes.page_number}</p>
         <p>Notes: {mark.attributes.notes}</p>
@@ -32,7 +32,7 @@ const BookDetails = (props) => {
       await fetchBookMarks();
     }
     grabBookMarks()
-  }, [])
+  })
 
     return(
       <main>
