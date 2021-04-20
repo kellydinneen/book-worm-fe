@@ -1,12 +1,13 @@
-$primary-background: black;
+$primary-background: #000000;
 $secondary-background: #E3D1BE;
-$heading-text-color: white;
+$heading-text-color: #FFFFFF;
 $secondary-text-color: #0c0408;
 $first-accent-color: #F29024;
 $second-accent-color: #EB6825;
 $third-accent-color: #D56261;
 $fourth-accent-color: #057196;
 $fifth-accent-color: #3C9F88;
+$soil-color: #2d0202;
 
 @mixin transform() {
   transition:  0.5s ease;
