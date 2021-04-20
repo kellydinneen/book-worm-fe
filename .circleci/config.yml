@@ -14,7 +14,7 @@ jobs:
       - run: npm install
       - save_cache:
           paths:
-            - /root/.npm
+            - ~/.npm
           key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run: npm test
   deploy:
