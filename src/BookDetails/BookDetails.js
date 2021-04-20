@@ -28,10 +28,7 @@ const BookDetails = (props) => {
   )}
 
   useEffect(() => {
-    async function grabBookMarks() {
-      await fetchBookMarks();
-    }
-    grabBookMarks()
+    fetchBookMarks();
   })
 
     return(

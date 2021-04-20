@@ -62,11 +62,10 @@ export const Home = ({currentUser}) => {
     }
 
     useEffect(() => {
-      async function getInfo() {
-        await loadHomeInfo();
-      }
-      getInfo()
+      loadHomeInfo();
     });
+
+   
 
     return (
         <main>
