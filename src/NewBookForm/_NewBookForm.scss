@@ -5,9 +5,7 @@
   background-color: $secondary-background;
   border: 0.1em solid #FFFFFF;
   @include borderRadius();
-  position: fixed;
-  left: 12em;
-  top: 8em;
+  margin: 8em 22em;
   width: 36em;
   height: 28em;
   opacity: 0.9;

@@ -3,7 +3,7 @@ import { getBooks} from '../apiCalls.js';
 import { useForm } from "react-hook-form";
 import { Card } from '../Card/Card';
 import { withRouter } from 'react-router-dom';
-import exitImg from '../assets/exit.png';
+
 
 const NewBookForm = (props) => {
     const [bookList, setBookList] = useState([])
