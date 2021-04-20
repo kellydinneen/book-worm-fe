@@ -1,7 +1,14 @@
 .bookmark-form {
   display: flex;
   flex-direction: column;
+  width: 20em;
+  height: 30em;
+  background-color: #E3D1BE;
+  border: 0.1em solid white;
+  @include borderRadius();
   align-items: center;
+  padding: 2em;
+  margin: 3em 33em;
 }
 
 .book-mark-form-input, 
@@ -18,7 +25,8 @@ select {
 
 .bookmark-label {
   font-weight: bold;
-  color: $fifth-accent-color;
+  color: $fourth-accent-color;
+  margin-top: 1em;
 }
 
 .bookmark-submit-button {
