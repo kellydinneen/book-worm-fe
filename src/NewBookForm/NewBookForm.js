@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import { Card } from '../Card/Card';
 import { withRouter } from 'react-router-dom';
 
-
 const NewBookForm = (props) => {
     const [bookList, setBookList] = useState([])
     const { register, handleSubmit} = useForm();
