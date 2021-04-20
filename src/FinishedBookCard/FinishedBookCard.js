@@ -1,10 +1,10 @@
 import React from 'react';
 import Collapsible from 'react-collapsible';
 
-export const Card = ({ book, bookMarks }) => {
+export const FinishedBookCard = ({ book, bookMarks }) => {
 
-  const bookMarkList = bookMarks.map(mark =>
-    <Collapsible trigger={mark.attributes.date + '      ' + mark.attributes.reactions}>
+  const bookMarkList = () => bookMarks.map(mark =>
+    <Collapsible trigger={mark.attributes.date + '......' + mark.attributes.reactions}>
       <section key={mark.id}>
         <p>I read for {mark.attributes.minutes} mins!</p>
         <p> On page: {mark.attributes.page_number}</p>
@@ -18,7 +18,8 @@ export const Card = ({ book, bookMarks }) => {
       <img className='book-img' src={book.attributes.image} alt='book cover'/>
       <h3>Bookmarks</h3>
       <div className='bookmarks'>
-        {bookMarks.length && bookMarkList}
+        {!bookMarks.length && <p>You didn't leave any bookmarks in this one</p>}
+        {bookMarks.length && bookMarkList()}
       </div>
     </section>
   )

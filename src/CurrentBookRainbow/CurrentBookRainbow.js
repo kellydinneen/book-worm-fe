@@ -5,8 +5,6 @@ import bookImg from '../assets/openbook.png';
 
 const CurrentBookRainbow = ({ data, progressData, setClickedBook }) => {
 
-  console.log(data)
-
   const drawRainbow = () => {
     const currentReads = data.data.slice(0, 5);
     const rainbowBox = d3.select(".rainbowBox")

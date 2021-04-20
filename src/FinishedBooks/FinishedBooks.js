@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { getFinishedBooks, getBookMarks } from '../apiCalls.js';
 import { withRouter } from 'react-router-dom';
+import { FinishedBookCard } from '../FinishedBookCard/FinishedBookCard'
 
 const FinishedBooks = (props) => {
-    const [finishedBookList, setFinishedBookList] = useState([]);
-    const [finishedBookMarks, setFinishedBookMarks] = useState({});
+    const [finishedBookList, setFinishedBookList] = useState(null);
+    const [finishedBookMarks, setFinishedBookMarks] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
     const studentId = props.location.state.studentId;
 
     const fetchFinishedBooks = async () => {
-      const getFinishedBooks = await (getFinishedBooks(studentId));
-      setFinishedBookList(getFinishedBooks.data);
+      const finishedBooks = await (getFinishedBooks(studentId));
+      return finishedBooks.data;
     }
 
     const fetchBookMarks = async (books) => {
@@ -34,13 +35,19 @@ const FinishedBooks = (props) => {
 
   const loadFinishedBookInfo = async() => {
     const finishedBooks = await fetchFinishedBooks();
-    const bookMarks = await fetchBookMarks(finishedBooks.data);
-    setFinishedBookMarks(bookMarks);
-    setFinishedBookList(finishedBooks);
+    await setFinishedBookList(finishedBooks);
+    const bookMarks = await fetchBookMarks(finishedBooks);
+    await setFinishedBookMarks(bookMarks);
     setIsLoading(false);
   }
 
-    const finishedBooks = () => finishedBookList.map((book, i) => <FinishedBookCard book={book} bookMarks={finishedBookMarks[book.attributes.title]}/>)
+    const finishedBooks = () => {
+      return finishedBookList.map((book, i) => <FinishedBookCard key={i} book={book} bookMarks={finishedBookMarks[book.attributes.title].data}/>)
+    }
+
+    useEffect(() => {
+      loadFinishedBookInfo();
+    }, []);
 
     return(
       <>
@@ -52,14 +59,14 @@ const FinishedBooks = (props) => {
               {isLoading && <p>Hold on, we're finding all the books you've read...</p>}
               {!isLoading &&
                 <>
-                  {!finishedBooks.length &&
+                  {!finishedBookList &&
                     <>
                       <h3>You haven't finished any books yet!</h3>
                       <h4>There's no time like the present -- go pick out a book and get reading.</h4>
                       <h4>When you're done, you can mark a book as finished by visiting its details page (click the book's icon in your rainbow)</h4>
                     </>
                   }
-                  {finishedBooks.length && finishedBooks}
+                  {finishedBookList && finishedBooks()}
                 </>
               }
             </article>

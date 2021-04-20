@@ -70,6 +70,7 @@ export const Home = ({currentUser, setCurrentUser}) => {
       getInfo()
     }, []);
 
+
     return (
         <main>
           <div className='navigation-wrapper'>
