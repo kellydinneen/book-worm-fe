@@ -1,6 +1,6 @@
 describe('Navigation Landscape', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/home')
+    cy.visit('https://book-worm-2.herokuapp.com/home')
   });
 
   it.skip('Should have button that opens form for adding book', () => {
@@ -24,7 +24,7 @@ describe('Navigation Landscape', () => {
 
 describe('Rainbow', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/home').wait(1000)
+    cy.visit('https://book-worm-2.herokuapp.com/home').wait(1000)
   });
 
   it.skip('Should be underground', () => {

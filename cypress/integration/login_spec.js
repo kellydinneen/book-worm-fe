@@ -1,7 +1,7 @@
 
 describe.only('Login', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/')
+    cy.visit('https://book-worm-2.herokuapp.com/')
   })
 
   it('Should have a login button', () => {
