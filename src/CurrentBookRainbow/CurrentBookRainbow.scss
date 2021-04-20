@@ -1,7 +1,5 @@
 .bookImage {
-    &:hover {
-        outline: yellow;
-    }
+    cursor: pointer;
 }
 .rainbowBox {
     display: flex;
@@ -12,3 +10,7 @@
     margin: 5px;
 }
 
+.hover {
+  filter: brightness(1.5);
+  filter: drop-shadow(1px 1px 10px #F29024)
+}
