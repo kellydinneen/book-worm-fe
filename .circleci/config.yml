@@ -6,17 +6,22 @@ orbs:
 jobs:
   node/test:
     docker:
-      - image: circleci/15.12.0-stretch
+      - image: cypress/base:12
     steps:
       - checkout
       - restore_cache:
           key: node-v2-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run: npm ci
+      - run: npm run cy:verify
       - save_cache:
           paths:
             - ~/.npm
+            - ~/.cache
           key: node-v2-{{ .Branch }}-{{ checksum "package-lock.json" }}
-      - run: npm test
+      - run: 
+          command: npm start
+          background: true
+      - run: npm run cytest
   deploy:
     executor: heroku/default
     steps:
