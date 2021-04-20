@@ -39,10 +39,16 @@ const NewBookForm = (props) => {
             </label>
             <button className='submit-button' type="submit">Search</button>
             {errors.title && errors.title.type === "required" && (
-              <span className='error-handling' role="alert">Title is required</span>
+              <span 
+                className='error-handling' 
+                role="alert">Title is required
+              </span>
             )}
             {errors.author && errors.author.type === "required" && (
-              <span className='error-handling' role="alert">Author is required</span>
+              <span 
+                className='error-handling' 
+                role="alert">Author is required
+              </span>
             )}
           </form>
           <div className='card-wrapper'>
