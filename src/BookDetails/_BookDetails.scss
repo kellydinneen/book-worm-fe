@@ -12,7 +12,7 @@ main {
 }
 
 .bookmarks-display {
-  background-color: $secondary-text-color;
+  background-color: $third-accent-color;
   @include borderRadius();
   @include bookDetailStyle();
 }
@@ -26,7 +26,7 @@ main {
 .book-options {
   display: flex;
   flex-direction: column;
-  background-color: $secondary-background;
+  background-color: $fourth-accent-color;
   @include bookDetailStyle();
   @include borderRadius();
 }
@@ -39,10 +39,21 @@ main {
   align-self: center;
   @include buttonStyling();
   @include borderRadius();
+  background-color: $secondary-background;
+}
+
+.Collapsible {
+  border: 0.2em solid white;
+  cursor: pointer;
+  margin: 2%;
+  text-align: center;
+  background-color: $secondary-background;
+  @include borderRadius();
 }
 
 .detail-button {
   margin: 1em 0;
   height: 2em;
+  width: 14em;
   font-size: 1.3em;
 }

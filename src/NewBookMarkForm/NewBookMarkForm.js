@@ -4,7 +4,7 @@ import { withRouter, Redirect } from 'react-router-dom';
 import { postBookMark } from '../apiCalls.js';
 
 const NewBookMarkForm = (props) => {
-  const { register, reset, handleSubmit} = useForm();
+  const { register, reset, handleSubmit, formState: { errors }} = useForm();
   const [refreshedBookMarks, setRefreshedBookMarks] = useState(false);
   const studentId = props.location.state.studentId;
   const book = props.location.state.book;
@@ -22,7 +22,7 @@ const NewBookMarkForm = (props) => {
       minutes: data.minutes,
       page_number: data.page,
       notes: data.notes,
-      reaction: data.reaction
+      reactions: data.reaction
     }
     const result = await postBookMark(bookMark);
     setRefreshedBookMarks(true);
@@ -36,40 +36,41 @@ const NewBookMarkForm = (props) => {
 
   return (
    <form className='bookmark-form' onSubmit={handleSubmit(onSubmit)}>
-     <label>What page did you finish on?</label>
+     <label className='bookmark-label'>What page did you finish on?</label>
      <input
         className='book-mark-form-input'
         type="number"
         placeholder="Page number"
         {...register("page", {required: true})}
       />
-     <label>How many minutes did you read for?</label>
+     <label className='bookmark-label'>How many minutes did you read for?</label>
      <input
         className='book-mark-form-input'
         type="number"
         placeholder="Minutes read" {...register("minutes", {required: true})}
     />
-     <label>What day did you read?</label>
+     <label className='bookmark-label'>What day did you read?</label>
      <input
       className='book-mark-form-input'
       type="date" {...register("date", {required: true})}
       />
-     <label>Write down any thoughts or notes you have:</label>
+     <label className='bookmark-label'>Write down any thoughts or notes you have:</label>
      <textarea
         className='book-mark-form-textarea'
         type="text"
         placeholder="What did you notice? What was your favorite part? Your least favorite?" {...register("notes")}
       ></textarea>
-     <label>How did this reading make you feel?</label>
-     <select {...register("reaction")}>
-        <option value="😮">😮 Shocked</option>
-        <option value=" 🧐"> 🧐 Interested</option>
-        <option value=" 😆"> 😆 Funny</option>
-        <option value=" 😢"> 😢 Sad</option>
-        <option value=" 😡"> 😡 Angry</option>
-        <option value=" 😨"> 😨 Confused</option>
-        <option value=" 😊"> 😊 Happy</option>
-        <option value=" 🥰"> 🥰 In Love!</option>
+     <label className='bookmark-label'>How did this reading make you feel?</label>
+     <select {...register("reaction", {required: true})}>
+        <option value="">Add a reaction</option>
+        <option value="😮"> 😮 Shocked</option>
+        <option value="🧐"> 🧐 Interested</option>
+        <option value="😆"> 😆 Funny</option>
+        <option value="😢"> 😢 Sad</option>
+        <option value="😡"> 😡 Angry</option>
+        <option value="😨"> 😨 Confused</option>
+        <option value="😊"> 😊 Happy</option>
+        <option value="🥰"> 🥰 In Love!</option>
       </select>
      <button
         className='bookmark-submit-button'
@@ -81,6 +82,21 @@ const NewBookMarkForm = (props) => {
           state: { book: book, studentId: studentId }
         }}
       ></Redirect>}
+      {errors.page && errors.page.type === "required" && (
+        <span role="alert">Add the page number your on!</span>
+      )}
+      {errors.minutes && errors.minutes.type === "required" && (
+        <span role="alert">Add your minutes read!</span>
+      )}
+      {errors.date && errors.date.type === "required" && (
+        <span role="alert">Enter a date.</span>
+      )}
+      {errors.notes && errors.notes.type === "required" && (
+        <span role="alert">Add some notes!</span>
+      )}
+      {errors.reaction && errors.reaction.type === "required" && (
+        <span role="alert">Add an emoji reaction!</span>
+      )}
    </form>
   );
 }

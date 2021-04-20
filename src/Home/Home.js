@@ -11,17 +11,17 @@ import { gsap, CSSPlugin } from 'gsap';
 
 gsap.registerPlugin(CSSPlugin);
 
-export const Home = ({currentUser, setCurrentUser}) => {
+export const Home = ({currentUser}) => {
     const [clickedBook, setClickedBook] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [currentBooks, setCurrentBooks] = useState([]);
     const [currentProgress, setCurrentProgress] = useState([]);
     const [studentId, setStudentId] = useState(null);
-    const [error, setError] = useState(null);
+    const [setError] = useState(null);
 
     const fetchBookMarks = async (user, books) => {
       let bookProgressRatios = {};
-      const marks = await Promise.all(
+        await Promise.all(
         books.map(async book => {
           try {
             let bookProgress = 0;
@@ -62,11 +62,10 @@ export const Home = ({currentUser, setCurrentUser}) => {
     }
 
     useEffect(() => {
-      async function getInfo() {
-        await loadHomeInfo();
-      }
-      getInfo()
-    }, []);
+      loadHomeInfo();
+    });
+
+   
 
     return (
         <main>

@@ -1,7 +1,7 @@
-@import '../style/variables';
 .add-book-btn {
   height: 2.5em;
   width: 8em;
+  background-color: #057196;
   @include borderRadius();
 }
 
