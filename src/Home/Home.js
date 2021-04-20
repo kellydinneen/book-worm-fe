@@ -90,7 +90,10 @@ export const Home = ({currentUser}) => {
               alt='sandcastle'
             />
           </div>
-          <img className='topsoil' src={topsoilImg} alt='Feel the grass at the top of the earth and dig deep to find your books to start your journey.' />
+          <div className='topsoilContainer'>
+            <h2 className='topsoilCaption'>Find your bookworms below!</h2>
+            <img className='topsoil' src={topsoilImg} alt='Feel the grass at the top of the earth and dig deep to find your books to start your journey.' />
+          </div>
           {!isLoading &&
             <CurrentBookRainbow
               data={currentBooks}
