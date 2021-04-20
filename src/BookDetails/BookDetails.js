@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FinishBookForm } from '../FinishBookForm/FinishBookForm';
 import { Link, withRouter } from 'react-router-dom';
 import { getBookMarks } from '../apiCalls.js';
+import Collapsible from 'react-collapsible';
 
 const BookDetails = (props) => {
   const [displayFinishBookForm, setDisplayFinishBookForm] = useState(false);
@@ -16,13 +17,14 @@ const BookDetails = (props) => {
 
   const bookMarkDisplays = () => {
     return bookMarks.map(mark =>
-    <section key={mark.id}>
-      <h4>{mark.attributes.date}</h4>
-      <h4>{mark.attributes.minutes}</h4>
-      <h4>{mark.attributes.page_number}</h4>
-      <h4>{mark.attributes.notes}</h4>
-      <p>{mark.attributes.reaction}</p>
-    </section>
+    <Collapsible trigger={mark.attributes.date}>
+      <section key={mark.id}>
+        <h4>{mark.attributes.minutes}</h4>
+        <h4>{mark.attributes.page_number}</h4>
+        <h4>{mark.attributes.notes}</h4>
+        <p>{mark.attributes.reaction}</p>
+      </section>
+    </Collapsible>
   )}
 
   useEffect(() => {

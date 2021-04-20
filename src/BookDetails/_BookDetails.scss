@@ -41,6 +41,13 @@ main {
   @include borderRadius();
 }
 
+.Collapsible {
+  border: 0.2em solid white;
+  cursor: pointer;
+  margin: 2%;
+  text-align: center;
+}
+
 .detail-button {
   margin: 1em 0;
   height: 2em;
