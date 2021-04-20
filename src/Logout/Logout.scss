@@ -2,5 +2,6 @@
 
 .logOutButton {
     height: 4em;
+    margin: 0.7em 1em;
     @include transform();
 }
