@@ -23,14 +23,14 @@ const NewBookForm = (props) => {
     return(
         <section className='add-a-book-form'>
           <form className='search-form' onSubmit={handleSubmit(onSubmit)}>
-            <label>What's the title of the book?
+            <label className='search-book-label'>What's the title of the book?
               <input
                 className='search-input'
                 type="text"
                 placeholder="Enter title here"
                 {...register("title", {required: true, maxLength: 100})} />
             </label>
-            <label>Who is the author of the book?
+            <label className='search-book-label'>Who is the author of the book?
               <input
                 className='search-input'
                 type="text"

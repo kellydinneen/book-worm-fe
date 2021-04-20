@@ -7,11 +7,18 @@
 .book-mark-form-input, 
 select {
   width: 13em;
-  text-align: center;
+  margin-bottom: 0.5em;
 }
 
 .book-mark-form-textarea {
   height: 5em;
+  width: 13em;
+  margin-bottom: 0.5em;
+}
+
+.bookmark-label {
+  font-weight: bold;
+  color: $fifth-accent-color;
 }
 
 .bookmark-submit-button {

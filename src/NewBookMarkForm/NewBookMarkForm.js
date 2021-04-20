@@ -36,31 +36,31 @@ const NewBookMarkForm = (props) => {
 
   return (
    <form className='bookmark-form' onSubmit={handleSubmit(onSubmit)}>
-     <label>What page did you finish on?</label>
+     <label className='bookmark-label'>What page did you finish on?</label>
      <input
         className='book-mark-form-input'
         type="number"
         placeholder="Page number"
         {...register("page", {required: true})}
       />
-     <label>How many minutes did you read for?</label>
+     <label className='bookmark-label'>How many minutes did you read for?</label>
      <input
         className='book-mark-form-input'
         type="number"
         placeholder="Minutes read" {...register("minutes", {required: true})}
     />
-     <label>What day did you read?</label>
+     <label className='bookmark-label'>What day did you read?</label>
      <input
       className='book-mark-form-input'
       type="date" {...register("date", {required: true})}
       />
-     <label>Write down any thoughts or notes you have:</label>
+     <label className='bookmark-label'>Write down any thoughts or notes you have:</label>
      <textarea
         className='book-mark-form-textarea'
         type="text"
         placeholder="What did you notice? What was your favorite part? Your least favorite?" {...register("notes")}
       ></textarea>
-     <label>How did this reading make you feel?</label>
+     <label className='bookmark-label'>How did this reading make you feel?</label>
      <select {...register("reaction")}>
         <option value="😮">😮 Shocked</option>
         <option value=" 🧐"> 🧐 Interested</option>

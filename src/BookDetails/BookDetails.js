@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import NewBookMarkForm from '../NewBookMarkForm/NewBookMarkForm';
 import { FinishBookForm } from '../FinishBookForm/FinishBookForm';
 import { Link, withRouter } from 'react-router-dom';
 import { getBookMarks } from '../apiCalls.js';
 
 const BookDetails = (props) => {
-  const [displayNewBookMarkForm, setDisplayNewBookMarkForm] = useState(false);
   const [displayFinishBookForm, setDisplayFinishBookForm] = useState(false);
   const [bookMarks, setBookMarks] = useState([]);
   const studentId = props.location.state.studentId;
@@ -22,6 +20,8 @@ const BookDetails = (props) => {
       <h4>{mark.attributes.date}</h4>
       <h4>{mark.attributes.minutes}</h4>
       <h4>{mark.attributes.page_number}</h4>
+      <h4>{mark.attributes.notes}</h4>
+      <p>{mark.attributes.reaction}</p>
     </section>
   )}
 
