@@ -18,7 +18,8 @@ export const Card = ({ book, bookMarks }) => {
       <img className='book-img' src={book.attributes.image} alt='book cover'/>
       <h3>Bookmarks</h3>
       <div className='bookmarks'>
-      {bookMarks.length && bookMarkList}
+        {bookMarks.length && bookMarkList}
+      </div>
     </section>
   )
 }

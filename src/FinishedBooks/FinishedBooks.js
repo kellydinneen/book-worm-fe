@@ -40,14 +40,17 @@ const FinishedBooks = (props) => {
     setIsLoading(false);
   }
 
-    const finishedBooks = () => finishedBookList.map((book, i) => <></>)
+    const finishedBooks = () => finishedBookList.map((book, i) => <FinishedBookCard book={book} bookMarks={finishedBookMarks[book.attributes.title]}/>)
 
     return(
-        <section className='finished-books'>
-          <h2>Books You've Finished</h2>
+        {error && <h3>Whoops!! Something's not right. Return to HOME and try again.</h3>}
+        {!error && <section className='finished-books'>
+          <h2>Books You've Wormed Your Way All The Way Through</h2>
           <article className='finished-books-container'>
+            {isLoading && <p>Hold on, we're finding all the books you've read...</p>}
+            {!isLoading && finishedBooks.length && finishedBooks}
           </article>
-        </section>
+        </section>}
     )
   }
 
