@@ -22,7 +22,7 @@ const BookDetails = (props) => {
         <p>I read for {mark.attributes.minutes} mins!</p>
         <p> On page: {mark.attributes.page_number}</p>
         <p>Notes: {mark.attributes.notes}</p>
-        <p>Reactions: {mark.attributes.reaction}</p>
+        <p>Reactions: {mark.attributes.reactions}</p>
       </section>
     </Collapsible>
   )}

@@ -22,7 +22,7 @@ const NewBookMarkForm = (props) => {
       minutes: data.minutes,
       page_number: data.page,
       notes: data.notes,
-      reaction: data.reaction
+      reactions: data.reaction
     }
     const result = await postBookMark(bookMark);
     setRefreshedBookMarks(true);
@@ -62,14 +62,14 @@ const NewBookMarkForm = (props) => {
       ></textarea>
      <label className='bookmark-label'>How did this reading make you feel?</label>
      <select {...register("reaction")}>
-        <option value="😮">😮 Shocked</option>
-        <option value=" 🧐"> 🧐 Interested</option>
-        <option value=" 😆"> 😆 Funny</option>
-        <option value=" 😢"> 😢 Sad</option>
-        <option value=" 😡"> 😡 Angry</option>
-        <option value=" 😨"> 😨 Confused</option>
-        <option value=" 😊"> 😊 Happy</option>
-        <option value=" 🥰"> 🥰 In Love!</option>
+        <option value="😮"> 😮 Shocked</option>
+        <option value="🧐"> 🧐 Interested</option>
+        <option value="😆"> 😆 Funny</option>
+        <option value="😢"> 😢 Sad</option>
+        <option value="😡"> 😡 Angry</option>
+        <option value="😨"> 😨 Confused</option>
+        <option value="😊"> 😊 Happy</option>
+        <option value="🥰"> 🥰 In Love!</option>
       </select>
      <button
         className='bookmark-submit-button'
