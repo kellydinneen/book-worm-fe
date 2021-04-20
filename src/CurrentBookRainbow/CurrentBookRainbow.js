@@ -29,7 +29,7 @@ const CurrentBookRainbow = ({ data, progressData, setClickedBook }) => {
         .call(xAxisMaker)
 
     xAxis.selectAll("text")
-        .attr("font-size", "18")
+        .attr("font-size", "21")
         .attr("color", "#F29024")
         .attr("x", 40)
         .attr("y", 110)
