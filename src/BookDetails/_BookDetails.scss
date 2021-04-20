@@ -12,7 +12,7 @@ main {
 }
 
 .bookmarks-display {
-  background-color: $secondary-text-color;
+  background-color: $third-accent-color;
   @include borderRadius();
   @include bookDetailStyle();
 }
