@@ -1,17 +1,26 @@
 
-describe('Login', () => {
+describe.only('Login', () => {
+  beforeEach(() => {
+    cy.visit('http://localhost:3000/')
+  })
+
   it('Should have a login button', () => {
-      cy.visit('http://localhost:3000/')
+      cy.get('.loginBackground').find('button').should('have.class', 'loginButton')
+  })
+  it('Should display the site title', () => {
       cy.get('.loginBackground').find('.loginTitleContainer')
         .children().first().contains('BookWorm')
+  })
+  it('Should display the site caption', () => {
       cy.get('.loginBackground').find('.caption').contains('Track your reading progress!')
+  })
+  it('Should display an image of a book and worm', () => {
       cy.get('.loginBackground').find('.imageContainer')
         .children().first().should('have.class', 'book')
       cy.get('.loginBackground').find('.imageContainer')
         .children().last().should('have.class', 'worm')
-      cy.get('.loginBackground').find('.loginButton').click().wait(1000)
+  })
+  it('Should be able to click login button and login', () => {
+      cy.get('.loginBackground').find('button').click().wait(1000)
   })
 })
-
-// Client secret: j2QReMPY_Mg_0rpOu7J_rrE2
-// client_id: 426129823464-ckm4t40qqinikh5e96pvna36i4tujlo5.apps.googleusercontent.com
