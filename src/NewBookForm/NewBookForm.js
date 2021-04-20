@@ -2,14 +2,17 @@ import React, { useState } from 'react';
 import { getBooks} from '../apiCalls.js';
 import { useForm } from "react-hook-form";
 import { Card } from '../Card/Card';
+import { withRouter } from 'react-router-dom';
 import exitImg from '../assets/exit.png';
 
-export const NewBookForm = ({ setDisplay }) => {
+const NewBookForm = (props) => {
     const [bookList, setBookList] = useState([])
     const { register, handleSubmit} = useForm();
+    const studentId = props.location.state.studentId;
+
     const onSubmit = (data, event) => {
       fetchAllBooks(data.title, data.author)
-      event.target.reset(); 
+      event.target.reset();
     };
 
     async function fetchAllBooks(title, author) {
@@ -17,28 +20,22 @@ export const NewBookForm = ({ setDisplay }) => {
       setBookList(getBookList.data)
     }
 
-    const bookListCard = bookList.map((book, i) => <Card book={book} key={i}/>)
+    const bookListCard = bookList.map((book, i) => <Card book={book} studentId={studentId} key={i}/>)
     return(
         <section className='add-a-book-form'>
-          <img 
-            className='exit-img' 
-            src={exitImg} 
-            alt='exit'
-            onClick={() => setDisplay(false)}
-          />
           <form className='search-form' onSubmit={handleSubmit(onSubmit)}>
             <label>What's the title of the book?
-              <input 
-                className='search-input' 
-                type="text" 
-                placeholder="Enter title here" 
+              <input
+                className='search-input'
+                type="text"
+                placeholder="Enter title here"
                 {...register("title", {required: true, maxLength: 100})} />
             </label>
             <label>Who is the author of the book?
-              <input 
-                className='search-input' 
-                type="text" 
-                placeholder="Enter author here" 
+              <input
+                className='search-input'
+                type="text"
+                placeholder="Enter author here"
                 {...register("author", {required: true, maxLength: 100})} />
             </label>
             <input className='submit-button' type="submit" />
@@ -55,3 +52,5 @@ export const NewBookForm = ({ setDisplay }) => {
         </section>
     )
   }
+
+  export default withRouter(NewBookForm);
