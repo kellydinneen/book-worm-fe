@@ -1,24 +1,24 @@
 version: 2.1
 orbs:
-  # node: circleci/node@3.0.0
+  node: circleci/node@3.0.0
   heroku: circleci/heroku@1.2.6
   cypress: cypress-io/cypress@1.27.0
 
-# jobs:
-#   node/test:
-#     docker:
-#       - image: cypress/base:12
-#     steps:
-#       - checkout
-#       - restore_cache:
-#           key: node-v2-{{ .Branch }}-{{ checksum "package-lock.json" }}
-#       - run: npm ci
+jobs:
+  install-node:
+    docker:
+      - image: circleci/node:15.12.0-stretch
+    steps:
+      - checkout
+      - restore_cache:
+          key: node-v2-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      - run: npm ci
 #       - run: npm run cy:verify
-#       - save_cache:
-#           paths:
-#             - ~/.npm
+      - save_cache:
+          paths:
+            - ~/.npm
 #             - ~/.cache
-#           key: node-v2-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          key: node-v2-{{ .Branch }}-{{ checksum "package-lock.json" }}
 #       - run: 
 #           command: npm start
 #           background: true
@@ -30,22 +30,23 @@ orbs:
 #       - heroku/install
 #       - heroku/deploy-via-git
 workflows:
-  node-tests:
+  build_test:
     jobs:
-      # - node/test
+      - install-node
       - cypress/install
       - cypress/run: 
           requires:
             - cypress/install
+            - install-node
           record: true
           parallel: true
           parallelism: 4
   heroku_deploy:
     jobs:
       - heroku/deploy-via-git
-      # - deploy:
-      #     requires:
-      #       - cypress/run
-      #     filters:
-      #       branches:
-      #         only: main
+        requires:
+          - install-node
+          - cypress/run
+        filters:
+          branches:
+            only: main
