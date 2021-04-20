@@ -44,9 +44,9 @@ workflows:
   heroku_deploy:
     jobs:
       - heroku/deploy-via-git
-        requires:
-          - install-node
-          - cypress/run
-        filters:
-          branches:
-            only: main
+          requires:
+            - install-node
+            - cypress/run
+          filters:
+            branches:
+              only: main
