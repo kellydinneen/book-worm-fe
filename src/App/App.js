@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Home } from '../Home/Home';
 import { Header } from '../Header/Header';
-import { FinishedBooks } from '../FinishedBooks/FinishedBooks';
+import FinishedBooks from '../FinishedBooks/FinishedBooks';
 import NewBookForm from '../NewBookForm/NewBookForm';
 import NewBookMarkForm from '../NewBookMarkForm/NewBookMarkForm';
 import BookDetails from '../BookDetails/BookDetails';

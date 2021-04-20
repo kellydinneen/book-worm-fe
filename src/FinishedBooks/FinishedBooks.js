@@ -6,7 +6,7 @@ const FinishedBooks = (props) => {
     const [finishedBookList, setFinishedBookList] = useState([]);
     const [finishedBookMarks, setFinishedBookMarks] = useState({});
     const [isLoading, setIsLoading] = useState(true);
-    const [err, setErr] = useState(null);
+    const [error, setError] = useState(null);
 
     const studentId = props.location.state.studentId;
 
