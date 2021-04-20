@@ -42,7 +42,7 @@ workflows:
           parallelism: 4
   heroku_deploy:
     jobs:
-      - heorku/deploy-via-git
+      - heroku/deploy-via-git
       # - deploy:
       #     requires:
       #       - cypress/run
