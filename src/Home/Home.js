@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import NewBookForm from '../NewBookForm/NewBookForm';
 import mountainImg from '../assets/mountain.svg';
 import treesImg from '../assets/trees.svg'
 import sandhillImg from '../assets/sandhill.svg';
@@ -8,9 +7,9 @@ import topsoilImg from '../assets/topsoil.svg';
 import CurrentBookRainbow from '../CurrentBookRainbow/CurrentBookRainbow';
 import { getCurrentBooks, getStudentProfile, getBookMarks } from '../apiCalls';
 import { Redirect, Link } from 'react-router-dom';
-import { Header } from '../Header/Header';
-import FinishedBook from '../Celebration/Celebration';
+import { gsap, CSSPlugin } from 'gsap';
 
+gsap.registerPlugin(CSSPlugin);
 
 export const Home = ({currentUser, setCurrentUser}) => {
     const [clickedBook, setClickedBook] = useState(null);
@@ -106,8 +105,7 @@ export const Home = ({currentUser, setCurrentUser}) => {
                 state: { book: clickedBook, studentId: studentId }
               }}
             ></Redirect>
-          }
-          <FinishedBook currentUser={currentUser} studentId={studentId}/>
+          }         
         </main>
     )
 }
