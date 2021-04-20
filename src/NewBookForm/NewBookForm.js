@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 
 const NewBookForm = (props) => {
     const [bookList, setBookList] = useState([])
-    const { register, handleSubmit} = useForm();
+    const { register, handleSubmit, formState: { errors }} = useForm();
     const studentId = props.location.state.studentId;
 
     const onSubmit = (data, event) => {
@@ -37,13 +37,13 @@ const NewBookForm = (props) => {
                 placeholder="Enter author here"
                 {...register("author", {required: true, maxLength: 100})} />
             </label>
-            <input className='submit-button' type="submit" />
-            {/* {errors.title && errors.title.type === "required" && (
+            <button className='submit-button' type="submit">Search</button>
+            {errors.title && errors.title.type === "required" && (
               <span role="alert">Title is required</span>
             )}
             {errors.author && errors.author.type === "required" && (
               <span role="alert">Author is required</span>
-            )} */}
+            )}
           </form>
           <div className='card-wrapper'>
             {!!bookList.length && bookListCard}
