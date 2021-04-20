@@ -1,0 +1,35 @@
+version: 2.1
+orbs:
+  node: circleci/node@3.0.0
+  heroku: circleci/heroku@1.2.6
+
+jobs:
+  node/test:
+    docker:
+      - image: circleci/15.12.0-stretch
+    steps:
+      - checkout
+      - restore_cache:
+          key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      - run: npm install
+      - save_cache:
+          paths:
+            - ~/usr/local/Cellar/node/15.12.0/lib/node_modules
+          key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      - run: npm test
+  deploy:
+    executor: heroku/default
+    steps:
+      - checkout
+      - heroku/install
+      - heroku/deploy-via-git
+workflows:
+  node-tests:
+    jobs:
+      - node/test
+      - deploy:
+          requires:
+            - node/test
+          filters:
+            branches:
+              only: main
