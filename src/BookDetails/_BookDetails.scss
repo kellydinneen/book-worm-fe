@@ -39,6 +39,7 @@ main {
   align-self: center;
   @include buttonStyling();
   @include borderRadius();
+  background-color: $secondary-background;
 }
 
 .Collapsible {

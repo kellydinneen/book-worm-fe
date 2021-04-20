@@ -5,6 +5,7 @@
 .finished-book-submit-button {
   @include buttonStyling();
   @include borderRadius();
+  background-color: $secondary-background;
 }
 
 .finish-form {
