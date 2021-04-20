@@ -4,7 +4,7 @@ import { withRouter, Redirect } from 'react-router-dom';
 import { postBookMark } from '../apiCalls.js';
 
 const NewBookMarkForm = (props) => {
-  const { register, reset, handleSubmit} = useForm();
+  const { register, reset, handleSubmit, formState: { errors }} = useForm();
   const [refreshedBookMarks, setRefreshedBookMarks] = useState(false);
   const studentId = props.location.state.studentId;
   const book = props.location.state.book;
@@ -62,7 +62,8 @@ const NewBookMarkForm = (props) => {
         placeholder="What did you notice? What was your favorite part? Your least favorite?" {...register("notes")}
       ></textarea>
      <label className='bookmark-label'>How did this reading make you feel?</label>
-     <select {...register("reaction")}>
+     <select {...register("reaction", {required: true})}>
+        <option value="">Add a reaction</option>
         <option value="😮"> 😮 Shocked</option>
         <option value="🧐"> 🧐 Interested</option>
         <option value="😆"> 😆 Funny</option>
@@ -82,6 +83,21 @@ const NewBookMarkForm = (props) => {
           state: { book: book, studentId: studentId }
         }}
       ></Redirect>}
+      {errors.page && errors.page.type === "required" && (
+        <span role="alert">Add the page number your on!</span>
+      )}
+      {errors.minutes && errors.minutes.type === "required" && (
+        <span role="alert">Add your minutes read!</span>
+      )}
+      {errors.date && errors.date.type === "required" && (
+        <span role="alert">Enter a date.</span>
+      )}
+      {errors.notes && errors.notes.type === "required" && (
+        <span role="alert">Add some notes!</span>
+      )}
+      {errors.reaction && errors.reaction.type === "required" && (
+        <span role="alert">Add an emoji reaction!</span>
+      )}
    </form>
    </div>
   );

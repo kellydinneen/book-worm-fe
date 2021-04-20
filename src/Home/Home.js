@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import NewBookForm from '../NewBookForm/NewBookForm';
+import FinishedBooks from '../FinishedBooks/FinishedBooks';
 import mountainImg from '../assets/mountain.svg';
 import treesImg from '../assets/trees.svg'
 import sandhillImg from '../assets/sandhill.svg';
@@ -17,11 +19,11 @@ export const Home = ({currentUser}) => {
     const [currentBooks, setCurrentBooks] = useState([]);
     const [currentProgress, setCurrentProgress] = useState([]);
     const [studentId, setStudentId] = useState(null);
-    const [error, setError] = useState(null);
+    const [setError] = useState(null);
 
     const fetchBookMarks = async (user, books) => {
       let bookProgressRatios = {};
-      const marks = await Promise.all(
+        await Promise.all(
         books.map(async book => {
           try {
             let bookProgress = 0;
@@ -62,11 +64,11 @@ export const Home = ({currentUser}) => {
     }
 
     useEffect(() => {
-      async function getInfo() {
-        await loadHomeInfo();
-      }
-      getInfo()
-    }, []);
+      loadHomeInfo();
+    });
+
+   
+
 
     return (
         <main>
@@ -84,11 +86,16 @@ export const Home = ({currentUser}) => {
             <img className='trees' src={treesImg} alt='trees'/>
             <img className='sandhill' src={sandhillImg} alt='sandhill'/>
             <img className='trees' src={treesImg} alt='trees'/>
-            <img
-              className='sandcastle'
-              src={sandcastleImg}
-              alt='sandcastle'
-            />
+            <Link to={{
+              pathname: `/finishedbooks`,
+              state: { studentId: studentId }
+            }}>
+              <img
+                className='sandcastle'
+                src={sandcastleImg}
+                alt='sandcastle'
+              />
+            </Link>
           </div>
           <div className='topsoilContainer'>
             <h2 className='topsoilCaption'>Find your bookworms below the soil...</h2>

@@ -1,0 +1,32 @@
+.finished-bookmarks {
+  height: 40%;
+  width: 95%;
+  margin: 2%;
+  margin-top: 0;
+  overflow: scroll;
+  background: #E3D1BE;
+  @include borderRadius();
+}
+
+.finished-book-card {
+  border: 0.2em solid $fourth-accent-color;
+  @include borderRadius();
+  height: 25em;
+  width: 20em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #FFFFFF;
+  text-align: center;
+}
+
+.finished-book-img {
+  height: 40%;
+}
+
+.finished-book-title {
+  color: $fourth-accent-color;
+  font-size: 1.3rem;
+  margin: 5%;
+  width: 80%;
+}

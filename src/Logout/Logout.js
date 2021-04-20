@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useGoogleLogout } from 'react-google-login';
 import { Redirect } from 'react-router-dom';
 import apple from '../assets/apple.svg';
