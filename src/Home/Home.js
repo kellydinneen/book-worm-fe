@@ -21,7 +21,8 @@ export const Home = ({currentUser, setCurrentUser}) => {
     const [error, setError] = useState(null);
 
     const fetchBookMarks = async (user, books) => {
-      let bookProgressRatios = [];
+      let bookProgressRatios = {};
+      console.log(books);
       const marks = await Promise.all(
         books.map(async book => {
           try {
@@ -31,7 +32,8 @@ export const Home = ({currentUser, setCurrentUser}) => {
               const latestMark = await marksForBook.data.sort((a,b) => new Date(b.attributes.date) - new Date(a.attributes.date))[0];
               bookProgress = latestMark.attributes.page_number / book.attributes.pages;
             }
-            bookProgressRatios.push(bookProgress);
+            bookProgressRatios[book.attributes.title] = bookProgress;
+            console.log(book, bookProgressRatios);
             return bookProgress;
           } catch(err) {
             setError(err)

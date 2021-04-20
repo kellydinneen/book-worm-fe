@@ -38,8 +38,8 @@ const CurrentBookRainbow = ({ data, progressData, setClickedBook }) => {
         .enter().append("image")
         .attr("class", "currentBook")
         .attr("xlink:href", wormImg)
-        .attr("x", (d, i) => bookPositionScale(progressData[i])[0] + (170 * i) + 250)
-        .attr("y", (d, i) => bookPositionScale(progressData[i])[1])
+        .attr("x", (d, i) => bookPositionScale(progressData[d.attributes.title])[0] + (170 * i))
+        .attr("y", (d, i) => bookPositionScale(progressData[d.attributes.title])[1])
         .attr("height", "75")
         .attr("width", "75")
 
