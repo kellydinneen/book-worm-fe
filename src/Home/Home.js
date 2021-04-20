@@ -5,7 +5,7 @@ import sandhillImg from '../assets/sandhill.svg';
 import sandcastleImg from '../assets/sandcastle.svg';
 import topsoilImg from '../assets/topsoil.svg';
 import CurrentBookRainbow from '../CurrentBookRainbow/CurrentBookRainbow';
-import { getCurrentBooks, getStudentProfile } from '../apiCalls';
+import { getCurrentBooks, getStudentProfile, getBookMarks } from '../apiCalls';
 import { Redirect, Link } from 'react-router-dom';
 import { gsap, CSSPlugin } from 'gsap';
 
@@ -15,7 +15,31 @@ export const Home = ({currentUser, setCurrentUser}) => {
     const [clickedBook, setClickedBook] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [currentBooks, setCurrentBooks] = useState([]);
+    const [currentProgress, setCurrentProgress] = useState([]);
     const [studentId, setStudentId] = useState(null);
+    const [error, setError] = useState(null);
+
+    const fetchBookMarks = async (user, books) => {
+      let bookProgressRatios = {};
+      const marks = await Promise.all(
+        books.map(async book => {
+          try {
+            let bookProgress = 0;
+            const marksForBook = await getBookMarks(user.attributes.id, book.id);
+            if (marksForBook.data.length) {
+              const latestMark = await marksForBook.data.sort((a,b) => new Date(b.attributes.date) - new Date(a.attributes.date))[0];
+              bookProgress = latestMark.attributes.page_number > book.attributes.pages ? 1 : latestMark.attributes.page_number / book.attributes.pages;
+            }
+            bookProgressRatios[book.attributes.title] = bookProgress;
+            return bookProgress;
+          } catch(err) {
+            setError(err)
+          }
+        }
+      )
+    );
+      return bookProgressRatios;
+  }
 
     const fetchStudentProfile = async () => {
         const studentUser = await getStudentProfile(currentUser.email, currentUser.name);
@@ -30,6 +54,8 @@ export const Home = ({currentUser, setCurrentUser}) => {
     const loadHomeInfo = async() => {
       const studentInfo = await fetchStudentProfile();
       const studentBooks = await fetchCurrentBooks(studentInfo);
+      const progressValues = await fetchBookMarks(studentInfo, studentBooks.data);
+      setCurrentProgress(progressValues);
       setCurrentBooks(studentBooks);
       setStudentId(studentInfo.id);
       setIsLoading(false);
@@ -68,6 +94,7 @@ export const Home = ({currentUser, setCurrentUser}) => {
           {!isLoading &&
             <CurrentBookRainbow
               data={currentBooks}
+              progressData={currentProgress}
               setClickedBook={setClickedBook}
             />
           }
