@@ -1,40 +1,51 @@
 version: 2.1
 orbs:
-  node: circleci/node@3.0.0
+  # node: circleci/node@3.0.0
   heroku: circleci/heroku@1.2.6
+  cypress: cypress-io/cypress@1.27.0
 
-jobs:
-  node/test:
-    docker:
-      - image: cypress/base:12
-    steps:
-      - checkout
-      - restore_cache:
-          key: node-v2-{{ .Branch }}-{{ checksum "package-lock.json" }}
-      - run: npm ci
-      - run: npm run cy:verify
-      - save_cache:
-          paths:
-            - ~/.npm
-            - ~/.cache
-          key: node-v2-{{ .Branch }}-{{ checksum "package-lock.json" }}
-      - run: 
-          command: npm start
-          background: true
-      - run: npm run cytest
-  deploy:
-    executor: heroku/default
-    steps:
-      - checkout
-      - heroku/install
-      - heroku/deploy-via-git
+# jobs:
+#   node/test:
+#     docker:
+#       - image: cypress/base:12
+#     steps:
+#       - checkout
+#       - restore_cache:
+#           key: node-v2-{{ .Branch }}-{{ checksum "package-lock.json" }}
+#       - run: npm ci
+#       - run: npm run cy:verify
+#       - save_cache:
+#           paths:
+#             - ~/.npm
+#             - ~/.cache
+#           key: node-v2-{{ .Branch }}-{{ checksum "package-lock.json" }}
+#       - run: 
+#           command: npm start
+#           background: true
+#       - run: npm run cytest
+#   deploy:
+#     executor: heroku/default
+#     steps:
+#       - checkout
+#       - heroku/install
+#       - heroku/deploy-via-git
 workflows:
   node-tests:
     jobs:
-      - node/test
-      - deploy:
+      # - node/test
+      - cypress/install
+      - cypress/run: 
           requires:
-            - node/test
-          filters:
-            branches:
-              only: main
+            - cypress/install
+          record: true
+          parallel: true
+          parallelism: 4
+  heroku_deploy:
+    jobs:
+      - heorku/deploy-via-git
+      # - deploy:
+      #     requires:
+      #       - cypress/run
+      #     filters:
+      #       branches:
+      #         only: main
