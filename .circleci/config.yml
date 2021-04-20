@@ -11,7 +11,7 @@ jobs:
       - checkout
       - restore_cache:
           key: node-v2-{{ .Branch }}-{{ checksum "package-lock.json" }}
-      - run: npm install
+      - run: npm ci
       - save_cache:
           paths:
             - ~/.npm
