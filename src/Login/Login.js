@@ -1,8 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { useGoogleLogin } from 'react-google-login';
 import { refreshTokenSetup } from '../utils/refreshToken';
-import { Home } from '../Home/Home';
 import wormImg from '../assets/worm.png';
 import bookImg from '../assets/openbook.svg';
 import { gsap } from 'gsap';
@@ -39,11 +38,11 @@ function Login({ currentUser, setCurrentUser }) {
               BookWorm
               </h1>
             </div>
-            <p>Track your reading progress!</p>
+            <h2 className="caption">Track your reading progress!</h2>
             <div className="loginContainer">
               <div className="imageContainer">
-                <img className="book" src={bookImg}></img>
-                <img className="worm" src={wormImg}></img>
+                <img className="book" src={bookImg} alt="book"></img>
+                <img className="worm" src={wormImg} alt="worm avatar"></img>
               </div>
               <button onClick={signIn} className="loginButton">
                Sign In

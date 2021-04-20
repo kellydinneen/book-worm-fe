@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { Home } from '../Home/Home';
 import { Header } from '../Header/Header';
+import FinishedBooks from '../FinishedBooks/FinishedBooks';
 import NewBookForm from '../NewBookForm/NewBookForm';
 import NewBookMarkForm from '../NewBookMarkForm/NewBookMarkForm';
 import BookDetails from '../BookDetails/BookDetails';
 import { Switch, Route } from 'react-router-dom';
 import Login from '../Login/Login';
+import Celebration from '../Celebration/Celebration';
+import { gsap, CSSPlugin } from 'gsap';
+
+gsap.registerPlugin(CSSPlugin);
 
 const App = () => {
 
@@ -39,6 +44,15 @@ const App = () => {
             )}
         />
         <Route
+          exact path='/finishedbooks'
+          render={() => (
+            <>
+              <Header setCurrentUser={setCurrentUser} currentUser={currentUser}/>
+              <FinishedBooks />
+            </>
+            )}
+        />
+        <Route
           exact path='/books/:bookTitle'
           render={() => (
             <>
@@ -56,6 +70,15 @@ const App = () => {
             </>
             )}
         />
+        <Route 
+          exact path='/celebration'
+          render={() => (
+            <>
+              <Celebration currentUser={currentUser}/>
+            </>
+          )}
+        />
+
       </Switch>
     </React.Fragment>
   )

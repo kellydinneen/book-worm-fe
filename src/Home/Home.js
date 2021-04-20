@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NewBookForm from '../NewBookForm/NewBookForm';
+import FinishedBooks from '../FinishedBooks/FinishedBooks';
 import mountainImg from '../assets/mountain.svg';
 import treesImg from '../assets/trees.svg'
 import sandhillImg from '../assets/sandhill.svg';
@@ -8,21 +9,21 @@ import topsoilImg from '../assets/topsoil.svg';
 import CurrentBookRainbow from '../CurrentBookRainbow/CurrentBookRainbow';
 import { getCurrentBooks, getStudentProfile, getBookMarks } from '../apiCalls';
 import { Redirect, Link } from 'react-router-dom';
-import { Header } from '../Header/Header';
-import FinishedBook from '../Celebration/Celebration';
+import { gsap, CSSPlugin } from 'gsap';
 
+gsap.registerPlugin(CSSPlugin);
 
-export const Home = ({currentUser, setCurrentUser}) => {
+export const Home = ({currentUser}) => {
     const [clickedBook, setClickedBook] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [currentBooks, setCurrentBooks] = useState([]);
     const [currentProgress, setCurrentProgress] = useState([]);
     const [studentId, setStudentId] = useState(null);
-    const [error, setError] = useState(null);
+    const [setError] = useState(null);
 
     const fetchBookMarks = async (user, books) => {
       let bookProgressRatios = {};
-      const marks = await Promise.all(
+        await Promise.all(
         books.map(async book => {
           try {
             let bookProgress = 0;
@@ -63,11 +64,11 @@ export const Home = ({currentUser, setCurrentUser}) => {
     }
 
     useEffect(() => {
-      async function getInfo() {
-        await loadHomeInfo();
-      }
-      getInfo()
-    }, []);
+      loadHomeInfo();
+    });
+
+   
+
 
     return (
         <main>
@@ -85,11 +86,16 @@ export const Home = ({currentUser, setCurrentUser}) => {
             <img className='trees' src={treesImg} alt='trees'/>
             <img className='sandhill' src={sandhillImg} alt='sandhill'/>
             <img className='trees' src={treesImg} alt='trees'/>
-            <img
-              className='sandcastle'
-              src={sandcastleImg}
-              alt='sandcastle'
-            />
+            <Link to={{
+              pathname: `/finishedbooks`,
+              state: { studentId: studentId }
+            }}>
+              <img
+                className='sandcastle'
+                src={sandcastleImg}
+                alt='sandcastle'
+              />
+            </Link>
           </div>
           <img className='topsoil' src={topsoilImg} alt='Feel the grass at the top of the earth and dig deep to find your books to start your journey.' />
           {!isLoading &&
@@ -106,8 +112,7 @@ export const Home = ({currentUser, setCurrentUser}) => {
                 state: { book: clickedBook, studentId: studentId }
               }}
             ></Redirect>
-          }
-          <FinishedBook currentUser={currentUser} studentId={studentId}/>
+          }         
         </main>
     )
 }

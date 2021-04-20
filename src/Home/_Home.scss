@@ -8,7 +8,6 @@ main {
 
 .mountain {
   height: 15em;
-  width: auto;
   @include transform();
 }
 
@@ -18,19 +17,18 @@ main {
   justify-content: center;
   margin-bottom: 0;
   padding-bottom: 0;
+  height: 10%;
   width: 100%;
 }
 
 .sandcastle {
   height: 12em;
-  width: auto;
   margin: 1.1em 0em 0em 3em;
   @include transform();
 }
 
 .sandhill {
   height: 8em;
-  width: auto;
   margin: 5.2em 0 0 2em;
   // @include transform();
 }
@@ -45,4 +43,19 @@ main {
   height: 10em;
   width: auto;
   margin: 3.5em -5em 0 -4em;
+}
+
+@media (max-width: 1030px) {
+  .mountain {
+    height: 13em;
+  }
+  .sandcastle {
+    margin: 0;
+  }
+  .sandhill {
+    height: 1em;
+  }
+  .trees {
+    height: 3em;
+  }
 }

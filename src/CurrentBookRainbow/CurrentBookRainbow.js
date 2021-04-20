@@ -5,8 +5,6 @@ import bookImg from '../assets/openbook.png';
 
 const CurrentBookRainbow = ({ data, progressData, setClickedBook }) => {
 
-  console.log(data)
-
   const drawRainbow = () => {
     const currentReads = data.data.slice(0, 5);
     const rainbowBox = d3.select(".rainbowBox")
@@ -67,7 +65,7 @@ const CurrentBookRainbow = ({ data, progressData, setClickedBook }) => {
 
     useEffect(() => {
         drawRainbow();
-    }, [])
+    })
 
     return(
         <svg className="rainbowBox" width="1174" height="700" viewBox="0 -10 1174 1100" fill="none" xmlns="http://www.w3.org/2000/svg">

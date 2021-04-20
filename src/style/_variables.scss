@@ -1,7 +1,7 @@
 $primary-background: black;
 $secondary-background: #E3D1BE;
 $heading-text-color: white;
-$secondary-text-color: #A86889;
+$secondary-text-color: #0c0408;
 $first-accent-color: #F29024;
 $second-accent-color: #EB6825;
 $third-accent-color: #D56261;
@@ -27,8 +27,8 @@ $fifth-accent-color: #3C9F88;
 }
 
 @mixin buttonStyling() {
-  background-color: $third-accent-color;
-  margin-top: 0.5em;
+  background-color: $fourth-accent-color;
+  margin-top: 1em;
   width: 13em;
   height: 2em;
 }

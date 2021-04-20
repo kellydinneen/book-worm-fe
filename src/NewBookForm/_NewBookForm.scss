@@ -1,25 +1,25 @@
 .add-a-book-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: $secondary-background;
+  background: url(../assets/openBookBackground.png) no-repeat;
   border: 0.1em solid #FFFFFF;
   @include borderRadius();
-  position: fixed;
-  left: 12em;
-  top: 8em;
-  width: 36em;
-  height: 28em;
-  opacity: 0.9;
+  width: 62em;
+  height: 39em;
+  margin: 1.5em 14em;
+  overflow-y: scroll;
 }
 
 .card-wrapper {
   text-align: center;
-  overflow-y: scroll;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 1.5em;
   padding: 2em;
+  margin-left: 2em;
+}
+
+.error-handling {
+  margin-left: 15em;
+  color: $second-accent-color;
 }
 
 .exit-img {
@@ -36,20 +36,21 @@
   @include borderRadius();
 }
 
-label {
-  color: #000000;
-  padding: 0.5em;
+.search-book-label {
+  color: $fourth-accent-color;
+  margin-left: 5em;
+  font-weight: bold;
 }
 
 .search-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: 0.5em 0;
 }
 
 .submit-button {
-  margin-top: 1em;
-  width: 8em;
+  background-color: $fourth-accent-color;
+  color: #FFFFFF;
+  margin: 1em 0 0 0.5em;
+  width: 5em;
   height: 2.3em;
   @include borderRadius();
 }
