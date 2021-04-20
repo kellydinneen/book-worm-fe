@@ -1,10 +1,13 @@
 .finished-books-textarea {
   height: 4em;
+  width: 95%;
 }
 
 .finished-book-submit-button {
-  @include buttonStyling();
-  @include borderRadius();
+  margin: 1em 0;
+  height: 2em;
+  width: 18vw;
+  font-size: 1.3em;
 }
 
 .finish-form {

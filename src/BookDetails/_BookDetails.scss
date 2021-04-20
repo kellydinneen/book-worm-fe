@@ -39,8 +39,10 @@ main {
 
 .bookmark-cancel-button {
   align-self: center;
-  @include buttonStyling();
-  @include borderRadius();
+  margin: 1em 0;
+  height: 2em;
+  width: 18vw;
+  font-size: 1.3em;
 }
 
 .Collapsible {
@@ -82,7 +84,7 @@ main {
   .bookmarks-display {
     width: 80vw;
   }
-  
+
   .detail-button {
     font-size: 1em;
     width: 40vw;

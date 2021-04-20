@@ -35,6 +35,7 @@ const NewBookMarkForm = (props) => {
   };
 
   return (
+    <div className='bookmarkFormContainer'>
    <form className='bookmark-form' onSubmit={handleSubmit(onSubmit)}>
      <label className='bookmark-label'>What page did you finish on?</label>
      <input
@@ -82,6 +83,7 @@ const NewBookMarkForm = (props) => {
         }}
       ></Redirect>}
    </form>
+   </div>
   );
 }
 
