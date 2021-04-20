@@ -3,6 +3,7 @@ import { FinishBookForm } from '../FinishBookForm/FinishBookForm';
 import { Link, withRouter } from 'react-router-dom';
 import { getBookMarks } from '../apiCalls.js';
 import Collapsible from 'react-collapsible';
+import moment from 'moment';
 
 const BookDetails = (props) => {
   const [displayFinishBookForm, setDisplayFinishBookForm] = useState(false);
@@ -10,14 +11,13 @@ const BookDetails = (props) => {
   const studentId = props.location.state.studentId;
   const book = props.location.state.book;
 
- const fetchBookMarks = async () => {
+  const fetchBookMarks = async () => {
     const allBookMarks = await getBookMarks(studentId, book.id);
     setBookMarks(allBookMarks.data);
   }
 
-  const bookMarkDisplays = () => {
-    return bookMarks.map(mark =>
-    <Collapsible trigger={mark.attributes.date} key={mark.id}>
+  const bookMarkDisplays = bookMarks.map(mark =>
+    <Collapsible trigger={moment(mark.attributes.date).format('LL')} key={mark.id}>
       <section>
         <p>I read for {mark.attributes.minutes} mins!</p>
         <p> On page: {mark.attributes.page_number}</p>
@@ -25,11 +25,11 @@ const BookDetails = (props) => {
         <p>Reactions: {mark.attributes.reactions}</p>
       </section>
     </Collapsible>
-  )}
+  )
 
   useEffect(() => {
     fetchBookMarks();
-  })
+  }, [])
 
     return(
       <main>
@@ -46,7 +46,7 @@ const BookDetails = (props) => {
             </article>
             <article className='bookmarks-display'>
               <h2>Bookmarks</h2>
-              {bookMarkDisplays()}
+              {bookMarkDisplays}
             </article>
             <article className='book-options'>
               <Link to={{
@@ -70,7 +70,6 @@ const BookDetails = (props) => {
                   </button>
                 </>
               }
-              <button className='detail-button'>Abandon Book</button>
             </article>
         </section>
       </main>

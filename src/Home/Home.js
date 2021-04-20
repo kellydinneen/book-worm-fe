@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import NewBookForm from '../NewBookForm/NewBookForm';
-import FinishedBooks from '../FinishedBooks/FinishedBooks';
 import mountainImg from '../assets/mountain.svg';
 import treesImg from '../assets/trees.svg'
 import sandhillImg from '../assets/sandhill.svg';
@@ -20,7 +18,6 @@ export const Home = ({currentUser}) => {
     const [currentProgress, setCurrentProgress] = useState([]);
     const [studentId, setStudentId] = useState(null);
     const [setError] = useState(null);
-
     const fetchBookMarks = async (user, books) => {
       let bookProgressRatios = {};
         await Promise.all(
@@ -65,7 +62,7 @@ export const Home = ({currentUser}) => {
 
     useEffect(() => {
       loadHomeInfo();
-    });
+    }, []);
 
    
 
@@ -97,7 +94,10 @@ export const Home = ({currentUser}) => {
               />
             </Link>
           </div>
-          <img className='topsoil' src={topsoilImg} alt='Feel the grass at the top of the earth and dig deep to find your books to start your journey.' />
+          <div className='topsoilContainer'>
+            <h2 className='topsoilCaption'>Find your bookworms below the soil...</h2>
+            <img className='topsoil' src={topsoilImg} alt='Feel the grass at the top of the earth and dig deep to find your books to start your journey.' />
+          </div>
           {!isLoading &&
             <CurrentBookRainbow
               data={currentBooks}

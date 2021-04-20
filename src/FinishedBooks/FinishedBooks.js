@@ -50,7 +50,7 @@ const FinishedBooks = (props) => {
     }, []);
 
     return(
-      <>
+      <div className='finishedBooksWrapper'>
         {error && <h3>Whoops!! Something's not right. Return to HOME and try again.</h3>}
         {!error &&
           <section className='finished-books'>
@@ -72,7 +72,7 @@ const FinishedBooks = (props) => {
             </article>
           </section>
         }
-      </>
+      </div>
     )
   }
 

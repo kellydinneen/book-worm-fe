@@ -1,25 +1,34 @@
 .bookmark-form {
   display: flex;
   flex-direction: column;
-  width: 20em;
-  height: 30em;
+  width: 60vw;
+  height: 50vh;
   background-color: #E3D1BE;
   border: 0.1em solid white;
   @include borderRadius();
   align-items: center;
+  margin: 2em;
   padding: 2em;
-  margin: 3em 33em;
+
+}
+
+.bookmarkFormContainer {
+  display: flex;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
 }
 
 .book-mark-form-input, 
 select {
+  height: 2em;
   width: 13em;
   margin-bottom: 0.5em;
 }
 
 .book-mark-form-textarea {
-  height: 5em;
-  width: 13em;
+  height: 10vh;
+  width: 40vw;
   margin-bottom: 0.5em;
 }
 

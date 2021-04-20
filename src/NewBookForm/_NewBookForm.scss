@@ -1,10 +1,14 @@
 .add-a-book-form {
   background: url(../assets/openBookBackground.png) no-repeat;
+  background-position: center;
+  background-size: cover;
   border: 0.1em solid #FFFFFF;
   @include borderRadius();
-  width: 62em;
-  height: 39em;
-  margin: 1.5em 14em;
+  width: 94vw;
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  margin-left: 3vw;
   overflow-y: scroll;
 }
 
@@ -17,6 +21,11 @@
   margin-left: 2em;
 }
 
+.errorContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
 .error-handling {
   margin-left: 15em;
   color: $second-accent-color;
@@ -28,6 +37,13 @@
   margin: 0.2em;
   padding: 0.2em;
   @include transform();
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
 }
 
 .search-input {
@@ -43,14 +59,32 @@
 }
 
 .search-form {
-  margin: 0.5em 0;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2em 0;
+  padding: 1em;
+
 }
 
 .submit-button {
   background-color: $fourth-accent-color;
   color: #FFFFFF;
-  margin: 1em 0 0 0.5em;
+  margin-left: 1em;
   width: 5em;
   height: 2.3em;
   @include borderRadius();
+}
+
+@media (max-width: 1000px) {
+  .card-wrapper {
+    align-self: center;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 3em;
+    margin-left: 0;
+  }
+  .card {
+    width: 15em;
+  }
 }

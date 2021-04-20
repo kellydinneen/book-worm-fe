@@ -5,7 +5,7 @@ import FinishedBooks from '../FinishedBooks/FinishedBooks';
 import NewBookForm from '../NewBookForm/NewBookForm';
 import NewBookMarkForm from '../NewBookMarkForm/NewBookMarkForm';
 import BookDetails from '../BookDetails/BookDetails';
-import { Switch, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Login from '../Login/Login';
 import Celebration from '../Celebration/Celebration';
 import { gsap, CSSPlugin } from 'gsap';
@@ -18,7 +18,6 @@ const App = () => {
 
   return(
     <React.Fragment>
-      <Switch>
         <Route
           exact path='/'
           render={() => (
@@ -74,12 +73,11 @@ const App = () => {
           exact path='/celebration'
           render={() => (
             <>
+              <Header setCurrentUser={setCurrentUser} currentUser={currentUser}/>
               <Celebration currentUser={currentUser}/>
             </>
           )}
         />
-
-      </Switch>
     </React.Fragment>
   )
 }

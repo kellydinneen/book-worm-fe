@@ -6,7 +6,6 @@ import Logout from '../Logout/Logout'
 
 export const Header = ({ setCurrentUser, currentUser }) => {
 
-
   return (
     <header className='header-wrapper'>
       <div className='header-container'>

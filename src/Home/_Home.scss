@@ -1,3 +1,5 @@
+@import '../style/variables';
+
 main {
   align-items: center;
   display: flex;
@@ -39,6 +41,16 @@ main {
   background: linear-gradient(180deg, rgba(63,94,99,1) 0%, rgb(28, 113, 33) 0%, rgb(34, 171, 38) 60%, rgba(5,4,2,1) 50%);
   width: 100vw;
 }
+
+.topsoilCaption {
+  margin: 0.1em;
+  color: $soil-color;
+  font-size: 1em;
+}
+.topsoilContainer {
+  background: linear-gradient(180deg, rgba(63,94,99,1) 0%, rgb(28, 113, 33) 0%, rgb(34, 171, 38) 60%, rgba(5,4,2,1) 50%);
+}
+
 .trees {
   height: 10em;
   width: auto;
