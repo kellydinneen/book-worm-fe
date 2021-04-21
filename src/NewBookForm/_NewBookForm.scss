@@ -1,80 +1,74 @@
 .add-a-book-form {
+  @include borderRadius();
+  @include flexColumn();
   background: url(../assets/openBookBackground.png) no-repeat;
   background-position: center;
   background-size: cover;
-  border: 0.1em solid #FFFFFF;
-  @include borderRadius();
-  width: 94vw;
+  border: 0.1em solid $heading-text-color;
   height: 75vh;
-  display: flex;
-  flex-direction: column;
   margin-left: 3vw;
   overflow-y: scroll;
+  width: 94vw;
 }
 
 .card-wrapper {
-  text-align: center;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 1.5em;
-  padding: 2em;
   margin-left: 2em;
+  padding: 2em;
+  text-align: center;
 }
 
 .errorContainer {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+  @include flexCenterColumn();
 }
+
 .error-handling {
   margin-left: 15em;
   color: $second-accent-color;
 }
 
 .exit-img {
-  height: 2.5em;
+  @include transform();
   align-self: flex-end;
+  height: 2.5em;
   margin: 0.2em;
   padding: 0.2em;
-  @include transform();
 }
 
 .formContainer {
-  display: flex;
-  flex-direction: row;
+  @include flexRow();
   justify-content: center;
   width: 100%;
 }
 
 .search-input {
+  @include borderRadius();
   height: 2em;
   margin-left: 0.5em;
-  @include borderRadius();
 }
 
 .search-book-label {
   color: $fourth-accent-color;
-  margin-left: 5em;
   font-weight: bold;
+  margin-left: 5em;
 }
 
 .search-form {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+  @include flexCenterColumn();
   justify-content: center;
   margin: 2em 0;
   padding: 1em;
-
 }
 
 .submit-button {
+  @include borderRadius();
   background-color: $fourth-accent-color;
-  color: #FFFFFF;
+  color: $heading-text-color;
+  height: 2.3em;
   margin-left: 1em;
   width: 5em;
-  height: 2.3em;
-  @include borderRadius();
 }
 
 @media (max-width: 1000px) {
@@ -84,6 +78,7 @@
     grid-gap: 3em;
     margin-left: 0;
   }
+  
   .card {
     width: 15em;
   }

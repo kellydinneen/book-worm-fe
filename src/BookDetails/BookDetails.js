@@ -21,7 +21,7 @@ const BookDetails = (props) => {
     <Collapsible trigger={moment(mark.attributes.date).format('LL')} key={mark.id}>
       <section>
         <p>I read for {mark.attributes.minutes} mins!</p>
-        <p> On page: {mark.attributes.page_number}</p>
+        <p>On page: {mark.attributes.page_number}</p>
         <p>Notes: {mark.attributes.notes}</p>
         <p>Reactions: {mark.attributes.reactions}</p>
       </section>

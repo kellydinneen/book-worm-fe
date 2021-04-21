@@ -7,29 +7,7 @@ $second-accent-color: #EB6825;
 $third-accent-color: #D56261;
 $fourth-accent-color: #057196;
 $fifth-accent-color: #3C9F88;
+$sixth-accent-color: #A86B89;
 $soil-color: #2d0202;
 
-@mixin transform() {
-  transition:  0.5s ease;
-  &:hover,
-  &:focus {
-    cursor: pointer;
-    transform: scale(1.10, 1.10);
-  }
-}
 
-@mixin borderRadius() {
-  border-radius: 0.5em;
-}
-
-@mixin bookDetailStyle() {
-  padding: 1vw;
-  width: 20vw;
-}
-
-@mixin buttonStyling() {
-  background-color: $fourth-accent-color;
-  margin-top: 1em;
-  width: 13em;
-  height: 2em;
-}

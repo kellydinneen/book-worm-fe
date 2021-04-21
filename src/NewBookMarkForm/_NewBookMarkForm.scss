@@ -1,15 +1,12 @@
 .bookmark-form {
-  display: flex;
-  flex-direction: column;
-  width: 60vw;
-  height: 50vh;
-  background-color: #E3D1BE;
-  border: 0.1em solid white;
   @include borderRadius();
-  align-items: center;
+  @include flexCenterColumn();
+  background-color: $secondary-background;
+  border: 0.1em solid $heading-text-color;
+  height: 50vh;
   margin: 2em;
   padding: 2em;
-
+  width: 60vw;
 }
 
 .bookmarkFormContainer {

@@ -7,28 +7,24 @@
   width: 6em;
 }
 .celebrationDisplay {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+  @include flexCenterColumn();
   justify-content: center;
 }
 .celebrationStation {
+  @include flexCenterColumn();
   background-color: $primary-background;
   background-image: url('../assets/confetti.svg');
   border-radius: 0.5em;
-    padding: 1em;
-    align-items: center;
-    box-shadow: 
-         0 0 0 2px $first-accent-color,
-         0 0 0 4px $second-accent-color,
-         0 0 0 6px $third-accent-color,
-         0 0 0 8px $fourth-accent-color;
-    display: flex;
-    flex-direction: column;
-    height: 60vh;
-    justify-content: center;
-    margin: 2em;
-    width: 60%;
+  padding: 1em;
+  box-shadow: 
+    0 0 0 2px $first-accent-color,
+    0 0 0 4px $second-accent-color,
+    0 0 0 6px $third-accent-color,
+    0 0 0 8px $fourth-accent-color;
+  height: 60vh;
+  justify-content: center;
+  margin: 2em;
+  width: 60%;
 }
 
 .apple {
@@ -36,11 +32,9 @@
 }
 
 .balloonContainer {
-  display: flex;
-  flex-direction: row;
+  @include flexRow();
   justify-content: space-between;
 }
-
 
 .celebrationTitle {
   font-size: 2em;
@@ -52,17 +46,17 @@
   margin: 0;
 }
 .dancingBook {
-    height: 15em;
+  height: 15em;
 }
 
 .dancingWorm {
-    height: 12em;
-
+  height: 12em;
 }
 
 .donut {
   height: 8em;
 }
+
 .flower {
   height: 10em;
 }
