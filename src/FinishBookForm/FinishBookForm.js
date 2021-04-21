@@ -8,9 +8,13 @@ import { gsap, CSSPlugin } from 'gsap';
 gsap.registerPlugin(CSSPlugin);
 
 export const FinishBookForm = ({ book, studentId }) => {
-    const { register, handleSubmit } = useForm();
+    const { register, reset, handleSubmit, formState: { errors }} = useForm();
     const [ rating, setRating ] = useState(0);
     const [ submitted, setSubmitted ] = useState(false);
+
+    const defaultValues = {
+      textarea: ""
+    };
 
     const submitBookReview = async (data) => {
       const bookReview = {
@@ -27,6 +31,7 @@ export const FinishBookForm = ({ book, studentId }) => {
 
     const onSubmit = data => {
       submitBookReview(data);
+      reset({ defaultValues });
     }
 
     return (
