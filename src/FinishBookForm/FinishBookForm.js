@@ -12,7 +12,6 @@ export const FinishBookForm = ({ book, studentId }) => {
     const [ rating, setRating ] = useState(0);
     const [ submitted, setSubmitted ] = useState(false);
 
-
     const submitBookReview = async (data) => {
       const bookReview = {
         student_id: studentId,
@@ -42,14 +41,14 @@ export const FinishBookForm = ({ book, studentId }) => {
           placeholder="Write your review here"
           {...register("review", {required: true, maxLength: 500})}
         ></textarea>
-          <button
-            className='finished-book-submit-button'
-            type="submit">Submit
-          </button>
-          {submitted && <Redirect to={{
-            pathname: `/celebration`,
-            state: {studentId: studentId}
-          }}></Redirect>}
+        <button
+          className='finished-book-submit-button'
+          type="submit">Submit
+        </button>
+        {submitted && <Redirect to={{
+          pathname: `/celebration`,
+          state: {studentId: studentId}
+        }}></Redirect>}
       </form>
       </>
     );

@@ -7,7 +7,7 @@ const CurrentBookRainbow = ({ data, progressData, setClickedBook }) => {
 
   const drawRainbow = () => {
     const currentReads = data.data.slice(0, 5);
-    const rainbowBox = d3.select(".rainbowBox")
+    const rainbowBox = d3.select(".rainbowBox");
     const bookPositionScale = d3.scaleQuantize()
         .domain([0, 1])
         .range([[50, 550], [90, 500], [120, 430], [130, 360], [160, 300], [200, 240], [235, 160], [280, 100], [330, -5]])

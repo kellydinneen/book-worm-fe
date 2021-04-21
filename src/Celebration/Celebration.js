@@ -9,7 +9,6 @@ import sushi from '../assets/sushi.svg';
 import redBalloon from '../assets/redBalloon.svg';
 import yellowBalloon from '../assets/yellowBalloon.svg';
 import { gsap, CSSPlugin } from 'gsap';
-import { withRouter } from 'react-router-dom';
 
 gsap.registerPlugin(CSSPlugin);
 
@@ -40,7 +39,7 @@ const Celebration = (props) => {
       <section className="celebrationDisplay">
         <h2 className="celebrationTitle">Congratulations, {currentUser.givenName}! You finished! </h2>
         <div id="container" className="celebrationStation">
-
+          
           <div className="confettiContainer">
           <img src={flower} className="confetti flower" alt="falling flower animation"></img>
           <img src={sushi} className="confetti sushi" alt="falling sushi animation"></img>

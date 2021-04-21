@@ -30,7 +30,7 @@ const BookDetails = (props) => {
 
   useEffect(() => {
     fetchBookMarks();
-  }, [])
+  }, []);
 
     return(
       <main>
@@ -42,8 +42,8 @@ const BookDetails = (props) => {
                 alt='book cover'
               />
               <h2>{book.attributes.title}</h2>
-              <h3>by {book.attributes.author}</h3>
-              <p>{book.attributes.pages} total pages</p>
+                <h3>by {book.attributes.author}</h3>
+                  <p>{book.attributes.pages} total pages</p>
             </article>
             <article className='bookmarks-display'>
               <h2>Bookmarks</h2>
