@@ -49,7 +49,6 @@ export const postBookMark = async(bookMark) => {
 }
 
 export const markBookFinished = async(bookReview, studentId) => {
-  console.log(bookReview)
   const response = await fetch(`https://book-worm-be.herokuapp.com/api/v1/student_books/1?student_id=${studentId}`, {
     method: 'PATCH',
     headers: {'Content-Type': 'application/json'},

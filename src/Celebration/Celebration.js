@@ -9,11 +9,12 @@ import sushi from '../assets/sushi.svg';
 import redBalloon from '../assets/redBalloon.svg';
 import yellowBalloon from '../assets/yellowBalloon.svg';
 import { gsap, CSSPlugin } from 'gsap';
+import { withRouter } from 'react-router-dom';
 
 gsap.registerPlugin(CSSPlugin);
 
-const Celebration = ({currentUser}) => {
-    const celebrate = 
+const Celebration = (props) => {
+    const celebrate =
     CSSPlugin.defaultTransformPerspective = 300;
     gsap.to(".dancingWorm", {x: -150, duration:5, rotation:360})
     gsap.to(".dancingWorm", {x: 150, duration:5, scale: 1.2, ease: "bounce"})
@@ -25,20 +26,21 @@ const Celebration = ({currentUser}) => {
     gsap.to(".donut", {x: 80, y: 460, duration: 4, rotation:360, ease: "bounce"})
     gsap.to(".redBalloon", {y: -360, duration: 6, rotation: 40, ease: "bounce"})
     gsap.to(".yellowBalloon", {x: 100, y: -340, duration: 9, rotation: 340, ease: "bounce"})
-  
+    const currentUser = props.currentUser;
+
     return(
       <>
-      {celebrate && <section className="celebrationDisplay">
+      <section className="celebrationDisplay">
         <h2 className="celebrationTitle">Congratulations, {currentUser.givenName}! You finished! </h2>
         <div id="container" className="celebrationStation">
-          
+
           <div className="confettiContainer">
           <img src={flower} className="confetti flower" alt="falling flower animation"></img>
           <img src={sushi} className="confetti sushi" alt="falling sushi animation"></img>
           <img src={apple} className="confetti apple" alt="falling apple animation"></img>
           <img src={donut} className="confetti donut" alt="falling donut animation"></img>
           </div>
-        
+
           <div className="celebrationContainer">
             <img className="dancingWorm" src={wormImg} alt="spinning and dancing worm"></img>
             <img className="dancingBook" src={bookImg} alt="bouncy book"></img>
@@ -56,7 +58,6 @@ const Celebration = ({currentUser}) => {
         <button className="buttonHome">Home</button>
         </Link>
       </section>
-    }
     </>
     )
 }
