@@ -6,13 +6,12 @@ import { withRouter } from 'react-router-dom';
 
 const NewBookForm = (props) => {
     const [bookList, setBookList] = useState([]);
-    const [isSearching, setIsSearching] = useState(false);
+    const [isSearching, setIsSearching] = useState(true);
     const { register, handleSubmit, formState: { errors }} = useForm();
     const studentId = props.location.state.studentId;
 
-    const onSubmit = (data, event) => {
-      fetchAllBooks(data.title, data.author);
-      setIsSearching(true);
+    const onSubmit = async (data, event) => {
+      await fetchAllBooks(data.title, data.author);
       event.target.reset();
     };
 
@@ -50,8 +49,8 @@ const NewBookForm = (props) => {
               {errors.author && errors.author.type === "required" && (
                 <h3 role="alert">Please enter the author.</h3>
               )}
-              {!!bookList && !!isSearching && <h3>We couldn't find any books that matched your search.  Try again!</h3>}
-            </div>  
+              {!isSearching && !bookList && <h3>We couldn't find any books that matched your search.  Try again!</h3>}
+            </div>
           </form>
           <div className='card-wrapper'>
             {!!bookList.length && bookListCard}
