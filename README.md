@@ -84,7 +84,7 @@ This application can also be use different screen sizes.
 ## Deployment/Setup
 
 ### Deployment
-Visit the site at [BookWorm]()
+Visit the site at [BookWorm](https://book-worm-2.herokuapp.com/)
 
 ### Setup
 In order to deploy this site locally, a user will have to run a local server.
