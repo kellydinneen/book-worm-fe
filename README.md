@@ -58,14 +58,15 @@ When a user clicks on the book underneath the rainbow it will take us to the boo
 From the home page a user is able to click on the sandcastle finished book button and view all of their finished books with their bookmarks.
 
 <p align = "center">
-<img src="">
+<img src="https://media.giphy.com/media/voGg7resHgrPRdcd2U/giphy.gif">
+<img src="https://media.giphy.com/media/8fPJoHHTYotEthZOp7/giphy.gif">
 </p>
 
 #### Responsiveness
 This application can also be use different screen sizes.
 
 <p align = "center">
-<img src="">
+<img src="https://media.giphy.com/media/RDNDypIOXXDuqTf7wd/giphy.gif">
 </p>
 
 ---
@@ -97,10 +98,10 @@ In order to deploy this site locally, a user will have to run a local server.
 
 ### Continuous Improvement/Future Improvements
   * Add Friends List
+  * Implement webpush
   * Add Teacher's Part
-  * 
-  * 
-  * 
+  * Incentives/Badges
+  * Customize Avator
 
 ## How to Contribute
 If you are interested in contributing please:
