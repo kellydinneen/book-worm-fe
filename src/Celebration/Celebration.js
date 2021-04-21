@@ -27,9 +27,6 @@ const Celebration = (props) => {
     gsap.to(".redBalloon", {y: -360, duration: 6, rotation: 40, ease: "bounce"})
     gsap.to(".yellowBalloon", {x: 100, y: -340, duration: 9, rotation: 340, ease: "bounce"})
     const currentUser = props.currentUser;
-    const studentId = props.location.state.studentId;
-
-    console.log('CELEBRATION MOUNTS', props);
 
     return(
       <>
