@@ -20,10 +20,10 @@ export const FinishedBookCard = ({ book, bookMarks }) => {
     <section className='finished-book-card'>
       <h2 className='finished-book-title'>{book.attributes.title}</h2>
       <img className='finished-book-img' src={book.attributes.image} alt='book cover'/>
-      <h3 className='bookmarkHeading'>Bookmarks</h3>
-      <div className='finished-bookmarks'>
-        {!bookMarks.length ? <p>You didn't leave any bookmarks in this one</p> : bookMarkList()}
-      </div>
+        <h3 className='bookmarkHeading'>Bookmarks</h3>
+        <div className='finished-bookmarks'>
+          {!bookMarks.length ? <p>You didn't leave any bookmarks in this one</p> : bookMarkList()}
+        </div>
     </section>
   )
 }

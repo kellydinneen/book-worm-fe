@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getFinishedBooks, getBookMarks } from '../apiCalls.js';
 import { withRouter } from 'react-router-dom';
-import { FinishedBookCard } from '../FinishedBookCard/FinishedBookCard'
+import { FinishedBookCard } from '../FinishedBookCard/FinishedBookCard';
 
 const FinishedBooks = (props) => {
     const [finishedBookList, setFinishedBookList] = useState(null);
@@ -25,7 +25,7 @@ const FinishedBooks = (props) => {
             bookMarks[book.attributes.title] = marksForBook;
             return marksForBook;
           } catch(err) {
-            setError(err)
+            setError(err);
           }
         }
       )
@@ -62,8 +62,8 @@ const FinishedBooks = (props) => {
                   {!finishedBookList &&
                     <>
                       <h3>You haven't finished any books yet!</h3>
-                      <h4>There's no time like the present -- go pick out a book and get reading.</h4>
-                      <h4>When you're done, you can mark a book as finished by visiting its details page (click the book's icon in your rainbow)</h4>
+                        <h4>There's no time like the present -- go pick out a book and get reading.</h4>
+                        <h4>When you're done, you can mark a book as finished by visiting its details page (click the book's icon in your rainbow)</h4>
                     </>
                   }
                   {finishedBookList && finishedBooks()}

@@ -32,7 +32,7 @@ const NewBookMarkForm = (props) => {
 
   const onSubmit = data => {
     submitBookMark(data);
-    reset({ defaultValues })
+    reset({ defaultValues });
   };
 
   return (
@@ -43,7 +43,7 @@ const NewBookMarkForm = (props) => {
           to={{
               pathname: `/books/${book.attributes.title}`,
               state: { book: book, studentId: studentId }
-            }}>
+          }}>
           <img className='exit-img' src={exitImg} alt='exit sign'/>
         </Link>
         <label className='bookmark-label'>What page did you finish on?</label>
@@ -66,9 +66,9 @@ const NewBookMarkForm = (props) => {
         />
         <label className='bookmark-label'>Write down any thoughts or notes you have:</label>
         <textarea
-        className='book-mark-form-textarea'
-        type="text"
-        placeholder="What did you notice? What was your favorite part? Your least favorite?" {...register("notes")}
+          className='book-mark-form-textarea'
+          type="text"
+          placeholder="What did you notice? What was your favorite part? Your least favorite?" {...register("notes")}
         ></textarea>
         <label className='bookmark-label'>How did this reading make you feel?</label>
         <select {...register("reaction", {required: true})}>

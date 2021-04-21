@@ -18,6 +18,7 @@ export const Home = ({currentUser}) => {
     const [currentProgress, setCurrentProgress] = useState([]);
     const [studentId, setStudentId] = useState(null);
     const [setError] = useState(null);
+
     const fetchBookMarks = async (user, books) => {
       let bookProgressRatios = {};
         await Promise.all(
@@ -37,13 +38,13 @@ export const Home = ({currentUser}) => {
         }
       )
     );
-      return bookProgressRatios;
+    return bookProgressRatios;
   }
 
     const fetchStudentProfile = async () => {
-        const studentUser = await getStudentProfile(currentUser.email, currentUser.name);
-        return studentUser.data;
-      }
+      const studentUser = await getStudentProfile(currentUser.email, currentUser.name);
+      return studentUser.data;
+    }
 
     const fetchCurrentBooks = async (user) => {
       const gotBooks = await getCurrentBooks(user.attributes.id);
@@ -64,12 +65,9 @@ export const Home = ({currentUser}) => {
       loadHomeInfo();
     }, []);
 
-   
-
-
     return (
-        <main>
-          <div className='navigation-wrapper'>
+      <main>
+        <div className='navigation-wrapper'>
           <Link to={{
             pathname: `/newbook`,
             state: { studentId: studentId }
@@ -93,26 +91,26 @@ export const Home = ({currentUser}) => {
                 alt='sandcastle'
               />
             </Link>
-          </div>
-          <div className='topsoilContainer'>
-            <h2 className='topsoilCaption'>Find your bookworms below the soil...</h2>
-            <img className='topsoil' src={topsoilImg} alt='Feel the grass at the top of the earth and dig deep to find your books to start your journey.' />
-          </div>
-          {!isLoading &&
-            <CurrentBookRainbow
-              data={currentBooks}
-              progressData={currentProgress}
-              setClickedBook={setClickedBook}
-            />
-          }
-          {clickedBook &&
-            <Redirect
-              to={{
-                pathname: `/books/${clickedBook.attributes.title}`,
-                state: { book: clickedBook, studentId: studentId }
-              }}
-            ></Redirect>
-          }         
-        </main>
+        </div>
+        <div className='topsoilContainer'>
+          <h2 className='topsoilCaption'>Find your bookworms below the soil...</h2>
+          <img className='topsoil' src={topsoilImg} alt='Feel the grass at the top of the earth and dig deep to find your books to start your journey.' />
+        </div>
+        {!isLoading &&
+          <CurrentBookRainbow
+            data={currentBooks}
+            progressData={currentProgress}
+            setClickedBook={setClickedBook}
+          />
+        }
+        {clickedBook &&
+          <Redirect
+            to={{
+              pathname: `/books/${clickedBook.attributes.title}`,
+              state: { book: clickedBook, studentId: studentId }
+            }}
+          ></Redirect>
+        }         
+      </main>
     )
 }

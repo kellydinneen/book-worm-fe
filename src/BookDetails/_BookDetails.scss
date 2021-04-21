@@ -7,30 +7,28 @@ main {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 2em;
-  color: #000000;
+  color: $primary-background;
   margin: 3.5em 1em;
   height: 60vh;
 }
 
 .bookmarks-display {
-  background-color: $third-accent-color;
   @include borderRadius();
   @include bookDetailStyle();
+  background-color: $third-accent-color;
 }
 
 .book-info {
-  background: $fifth-accent-color;
   @include bookDetailStyle();
   @include borderRadius();
+  background: $fifth-accent-color;
 }
 
 .book-options {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  background-color: $fourth-accent-color;
+  @include flexCenterColumn();
   @include bookDetailStyle();
   @include borderRadius();
+  background-color: $fourth-accent-color;
 }
 
 .book-details-image {
@@ -46,12 +44,12 @@ main {
 }
 
 .Collapsible {
-  border: 0.2em solid white;
+  @include borderRadius();
+  background-color: $secondary-background;
+  border: 0.2em solid $heading-text-color;
   cursor: pointer;
   margin: 2%;
   text-align: center;
-  background-color: $secondary-background;
-  @include borderRadius();
 }
 
 .detail-button {
@@ -69,8 +67,7 @@ main {
 
 @media (max-width: 740px) {
   .book-details {
-    display: flex;
-    flex-direction: column;
+    @include flexColumn();
   }
 
   .book-info {

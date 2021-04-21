@@ -22,12 +22,12 @@ export const getBookMarks = async(studentId, bookId) => {
 
 export const getCurrentBooks = async(studentId) => {
   const currentStudentBooks = await fetch(`https://book-worm-be.herokuapp.com/api/v1/students/books?id=${studentId}&status=reading`)
-    return checkResponse(currentStudentBooks)
+  return checkResponse(currentStudentBooks)
 }
 
 export const getFinishedBooks = async(studentId) => {
   const finishedBooks = await fetch(`https://book-worm-be.herokuapp.com/api/v1/students/books?id=${studentId}&status=finished`)
-    return checkResponse(finishedBooks)
+  return checkResponse(finishedBooks)
 }
 
 export const postBook = async(book) => {
@@ -36,7 +36,7 @@ export const postBook = async(book) => {
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(book)
   })
-    return checkResponse(response)
+  return checkResponse(response)
 }
 
 export const postBookMark = async(bookMark) => {
@@ -45,7 +45,7 @@ export const postBookMark = async(bookMark) => {
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(bookMark)
   })
-    return checkResponse(response)
+  return checkResponse(response)
 }
 
 export const markBookFinished = async(bookReview, studentId) => {
@@ -54,5 +54,5 @@ export const markBookFinished = async(bookReview, studentId) => {
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(bookReview)
   })
-    return checkResponse(response)
+  return checkResponse(response)
 }
