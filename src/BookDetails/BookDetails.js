@@ -8,6 +8,8 @@ import moment from 'moment';
 const BookDetails = (props) => {
   const [displayFinishBookForm, setDisplayFinishBookForm] = useState(false);
   const [bookMarks, setBookMarks] = useState([]);
+  console.log('BOOKDETAILS MOUNTS', props);
+
   const studentId = props.location.state.studentId;
   const book = props.location.state.book;
 

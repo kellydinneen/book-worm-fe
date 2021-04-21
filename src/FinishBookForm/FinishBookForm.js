@@ -12,6 +12,8 @@ export const FinishBookForm = ({ book, studentId }) => {
     const [ rating, setRating ] = useState(0);
     const [ submitted, setSubmitted ] = useState(false);
 
+    console.log()
+
 
     const submitBookReview = async (data) => {
       const bookReview = {
@@ -22,11 +24,14 @@ export const FinishBookForm = ({ book, studentId }) => {
         review_comment: data.review
       }
       const result = await markBookFinished(bookReview, studentId);
+      console.log(result);
+      console.log(submitted);
       setSubmitted(true);
-      return result;
+      // return result;
     }
 
     const onSubmit = data => {
+      console.log('submitted', submitted)
       submitBookReview(data);
     }
     return (
@@ -45,10 +50,13 @@ export const FinishBookForm = ({ book, studentId }) => {
             className='finished-book-submit-button'
             type="submit">Submit
           </button>
-          {submitted && <Redirect to={{
-            pathname: `/celebration`,
-            state: {studentId: studentId}
-          }}></Redirect>}
+          {submitted &&
+            <Redirect to={{
+              pathname: `/celebration`,
+              state: { studentId: studentId }
+            }}>
+            </Redirect>
+          }
       </form>
       </>
     );
