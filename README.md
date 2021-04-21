@@ -22,7 +22,7 @@ The motivation behind this projects creation was to build an application to help
 * [Google OAuth Login](#google-oauth-login)
 * [Add A Book](#add-a-book)
 * [BookWorm Rainbow Progress](#bookworm-rainbow-progress)
-* [Book Detailed Page](#bookworm-detailed-page)
+* [Book Detailed Page](#book-detailed-page)
 * [Finished Book Page](#finished-book-page)
 * [Responsiveness](#responsiveness)
 
@@ -30,28 +30,28 @@ The motivation behind this projects creation was to build an application to help
 Upon page load a user is prompted to login using google sign in.
 
 <p align = "center">
-<img src="">
+<img src="https://media.giphy.com/media/Wc10cgHKD2Mnj6zMGz/giphy.gif">
 </p>
 
 #### Add A Book
 Once a user is signed in they can click on the mountain button add a book. A user is then required to type in a title and author to see the search results.
 
 <p align = "center">
-<img src="">
+<img src="https://media.giphy.com/media/gGzqOAzNsY91sSfthN/giphy.gif">
 </p>
 
 #### BookWorm Rainbow Progress
 Once a user has sign in they are able to see a rainbow wave and once a user adds a book, the book and worm will appear. To make the worm move a user can click on the book underneath the rainbow, click on add a bookmark, click submit the worm will move showing progress is made in the book. 
 
 <p align = "center">
-<img src="">
+<img src="https://media.giphy.com/media/B5Z0aqRjFGFYBfdrLU/giphy.gif">
 </p>
 
 #### Book Detailed Page
 When a user clicks on the book underneath the rainbow it will take us to the book detailed page. On this page a user is able to add a book mark, and able to checked their bookmarks. A user is also able to finish a book by clicking on the finish book button, give it a rating and hit submit, which will then take the user to a celebration page.
 
 <p align = "center">
-<img src="">
+<img src="https://media.giphy.com/media/3Yqf0muInuar45m66D/giphy.gif">
 </p>
 
 #### Finished Book Page
@@ -84,7 +84,7 @@ This application can also be use different screen sizes.
 ## Deployment/Setup
 
 ### Deployment
-Visit the site at [BookWorm]()
+Visit the site at [BookWorm](https://book-worm-2.herokuapp.com/)
 
 ### Setup
 In order to deploy this site locally, a user will have to run a local server.
