@@ -102,7 +102,6 @@ export const Home = ({currentUser}) => {
             </Link>
         </div>
         <div className='topsoilContainer'>
-          <h2 className='topsoilCaption'>Find your bookworms below the soil...</h2>
           <img className='topsoil' src={topsoilImg} alt='Feel the grass at the top of the earth and dig deep to find your books to start your journey.' />
         </div>
         {!isLoading &&
