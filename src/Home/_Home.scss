@@ -5,11 +5,12 @@ main {
 }
 
 .mountain {
-  height: 15em;
+  height: 13em;
   @include transform();
 }
 
 .navigation-wrapper {
+  align-items: baseline;
   background: linear-gradient(180deg, rgba(44,101,255,1) 0%, rgba(52,170,87,1) 54%);
   display: flex;
   justify-content: center;
@@ -21,14 +22,12 @@ main {
 
 .sandcastle {
   height: 15em;
-  // margin: 1.1em 0em 0em 3em;
   @include transform();
 }
 
 .sandhill {
-  height: 15em;
+  height: 7em;
   @include transform();
-  // margin: 5.2em 0 0 2em;
 }
 
 .topsoil {
@@ -38,11 +37,6 @@ main {
   width: 100vw;
 }
 
-.topsoilCaption {
-  margin: 0.1em;
-  color: $soil-color;
-  font-size: 1em;
-}
 .topsoilContainer {
   background: linear-gradient(180deg, rgba(63,94,99,1) 0%, rgb(28, 113, 33) 0%, rgb(34, 171, 38) 60%, rgba(5,4,2,1) 50%);
 }
@@ -50,20 +44,53 @@ main {
 .trees {
   height: 10em;
   width: auto;
-  // margin: 3.5em -5em 0 -4em;
 }
 
 @media (max-width: 1030px) {
   .mountain {
-    height: 13em;
+    height: 10em;
+  }
+  .navigation-wrapper {
+    height: 22vh;
   }
   .sandcastle {
-    margin: 0;
+    height: 11em;
   }
   .sandhill {
-    height: 1em;
+    height: 6em;
   }
   .trees {
+    height: 3em;
+  }
+}
+
+@media (max-width: 891px) {
+  .mountain {
+    height: 8em;
+  }
+  .navigation-wrapper {
+    height: 17vh;
+  }
+  .sandcastle {
+    height: 9em;
+  }
+  .sandhill {
+    height: 5em;
+  }
+}
+
+
+@media (max-width: 700px) {
+  .mountain {
+    height: 4em;
+  }
+  .navigation-wrapper {
+    height: 13vh;
+  }
+  .sandcastle {
+    height: 5em;
+  }
+  .sandhill {
     height: 3em;
   }
 }
