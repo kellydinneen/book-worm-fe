@@ -16,6 +16,7 @@
   opacity: 0.8;
   width: 18em;
   height: 18em;
+  margin-left: 4.5em;
 }
 
 .friend-list-wrapper {
@@ -25,7 +26,6 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1.5em;
-  margin-left: 2em;
   padding: 2em;
   color: $secondary-text-color;
 }
