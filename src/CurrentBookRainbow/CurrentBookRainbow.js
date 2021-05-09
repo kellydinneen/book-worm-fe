@@ -7,7 +7,6 @@ const CurrentBookRainbow = ({ data, progressData, setClickedBook }) => {
 
   const drawRainbow = () => {
     const currentReads = data.slice(0, 5);
-    console.log(progressData, currentReads)
     const rainbowBox = d3.select(".rainbowBox");
     const bookPositionScale = d3.scaleQuantize()
         .domain([0, 1])
@@ -35,21 +34,15 @@ const CurrentBookRainbow = ({ data, progressData, setClickedBook }) => {
         .attr("y", 110)
         .attr("transform", "rotate(8)")
 
-    console.log(rainbowBox)
     const worms = rainbowBox.selectAll(".currentBook")
         .data(currentReads)
         .enter().append("image")
-
-    worms.attr("class", "currentBook")
-    worms.attr("xlink:href", wormImg)
-    worms.attr("x", (d, i) => {
-      console.log('progress', progressData)
-      console.log('title', d.attributes.title)
-      return bookPositionScale(progressData[d.attributes.title])[0] + (170 * i)
-    })
-    worms.attr("y", (d, i) => bookPositionScale(progressData[d.attributes.title])[1])
-    worms.attr("height", "75")
-    worms.attr("width", "75")
+        .attr("class", "currentBook")
+        .attr("xlink:href", wormImg)
+        .attr("x", (d, i) => bookPositionScale(progressData[d.attributes.title])[0] + (170 * i))
+        .attr("y", (d, i) => bookPositionScale(progressData[d.attributes.title])[1])
+        .attr("height", "75")
+        .attr("width", "75")
 
     const bookIcons = rainbowBox.selectAll(".bookImage")
         .data(currentReads)
