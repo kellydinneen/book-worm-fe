@@ -54,9 +54,9 @@ export const Home = ({currentUser}) => {
     const loadHomeInfo = async() => {
       const studentInfo = await fetchStudentProfile();
       const studentBooks = await fetchCurrentBooks(studentInfo);
-      const progressValues = await fetchBookMarks(studentInfo, studentBooks.data);
+      const progressValues = await fetchBookMarks(studentInfo, studentBooks.included);
       setCurrentProgress(progressValues);
-      setCurrentBooks(studentBooks);
+      setCurrentBooks(studentBooks.included);
       setStudentId(studentInfo.id);
       setIsLoading(false);
     }
@@ -68,7 +68,7 @@ export const Home = ({currentUser}) => {
     return (
       <main>
         <div className='navigation-wrapper'>
-          <Link to={{
+        idge  <Link to={{
             pathname: `/newbook`,
             state: { studentId: studentId }
           }}>
@@ -118,7 +118,7 @@ export const Home = ({currentUser}) => {
               state: { book: clickedBook, studentId: studentId }
             }}
           ></Redirect>
-        }         
+        }
       </main>
     )
 }
