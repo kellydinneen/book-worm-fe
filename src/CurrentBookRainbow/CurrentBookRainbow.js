@@ -16,7 +16,6 @@ const CurrentBookRainbow = ({ data, progressData, setClickedBook }) => {
         .range([70, 1000])
 
     const tickLabels = currentReads.map(d => d.attributes.title)
-    console.log('labels', tickLabels)
 
     const xAxisMaker = d3.axisBottom(xScale)
         .ticks(4)
