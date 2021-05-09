@@ -68,7 +68,7 @@ export const Home = ({currentUser}) => {
     return (
       <main>
         <div className='navigation-wrapper'>
-        idge  <Link to={{
+          <Link to={{
             pathname: `/newbook`,
             state: { studentId: studentId }
           }}>
