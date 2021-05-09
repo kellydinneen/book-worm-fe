@@ -36,6 +36,7 @@ const FinishedBooks = (props) => {
   const loadFinishedBookInfo = async() => {
     const finishedBooks = await fetchFinishedBooks();
     await setFinishedBookList(finishedBooks);
+    console.log(finishedBookList);
     const bookMarks = await fetchBookMarks(finishedBooks);
     await setFinishedBookMarks(bookMarks);
     setIsLoading(false);
