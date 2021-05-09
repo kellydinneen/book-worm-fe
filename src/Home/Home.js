@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import mountainImg from '../assets/mountain.svg';
-import treesImg from '../assets/trees.svg'
-import sandhillImg from '../assets/sandhill.svg';
-import sandcastleImg from '../assets/sandcastle.svg';
+import mountainImg from '../assets/mountain2.svg';
+import treesImg from '../assets/trees2.svg'
+import sandhillImg from '../assets/sandhill2.svg';
+import sandcastleImg from '../assets/sandcastle2.svg';
 import topsoilImg from '../assets/topsoil.svg';
 import CurrentBookRainbow from '../CurrentBookRainbow/CurrentBookRainbow';
 import { getCurrentBooks, getStudentProfile, getBookMarks } from '../apiCalls';
@@ -79,7 +79,16 @@ export const Home = ({currentUser}) => {
             />
           </Link>
             <img className='trees' src={treesImg} alt='trees'/>
-            <img className='sandhill' src={sandhillImg} alt='sandhill'/>
+          <Link to={{
+            pathname: `/friends`,
+            state: { studentId: studentId }
+          }}>
+            <img 
+              className='sandhill' 
+              src={sandhillImg} 
+              alt='sandhill'
+            />
+          </Link>
             <img className='trees' src={treesImg} alt='trees'/>
             <Link to={{
               pathname: `/finishedbooks`,
@@ -93,7 +102,6 @@ export const Home = ({currentUser}) => {
             </Link>
         </div>
         <div className='topsoilContainer'>
-          <h2 className='topsoilCaption'>Find your bookworms below the soil...</h2>
           <img className='topsoil' src={topsoilImg} alt='Feel the grass at the top of the earth and dig deep to find your books to start your journey.' />
         </div>
         {!isLoading &&

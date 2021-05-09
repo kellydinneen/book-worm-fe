@@ -1,0 +1,35 @@
+.booklist {
+  text-align: center;
+  margin: 0;
+}
+
+.bookworm-img {
+  height: 10em;
+  width: 5em;
+}
+
+.friend-card {
+  @include flexCenterColumn();
+  @include borderRadius();
+  border: 0.1em solid white;
+  background-color: $secondary-background;
+  opacity: 0.8;
+  width: 18em;
+  height: 18em;
+  margin-left: 4.5em;
+}
+
+.friend-list-wrapper {
+  background: url('../assets/loginDisplay.svg') no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1.5em;
+  padding: 2em;
+  color: $secondary-text-color;
+}
+
+.current-books-list {
+  margin-left: 0.2em;
+}

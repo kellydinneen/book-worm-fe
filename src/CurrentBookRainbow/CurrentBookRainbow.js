@@ -68,6 +68,8 @@ const CurrentBookRainbow = ({ data, progressData, setClickedBook }) => {
     })
 
     return(
+      <>
+        <h2 className='bookwormCaption'>Your current books:</h2>
         <svg className="rainbowBox" width="1174" height="700" viewBox="0 -10 1174 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               className={data.length > 0 ? 'rainbow' : 'off'}
@@ -110,6 +112,7 @@ const CurrentBookRainbow = ({ data, progressData, setClickedBook }) => {
               strokeLinejoin="round"
             />
         </svg>
+      </>
     )
 }
 
