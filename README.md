@@ -30,7 +30,7 @@ The motivation behind this project's creation was to build an application to hel
 Upon page load a user is prompted to login using Google sign in.
 
 <p align = "center">
-<img src="https://media.giphy.com/media/Wc10cgHKD2Mnj6zMGz/giphy.gif">
+<img src="https://media.giphy.com/media/L6ic2xamDDCuQBbah8/giphy.gif">
 </p>
 
 #### Add A Book
@@ -66,7 +66,7 @@ From the Home page, a user is able to click on the Finished Books (sandcastle) b
 This application can also be used on different screen sizes.
 
 <p align = "center">
-<img src="https://media.giphy.com/media/RDNDypIOXXDuqTf7wd/giphy.gif">
+<img src="https://media.giphy.com/media/kL9nAsL4hcdy2lswGf/giphy.gif">
 </p>
 
 ---
