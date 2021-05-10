@@ -37,14 +37,14 @@ Upon page load a user is prompted to login using Google sign in.
 Once a user is signed in they can click on the mountain button to add a book. A user is then required to type in a title and author to see the search results.
 
 <p align = "center">
-<img src="https://media.giphy.com/media/gGzqOAzNsY91sSfthN/giphy.gif">
+<img src="https://media.giphy.com/media/RcgtPiPM7neC2diPF9/giphy.gif">
 </p>
 
 #### BookWorm Rainbow Progress
 Once a user has sign in they are able to see a rainbow wave and once a user adds a book, the book and worm will appear. To make the worm move a user can click on the book underneath the rainbow, click on "Add a Bookmark" submit the bookmark form.  When the user goes to the main page, the path for the book will be updated to show the worm move up according to the progress made through the book. 
 
 <p align = "center">
-<img src="https://media.giphy.com/media/B5Z0aqRjFGFYBfdrLU/giphy.gif">
+<img src="https://media.giphy.com/media/Y8BUo1xAzT769APruL/giphy.gif">
 </p>
 
 #### Book Detailed Page
@@ -55,11 +55,11 @@ When a user clicks on the book underneath the rainbow path it will take us to th
 </p>
 
 #### Finished Book Page
-From the Home page, a user is able to click on the Finished Books (sandcastle) button and view all of their finished books with their corresponding bookmarks.
+From the Home page, a user is able to click on the Finished Books (sandcastle) button and view all of their finished books with their corresponding bookmarks, prediction and rating.
 
 <p align = "center">
-<img src="https://media.giphy.com/media/voGg7resHgrPRdcd2U/giphy.gif">
-<img src="https://media.giphy.com/media/8fPJoHHTYotEthZOp7/giphy.gif">
+<img src="https://media.giphy.com/media/hpuTs1KIqfBabp5WdY/giphy.gif">
+<img src="https://media.giphy.com/media/vHbmJBnhT8VFymGqgW/giphy.gif">
 </p>
 
 #### Responsiveness
