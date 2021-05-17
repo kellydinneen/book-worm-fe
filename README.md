@@ -12,10 +12,10 @@
 
 
 ## Introduction
-The primary goal of [BookWorm](https://github.com/book-worm-2010/book-worm-fe) is to have the user be able track their reading progress. Add bookmarks and comments, as well as rate the book when they are finish.
+The primary goal of [BookWorm](https://github.com/book-worm-2010/book-worm-fe) is to have the user be able track their reading progress with features that let the user add "bookmarks", comments, and ratings of each book during the user's reading journey.
 
 #### Motivation
-The motivation behind this projects creation was to build an application to help the users track their readling log progress, focused on using React/ React Hooks as a framework, writing DRY JS, SASS, and accessing data with RESTful APIs and solidifying good habits in git workflow.
+The motivation behind this project's creation was to build an application to help the users track their reading progress through a digital log, focused on using React/ React Hooks as a framework, writing DRY JavaScript, SASS, and accessing data with RESTful APIs and solidifying good habits in git workflow.
 
 ---
 ## Features
@@ -27,46 +27,46 @@ The motivation behind this projects creation was to build an application to help
 * [Responsiveness](#responsiveness)
 
 #### Google OAuth Login
-Upon page load a user is prompted to login using google sign in.
+Upon page load a user is prompted to login using Google sign in.
 
 <p align = "center">
-<img src="https://media.giphy.com/media/Wc10cgHKD2Mnj6zMGz/giphy.gif">
+<img src="https://media.giphy.com/media/L6ic2xamDDCuQBbah8/giphy.gif">
 </p>
 
 #### Add A Book
-Once a user is signed in they can click on the mountain button add a book. A user is then required to type in a title and author to see the search results.
+Once a user is signed in they can click on the mountain button to add a book. A user is then required to type in a title and author to see the search results.
 
 <p align = "center">
-<img src="https://media.giphy.com/media/gGzqOAzNsY91sSfthN/giphy.gif">
+<img src="https://media.giphy.com/media/RcgtPiPM7neC2diPF9/giphy.gif">
 </p>
 
 #### BookWorm Rainbow Progress
-Once a user has sign in they are able to see a rainbow wave and once a user adds a book, the book and worm will appear. To make the worm move a user can click on the book underneath the rainbow, click on add a bookmark, click submit the worm will move showing progress is made in the book. 
+Once a user has sign in they are able to see a rainbow wave and once a user adds a book, the book and worm will appear. To make the worm move a user can click on the book underneath the rainbow, click on "Add a Bookmark" submit the bookmark form.  When the user goes to the main page, the path for the book will be updated to show the worm move up according to the progress made through the book. 
 
 <p align = "center">
-<img src="https://media.giphy.com/media/B5Z0aqRjFGFYBfdrLU/giphy.gif">
+<img src="https://media.giphy.com/media/Y8BUo1xAzT769APruL/giphy.gif">
 </p>
 
 #### Book Detailed Page
-When a user clicks on the book underneath the rainbow it will take us to the book detailed page. On this page a user is able to add a book mark, and able to checked their bookmarks. A user is also able to finish a book by clicking on the finish book button, give it a rating and hit submit, which will then take the user to a celebration page.
+When a user clicks on the book underneath the rainbow path it will take us to the Book Details page. On this page a user is able to add a bookmark, and is able to view their past bookmarks. A user is also able to finish a book by clicking on the finish book button, give it a rating and hit submit, which will then take the user to a celebration page.
 
 <p align = "center">
 <img src="https://media.giphy.com/media/3Yqf0muInuar45m66D/giphy.gif">
 </p>
 
 #### Finished Book Page
-From the home page a user is able to click on the sandcastle finished book button and view all of their finished books with their bookmarks.
+From the Home page, a user is able to click on the Finished Books (sandcastle) button and view all of their finished books with their corresponding bookmarks, prediction and rating.
 
 <p align = "center">
-<img src="https://media.giphy.com/media/voGg7resHgrPRdcd2U/giphy.gif">
-<img src="https://media.giphy.com/media/8fPJoHHTYotEthZOp7/giphy.gif">
+<img src="https://media.giphy.com/media/hpuTs1KIqfBabp5WdY/giphy.gif">
+<img src="https://media.giphy.com/media/vHbmJBnhT8VFymGqgW/giphy.gif">
 </p>
 
 #### Responsiveness
-This application can also be use different screen sizes.
+This application can also be used on different screen sizes.
 
 <p align = "center">
-<img src="https://media.giphy.com/media/RDNDypIOXXDuqTf7wd/giphy.gif">
+<img src="https://media.giphy.com/media/kL9nAsL4hcdy2lswGf/giphy.gif">
 </p>
 
 ---
@@ -80,8 +80,11 @@ This application can also be use different screen sizes.
  - CI with CircleCI
  - Deploying a site on Heroku
  - Git workflow using GitHub Issues and [Project Kanban Board](https://github.com/orgs/book-worm-2010/projects/1)
- - Whiteboarding on [Miro](https://miro.com/app/board/o9J_lL-OKeM=/) & [Figma](https://www.figma.com/file/7DEdkyuOz7P1MeEDgIqwoi/BookWorm?node-id=115%3A0)
-
+ - Whiteboarding and Wireframing on [Miro](https://miro.com/app/board/o9J_lL-OKeM=/)
+ - SVGs and other images produced with [Figma](https://www.figma.com/file/7DEdkyuOz7P1MeEDgIqwoi/BookWorm?node-id=115%3A0)
+ - Data visualization of reading progress through D3
+ - Animations on Login and Celebration with GSAP
+ 
 ## Deployment/Setup
 
 ### Deployment
@@ -99,7 +102,7 @@ In order to deploy this site locally, a user will have to run a local server.
 ### Continuous Improvement/Future Improvements
   * Add Friends List
   * Implement webpush
-  * Add Teacher's Part
+  * Add Teacher's Login and user story
   * Incentives/Badges
   * Customize Avator
 

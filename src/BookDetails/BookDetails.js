@@ -19,10 +19,10 @@ const BookDetails = (props) => {
 
   const bookMarkDisplays = bookMarks.map(mark =>
     <Collapsible trigger={moment(mark.attributes.date).format('LL')} key={mark.id}>
-      <section>
+      <section className='bookDetailsSection'>
         <p>I read for {mark.attributes.minutes} mins!</p>
         <p>On page: {mark.attributes.page_number}</p>
-        <p>Notes: {mark.attributes.notes}</p>
+        <p class='bookDetailsNotes'>Notes: {mark.attributes.notes}</p>
         <p>Reactions: {mark.attributes.reactions}</p>
       </section>
     </Collapsible>

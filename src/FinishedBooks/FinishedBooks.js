@@ -13,7 +13,15 @@ const FinishedBooks = (props) => {
 
     const fetchFinishedBooks = async () => {
       const finishedBooks = await (getFinishedBooks(studentId));
-      return finishedBooks.data;
+      const compiledBookInfo = finishedBooks.included.map(book => {
+        const match = finishedBooks.data.find(b => b.attributes.book_id === parseInt(book.id));
+        return {
+          id: book.id,
+          attributes: book.attributes,
+          reflections: match.attributes
+          }
+        })
+      return compiledBookInfo;
     }
 
     const fetchBookMarks = async (books) => {

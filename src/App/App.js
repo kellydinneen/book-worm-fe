@@ -9,6 +9,7 @@ import { Route } from 'react-router-dom';
 import Login from '../Login/Login';
 import Celebration from '../Celebration/Celebration';
 import { gsap, CSSPlugin } from 'gsap';
+import { FriendList } from '../FriendList/FriendList';
 
 gsap.registerPlugin(CSSPlugin);
 
@@ -48,6 +49,15 @@ const App = () => {
             <>
               <Header setCurrentUser={setCurrentUser} currentUser={currentUser}/>
               <FinishedBooks />
+            </>
+            )}
+        />
+        <Route
+          exact path='/friends'
+          render={() => (
+            <>
+              <Header setCurrentUser={setCurrentUser} currentUser={currentUser}/>
+              <FriendList />
             </>
             )}
         />
